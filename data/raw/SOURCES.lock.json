@@ -1,0 +1,44 @@
+{
+  "kjv-1611": {
+    "url": "https://github.com/aruljohn/Bible-kjv-1611/archive/refs/heads/master.zip",
+    "into": "kjv-1611",
+    "sha256": "d5de9f93ff0ed5741dc36376c2c807f86b7f4166d516fc79ab4dd56c71519456",
+    "note": "1611 first-edition KJV, original spelling, one JSON per book. Body text of the corpus.",
+    "fetchedAt": "2026-09-06T09:22:17.732Z"
+  },
+  "kjv-witness": {
+    "url": "https://github.com/aruljohn/Bible-kjv/archive/refs/heads/master.zip",
+    "into": "kjv-witness",
+    "sha256": "cf6615481735c266844dd6bd8192a4f4b644ddf5079b3ff66678d29f65613d63",
+    "note": "Standard (1769-orthography) KJV, one JSON per book. Used ONLY to restore the LORD/GOD small-capital casing the 1611 transcription flattened, and to cross-check versification. No text is taken from it.",
+    "fetchedAt": "2026-09-06T09:22:18.246Z"
+  },
+  "kjv-osis": {
+    "url": "https://raw.githubusercontent.com/seven1m/open-bibles/master/eng-kjv.osis.xml",
+    "into": "eng-kjv.osis.xml",
+    "sha256": "eeeae647fc28360ce47f9c0d5cc3b397b7fdd9913fe53dc9f44eb6deee50e253",
+    "note": "eBible.org public-domain KJV in OSIS. Used ONLY for the 138 Psalm titles (116 superscriptions + 22 Psalm 119 letter headings), which the 1611 transcription omits.",
+    "fetchedAt": "2026-09-06T09:22:19.286Z"
+  },
+  "geneva-1599": {
+    "url": "https://ebible.org/Scriptures/enggnv_usfm.zip",
+    "into": "geneva-1599",
+    "sha256": "7f727b2adcd3e46b84ec6b881787e76ae5bc5a01ba354e636f9acc8aa264d0af",
+    "note": "Geneva Bible, 1599 edition, original spelling, USFM straight from eBible.org (public domain). Verse text only; the marginal notes are not in this source. (The GitHub mirror of this text has a corrupted Genesis 38 — do not substitute it.) eBible.org is slow; allow several minutes.",
+    "fetchedAt": "2026-09-06T09:45:50.395Z"
+  },
+  "kjv-gutenberg": {
+    "url": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+    "into": "kjv-gutenberg.txt",
+    "sha256": "0204adaed1f25700aa854218cae63c7172228c41088f335e99167a071eed83c0",
+    "note": "Project Gutenberg #10 KJV plain text. Third casing witness (LORD/GOD) for the majority vote; contributes no text.",
+    "fetchedAt": "2026-09-06T09:32:56.095Z"
+  },
+  "kjv-crosswire": {
+    "url": "https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/KJV.zip",
+    "into": "kjv-crosswire",
+    "sha256": "8139d920f6396e3ce79374b0337a6f232cba86f7973d7d4be6ce9c425b7e60dd",
+    "note": "CrossWire KJV SWORD module (v3.1, OSIS with Strong's). Casing witness: it marks the divine name explicitly (<divineName>), so its LORD/GOD vote is markup, not a transcriber's shift key. Contributes no text.",
+    "fetchedAt": "2026-09-06T09:37:09.041Z"
+  }
+}

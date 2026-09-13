@@ -1,0 +1,260 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/* harness.talk — letterpress folio meets man page                     */
+/* ink · vellum · rubric · gilt · slate                                 */
+/* ------------------------------------------------------------------ */
+
+@theme inline {
+  --font-sans: var(--font-garamond), 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-serif: var(--font-garamond), 'EB Garamond', Georgia, serif;
+  --font-display: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* semantic tokens of the house */
+  --color-ink: var(--ink);
+  --color-vellum: var(--vellum);
+  --color-rubric: var(--rubric);
+  --color-gilt: var(--gilt);
+  --color-slate: var(--slate);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-rule: var(--rule);
+
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+}
+
+:root {
+  color-scheme: dark;
+  /* dark = ink and vellum */
+  --ink: #0b0a08;
+  --vellum: #ece3cf;
+  --rubric: #c2472b;
+  --gilt: #b8925a;
+  --slate: #8b949d;
+  --surface: #0b0a08;
+  --surface-raised: #14120e;
+  --rule: #2a261f;
+
+  --background: var(--ink);
+  --foreground: var(--vellum);
+  --card: var(--surface-raised);
+  --card-foreground: var(--vellum);
+  --popover: #1a1712;
+  --popover-foreground: var(--vellum);
+  --primary: var(--rubric);
+  --primary-foreground: #fff7ec;
+  --secondary: var(--surface-raised);
+  --secondary-foreground: var(--vellum);
+  --muted: #17150f;
+  --muted-foreground: #a8a08f;
+  --accent: var(--gilt);
+  --accent-foreground: var(--ink);
+  --destructive: #d9553a;
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--gilt);
+  --radius: 3px;
+}
+
+.light {
+  color-scheme: light;
+  /* light = parchment and ink */
+  --ink: #1a1713;
+  --vellum: #1a1713;
+  --rubric: #8f2a14;
+  --gilt: #8a6a38;
+  --slate: #5f6871;
+  --surface: #f3ecdc;
+  --surface-raised: #ece3cf;
+  --rule: #d6cbb3;
+
+  --background: var(--surface);
+  --foreground: var(--ink);
+  --card: var(--surface-raised);
+  --card-foreground: var(--ink);
+  --popover: #faf5ea;
+  --popover-foreground: var(--ink);
+  --primary: var(--rubric);
+  --primary-foreground: #fff7ec;
+  --secondary: var(--surface-raised);
+  --secondary-foreground: var(--ink);
+  --muted: #e6dcc6;
+  --muted-foreground: #5a5347;
+  --accent: var(--gilt);
+  --accent-foreground: #fff7ec;
+  --destructive: #a63a22;
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--gilt);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  body {
+    @apply bg-background text-foreground font-serif;
+    font-feature-settings: 'onum' 1, 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--gilt) 35%, transparent);
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  code, kbd, pre, samp {
+    @apply font-mono;
+    font-feature-settings: 'tnum' 1, 'zero' 1;
+  }
+  :focus-visible {
+    outline: 2px solid var(--gilt);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* small caps for the divine name and running heads */
+  .smcp {
+    font-variant-caps: small-caps;
+    letter-spacing: 0.06em;
+  }
+  .running-head {
+    @apply font-display text-xs uppercase tracking-[0.18em] text-gilt;
+  }
+  /* hairline with a centered fleuron */
+  .rule-fleuron {
+    @apply relative my-8 h-px w-full bg-rule;
+  }
+  .rule-fleuron::after {
+    content: '✠';
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-3 font-display text-sm text-gilt;
+  }
+  /* rubricated drop initial for chapter openings */
+  .drop-initial::first-letter {
+    @apply float-left mr-2 font-display font-medium text-rubric;
+    font-size: 3.6em;
+    line-height: 0.82;
+    padding-top: 0.08em;
+  }
+  /* superior verse numbers in the gutter */
+  .verse-num {
+    @apply font-mono text-[0.7rem] leading-none text-rubric select-none;
+    font-feature-settings: 'tnum' 1;
+  }
+  /* original-language lines: system fonts with full pointing / polytonic coverage */
+  .font-hebrew {
+    font-family: var(--font-hebrew), 'Noto Serif Hebrew', 'SBL Hebrew', 'Ezra SIL', 'Taamey Frank CLM', 'Times New Roman', serif;
+    font-feature-settings: 'kern' 1;
+  }
+  .font-greek {
+    font-family: var(--font-garamond), 'EB Garamond', 'SBL Greek', 'Gentium Plus', 'Cardo', 'Palatino Linotype', 'Times New Roman', serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+  /* verse body measure */
+  .measure {
+    max-width: 68ch;
+  }
+  /* 2% grain on raised surfaces; off under reduced-data */
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-data: reduce) {
+    .grain::before { display: none; }
+  }
+  /* status badges */
+  .badge-live {
+    @apply inline-flex items-center gap-1.5 border-b border-gilt font-display text-[0.68rem] uppercase tracking-[0.16em] text-gilt;
+  }
+  .badge-spec {
+    @apply inline-flex items-center gap-1.5 border border-slate/60 px-1.5 py-0.5 font-display text-[0.68rem] uppercase tracking-[0.16em] text-slate;
+  }
+  /* prose for docs */
+  .doc-prose {
+    @apply text-[1.05rem] leading-relaxed text-foreground/90;
+  }
+  .doc-prose h2 {
+    @apply mt-12 mb-4 text-2xl font-medium text-foreground;
+  }
+  .doc-prose h3 {
+    @apply mt-8 mb-3 text-lg font-medium text-foreground;
+  }
+  .doc-prose p {
+    @apply my-4;
+  }
+  .doc-prose ul, .doc-prose ol {
+    @apply my-4 pl-6;
+  }
+  .doc-prose ul { list-style: square; }
+  .doc-prose ol { list-style: decimal; }
+  .doc-prose li { @apply my-1.5; }
+  .doc-prose a {
+    @apply text-rubric underline decoration-rubric/40 underline-offset-[3px] hover:decoration-rubric;
+  }
+  .doc-prose code {
+    @apply rounded-sm bg-muted px-1 py-0.5 text-[0.86em] text-foreground;
+  }
+  .doc-prose pre {
+    @apply my-5 overflow-x-auto border border-rule bg-surface-raised p-4 text-[0.84rem] leading-relaxed;
+  }
+  .doc-prose pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+  .doc-prose table {
+    @apply my-6 w-full border-collapse text-[0.95rem];
+  }
+  .doc-prose th {
+    @apply border-b border-gilt/60 py-2 pr-4 text-left font-display text-xs uppercase tracking-[0.14em] text-gilt;
+  }
+  .doc-prose td {
+    @apply border-b border-rule py-2 pr-4 align-top;
+  }
+  .doc-prose blockquote {
+    @apply my-6 border-l-2 border-gilt pl-5 italic text-foreground/80;
+  }
+}

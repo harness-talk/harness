@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- The quartet: one fixed place (the ring, 127) and three that turn (book · chapter · verse). -->
+  <rect width="64" height="64" rx="14" fill="#0b0a08"/>
+  <circle cx="11" cy="32" r="4.5" fill="none" stroke="#b8925a" stroke-width="2.5"/>
+  <circle cx="25" cy="32" r="4.5" fill="#b8925a"/>
+  <circle cx="39" cy="32" r="4.5" fill="#b8925a"/>
+  <circle cx="53" cy="32" r="4.5" fill="#b8925a"/>
+</svg>

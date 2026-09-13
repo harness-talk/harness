@@ -1,0 +1,25 @@
+{
+  "source": "kjv-1611",
+  "merkleRoot": "e33985722301b534baa052a9c9f74db965abbee4deb8b2f70c96cd7bd693f2be",
+  "leaf": "sha256(`${bookId}.${chapter}.${verse}\\n${text}`)",
+  "verses": 31102,
+  "builtAt": "2026-09-06T09:57:05.956Z",
+  "files": {
+    "kjv-1611.jsonl.gz": {
+      "bytes": 3213696,
+      "sha256": "efe06d960fe8fe63c1ae498a8a72ba174f8af0c59afcb37a8c6ffc26e308175f"
+    },
+    "kjv-1611.txt": {
+      "bytes": 4898776,
+      "sha256": "a2ab1f7f64bb64a8053ee6b6f121679152bf95bbe73c01c5949c50af82d247b9"
+    },
+    "kjv.jsonl.gz": {
+      "bytes": 3213696,
+      "sha256": "efe06d960fe8fe63c1ae498a8a72ba174f8af0c59afcb37a8c6ffc26e308175f"
+    },
+    "kjv.txt": {
+      "bytes": 4898776,
+      "sha256": "a2ab1f7f64bb64a8053ee6b6f121679152bf95bbe73c01c5949c50af82d247b9"
+    }
+  }
+}

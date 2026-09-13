@@ -1,0 +1,102 @@
+import type { VerseRecord } from "@/lib/bible/store";
+import type { Annotation } from "@/lib/bible/annotations";
+import type { OriginalVersePayload } from "@/lib/bible/originals";
+import { VerseText } from "./verse-text";
+
+/**
+ * The reading column. Verse numbers live in a narrow gutter (rubricated superior figures),
+ * the first verse opens with a drop initial, and Psalm 119's Hebrew letters appear as
+ * centered rubrics. Each verse is an anchor target (#v16) so citations resolve.
+ *
+ * When `originals` is provided, each verse carries its Hebrew/Greek line, hidden by CSS
+ * until the reader root's `data-original="on"`; when `geneva` is provided, the Geneva
+ * Bible's reading of the verse likewise waits on `data-geneva="on"` (both set by
+ * <OriginalsToggle/>).
+ */
+export function VerseReader({
+  verses,
+  headings,
+  bookId,
+  chapter,
+  originals,
+  geneva,
+  readerId = "reader",
+}: {
+  verses: VerseRecord[];
+  headings: Annotation[];
+  bookId: string;
+  chapter: number;
+  originals?: Map<number, OriginalVersePayload>;
+  geneva?: Map<number, string>;
+  readerId?: string;
+}) {
+  const headingBefore = new Map<number, string>();
+  for (const h of headings) {
+    const v = Number(h.ref.split(".")[2]);
+    headingBefore.set(v, h.text);
+  }
+
+  return (
+    <div id={readerId} data-original="off" data-geneva="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
+      {verses.map((v, i) => {
+        const heading = headingBefore.get(v.verse);
+        const o = originals?.get(v.verse);
+        const rtl = o?.language === "hebrew" || o?.language === "aramaic";
+        const g = geneva?.get(v.verse);
+        return (
+          <div key={v.ref} className="contents">
+            {heading ? (
+              <p className="mt-6 mb-1 text-center font-display text-sm uppercase tracking-[0.2em] text-rubric" aria-label={`Section ${heading}`}>
+                {heading}
+              </p>
+            ) : null}
+            <div id={`v${v.verse}`} className="group relative flex gap-3 scroll-mt-24 target:bg-gilt/10 target:-mx-2 target:px-2">
+              <a
+                href={`#v${v.verse}`}
+                className="verse-num mt-[0.55em] w-6 shrink-0 text-right hover:text-gilt"
+                aria-label={`Verse ${v.verse}, address ${v.quartet}`}
+                title={v.quartet}
+              >
+                {v.verse}
+              </a>
+              <div className="flex min-w-0 flex-col gap-1">
+                <p className={i === 0 ? "drop-initial text-pretty" : "text-pretty"}>
+                  <VerseText text={v.text} />
+                </p>
+                {geneva ? (
+                  <p className="hidden text-[0.95em] leading-[1.7] text-foreground/75 text-pretty group-data-[geneva=on]/reader:block">
+                    <span className="running-head mr-2 align-middle text-[0.6em] text-rubric">Geneva</span>
+                    {g ?? <span className="running-head text-foreground/45">no verse at this number in the Geneva versification</span>}
+                  </p>
+                ) : null}
+                {originals ? (
+                  <p
+                    lang={o ? (rtl ? "he" : "grc") : undefined}
+                    dir={rtl ? "rtl" : "ltr"}
+                    className={`hidden text-[0.95em] leading-[1.7] text-foreground/75 group-data-[original=on]/reader:block ${rtl ? "font-hebrew text-right" : "font-greek"}`}
+                  >
+                    {o ? (
+                      <>
+                        {o.text}
+                        {o.language === "aramaic" ? (
+                          <span dir="ltr" className="running-head ml-2 align-middle text-[0.6em] text-foreground/45">
+                            Aramaic
+                          </span>
+                        ) : null}
+                      </>
+                    ) : (
+                      <span className="running-head text-foreground/45">not present in the original-language versification at this number</span>
+                    )}
+                  </p>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+      <p className="sr-only">
+        End of {bookId} chapter {chapter}.
+      </p>
+    </div>
+  );
+}

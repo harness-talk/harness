@@ -1,0 +1,37 @@
+{
+  "source": "kjv-1611",
+  "books": 66,
+  "chapters": 1189,
+  "verses": 31102,
+  "merkleRoot": "e33985722301b534baa052a9c9f74db965abbee4deb8b2f70c96cd7bd693f2be",
+  "leaf": "sha256(`${bookId}.${chapter}.${verse}\\n${text}`)",
+  "body": {
+    "url": "https://github.com/aruljohn/Bible-kjv-1611/archive/refs/heads/master.zip",
+    "sha256": "d5de9f93ff0ed5741dc36376c2c807f86b7f4166d516fc79ab4dd56c71519456"
+  },
+  "witnesses": {
+    "casingVote": [
+      {
+        "id": "kjv-crosswire",
+        "url": "https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/KJV.zip",
+        "sha256": "8139d920f6396e3ce79374b0337a6f232cba86f7973d7d4be6ce9c425b7e60dd"
+      },
+      {
+        "id": "kjv-osis",
+        "url": "https://raw.githubusercontent.com/seven1m/open-bibles/master/eng-kjv.osis.xml",
+        "sha256": "eeeae647fc28360ce47f9c0d5cc3b397b7fdd9913fe53dc9f44eb6deee50e253"
+      },
+      {
+        "id": "kjv-gutenberg",
+        "url": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "sha256": "0204adaed1f25700aa854218cae63c7172228c41088f335e99167a071eed83c0"
+      }
+    ],
+    "psalmTitles": {
+      "id": "kjv-osis",
+      "url": "https://raw.githubusercontent.com/seven1m/open-bibles/master/eng-kjv.osis.xml",
+      "sha256": "eeeae647fc28360ce47f9c0d5cc3b397b7fdd9913fe53dc9f44eb6deee50e253"
+    }
+  },
+  "builtAt": "2026-09-06T09:41:32.350Z"
+}

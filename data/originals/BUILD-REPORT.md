@@ -1,0 +1,245 @@
+# Originals build report
+
+Generated 2026-09-04T12:05:30.547Z
+
+## Totals
+- Hebrew verses: 23215
+- Greek verses: 7928
+- of the Hebrew Bible verses, in Aramaic: 200
+- Tagged words: 443041
+
+## Versification differences vs KJV (informational)
+### Fewer verses than KJV
+- gn.31: kjv 55, hebrew 54
+- ex.8: kjv 32, hebrew 28
+- ex.22: kjv 31, hebrew 30
+- lv.6: kjv 30, hebrew 23
+- nm.16: kjv 50, hebrew 35
+- nm.29: kjv 40, hebrew 39
+- dt.12: kjv 32, hebrew 31
+- dt.22: kjv 30, hebrew 29
+- dt.29: kjv 29, hebrew 28
+- 1sm.23: kjv 29, hebrew 28
+- 2sm.18: kjv 33, hebrew 32
+- 1kg.4: kjv 34, hebrew 20
+- 2kg.11: kjv 21, hebrew 20
+- 1ch.6: kjv 81, hebrew 66
+- 2ch.2: kjv 18, hebrew 17
+- 2ch.14: kjv 15, hebrew 14
+- ne.4: kjv 23, hebrew 17
+- ne.7: kjv 73, hebrew 72
+- ne.9: kjv 38, hebrew 37
+- jb.41: kjv 34, hebrew 26
+- ec.5: kjv 20, hebrew 19
+- so.6: kjv 13, hebrew 12
+- is.9: kjv 21, hebrew 20
+- is.64: kjv 12, hebrew 11
+- jr.9: kjv 26, hebrew 25
+- ez.20: kjv 49, hebrew 44
+- dn.4: kjv 37, hebrew 34
+- dn.5: kjv 31, hebrew 30
+- ho.1: kjv 11, hebrew 9
+- ho.11: kjv 12, hebrew 11
+- ho.13: kjv 16, hebrew 15
+- jl.2: kjv 32, hebrew 27
+- jl.3: kjv 21, hebrew 5
+- jnh.1: kjv 17, hebrew 16
+- mi.5: kjv 15, hebrew 14
+- na.1: kjv 15, hebrew 14
+- zc.1: kjv 21, hebrew 17
+- ml.4: kjv 6, hebrew 0
+- mt.17: kjv 27, greek 26
+- mt.18: kjv 35, greek 34
+- mt.23: kjv 39, greek 38
+- mk.7: kjv 37, greek 36
+- mk.9: kjv 50, greek 48
+- mk.11: kjv 33, greek 32
+- mk.15: kjv 47, greek 46
+- lk.17: kjv 37, greek 36
+- lk.23: kjv 56, greek 55
+- jn.5: kjv 47, greek 46
+- jn.7: kjv 53, greek 52
+- jn.8: kjv 59, greek 48
+- ac.8: kjv 40, greek 39
+- ac.15: kjv 41, greek 40
+- ac.19: kjv 41, greek 40
+- ac.24: kjv 27, greek 26
+- ac.28: kjv 31, greek 30
+- rm.16: kjv 27, greek 24
+- 2co.13: kjv 14, greek 13
+
+### More verses than KJV / chapters not in KJV
+- gn.32: kjv 32, hebrew 33
+- ex.7: kjv 25, hebrew 29
+- ex.20: kjv 26, hebrew 27
+- ex.21: kjv 36, hebrew 37
+- ex.31: kjv 18, hebrew 19
+- lv.5: kjv 19, hebrew 26
+- nm.17: kjv 13, hebrew 28
+- nm.25: kjv 18, hebrew 19
+- nm.30: kjv 16, hebrew 17
+- dt.13: kjv 18, hebrew 19
+- dt.23: kjv 25, hebrew 26
+- dt.28: kjv 68, hebrew 69
+- 1sm.21: kjv 15, hebrew 16
+- 1sm.24: kjv 22, hebrew 23
+- 2sm.19: kjv 43, hebrew 44
+- 1kg.5: kjv 18, hebrew 32
+- 1kg.22: kjv 53, hebrew 54
+- 2kg.12: kjv 21, hebrew 22
+- 1ch.5: kjv 26, hebrew 41
+- 1ch.12: kjv 40, hebrew 41
+- 2ch.1: kjv 17, hebrew 18
+- 2ch.13: kjv 22, hebrew 23
+- ne.3: kjv 32, hebrew 38
+- ne.10: kjv 39, hebrew 40
+- jb.40: kjv 24, hebrew 32
+- ps.3: kjv 8, hebrew 9
+- ps.4: kjv 8, hebrew 9
+- ps.5: kjv 12, hebrew 13
+- ps.6: kjv 10, hebrew 11
+- ps.7: kjv 17, hebrew 18
+- ps.8: kjv 9, hebrew 10
+- ps.9: kjv 20, hebrew 21
+- ps.12: kjv 8, hebrew 9
+- ps.18: kjv 50, hebrew 51
+- ps.19: kjv 14, hebrew 15
+- ps.20: kjv 9, hebrew 10
+- ps.21: kjv 13, hebrew 14
+- ps.22: kjv 31, hebrew 32
+- ps.30: kjv 12, hebrew 13
+- ps.31: kjv 24, hebrew 25
+- ps.34: kjv 22, hebrew 23
+- ps.36: kjv 12, hebrew 13
+- ps.38: kjv 22, hebrew 23
+- ps.39: kjv 13, hebrew 14
+- ps.40: kjv 17, hebrew 18
+- ps.41: kjv 13, hebrew 14
+- ps.42: kjv 11, hebrew 12
+- ps.44: kjv 26, hebrew 27
+- ps.45: kjv 17, hebrew 18
+- ps.46: kjv 11, hebrew 12
+- ps.47: kjv 9, hebrew 10
+- ps.48: kjv 14, hebrew 15
+- ps.49: kjv 20, hebrew 21
+- ps.51: kjv 19, hebrew 21
+- ps.52: kjv 9, hebrew 11
+- ps.53: kjv 6, hebrew 7
+- ps.54: kjv 7, hebrew 9
+- ps.55: kjv 23, hebrew 24
+- ps.56: kjv 13, hebrew 14
+- ps.57: kjv 11, hebrew 12
+- ps.58: kjv 11, hebrew 12
+- ps.59: kjv 17, hebrew 18
+- ps.60: kjv 12, hebrew 14
+- ps.61: kjv 8, hebrew 9
+- ps.62: kjv 12, hebrew 13
+- ps.63: kjv 11, hebrew 12
+- ps.64: kjv 10, hebrew 11
+- ps.65: kjv 13, hebrew 14
+- ps.67: kjv 7, hebrew 8
+- ps.68: kjv 35, hebrew 36
+- ps.69: kjv 36, hebrew 37
+- ps.70: kjv 5, hebrew 6
+- ps.75: kjv 10, hebrew 11
+- ps.76: kjv 12, hebrew 13
+- ps.77: kjv 20, hebrew 21
+- ps.80: kjv 19, hebrew 20
+- ps.81: kjv 16, hebrew 17
+- ps.83: kjv 18, hebrew 19
+- ps.84: kjv 12, hebrew 13
+- ps.85: kjv 13, hebrew 14
+- ps.88: kjv 18, hebrew 19
+- ps.89: kjv 52, hebrew 53
+- ps.92: kjv 15, hebrew 16
+- ps.102: kjv 28, hebrew 29
+- ps.108: kjv 13, hebrew 14
+- ps.140: kjv 13, hebrew 14
+- ps.142: kjv 7, hebrew 8
+- ec.4: kjv 16, hebrew 17
+- so.7: kjv 13, hebrew 14
+- is.8: kjv 22, hebrew 23
+- jr.8: kjv 22, hebrew 23
+- ez.21: kjv 32, hebrew 37
+- dn.3: kjv 30, hebrew 33
+- dn.6: kjv 28, hebrew 29
+- ho.2: kjv 23, hebrew 25
+- ho.12: kjv 14, hebrew 15
+- ho.14: kjv 9, hebrew 10
+- jl.4: not in kjv
+- jnh.2: kjv 10, hebrew 11
+- mi.4: kjv 13, hebrew 14
+- na.2: kjv 13, hebrew 14
+- zc.2: kjv 13, hebrew 17
+- ml.3: kjv 18, hebrew 24
+- 3jn.1: kjv 14, greek 15
+- re.12: kjv 17, greek 18
+- re.14: kjv 20, greek 21
+
+## Books
+- gn: hebrew 50 ch / 1533 vv / 20604 words
+- ex: hebrew 40 ch / 1215 vv / 16723 words
+- lv: hebrew 27 ch / 859 vv / 11950 words
+- nm: hebrew 36 ch / 1289 vv / 16413 words
+- dt: hebrew 34 ch / 959 vv / 14294 words
+- js: hebrew 24 ch / 658 vv / 10051 words
+- jg: hebrew 21 ch / 618 vv / 9885 words
+- rt: hebrew 4 ch / 85 vv / 1294 words
+- 1sm: hebrew 31 ch / 811 vv / 13264 words
+- 2sm: hebrew 24 ch / 695 vv / 11039 words
+- 1kg: hebrew 22 ch / 817 vv / 13140 words
+- 2kg: hebrew 25 ch / 719 vv / 12281 words
+- 1ch: hebrew 29 ch / 943 vv / 10747 words
+- 2ch: hebrew 36 ch / 822 vv / 13316 words
+- ezr: hebrew 10 ch / 280 vv / 3754 words
+- ne: hebrew 13 ch / 405 vv / 5312 words
+- et: hebrew 10 ch / 167 vv / 3045 words
+- jb: hebrew 42 ch / 1070 vv / 8343 words
+- ps: hebrew 150 ch / 2527 vv / 19587 words
+- pr: hebrew 31 ch / 915 vv / 6915 words
+- ec: hebrew 12 ch / 222 vv / 2987 words
+- so: hebrew 8 ch / 117 vv / 1251 words
+- is: hebrew 66 ch / 1291 vv / 16932 words
+- jr: hebrew 52 ch / 1364 vv / 21836 words
+- lm: hebrew 5 ch / 154 vv / 1542 words
+- ez: hebrew 48 ch / 1273 vv / 18730 words
+- dn: hebrew 12 ch / 357 vv / 5891 words (200 Aramaic)
+- ho: hebrew 14 ch / 197 vv / 2381 words
+- jl: hebrew 4 ch / 73 vv / 957 words
+- am: hebrew 9 ch / 146 vv / 2042 words
+- ob: hebrew 1 ch / 21 vv / 291 words
+- jnh: hebrew 4 ch / 48 vv / 688 words
+- mi: hebrew 7 ch / 105 vv / 1396 words
+- na: hebrew 3 ch / 47 vv / 558 words
+- hk: hebrew 3 ch / 56 vv / 671 words
+- zp: hebrew 3 ch / 53 vv / 767 words
+- hg: hebrew 2 ch / 38 vv / 600 words
+- zc: hebrew 14 ch / 211 vv / 3128 words
+- ml: hebrew 3 ch / 55 vv / 876 words
+- mt: greek 28 ch / 1068 vv / 18329 words
+- mk: greek 16 ch / 673 vv / 11286 words
+- lk: greek 24 ch / 1149 vv / 19446 words
+- jn: greek 21 ch / 866 vv / 15438 words
+- ac: greek 28 ch / 1002 vv / 18412 words
+- rm: greek 16 ch / 430 vv / 7055 words
+- 1co: greek 16 ch / 437 vv / 6812 words
+- 2co: greek 13 ch / 256 vv / 4473 words
+- gl: greek 6 ch / 149 vv / 2226 words
+- ep: greek 6 ch / 155 vv / 2416 words
+- ph: greek 4 ch / 104 vv / 1626 words
+- cl: greek 4 ch / 95 vv / 1580 words
+- 1th: greek 5 ch / 89 vv / 1473 words
+- 2th: greek 3 ch / 47 vv / 820 words
+- 1tm: greek 6 ch / 113 vv / 1591 words
+- 2tm: greek 4 ch / 83 vv / 1235 words
+- tt: greek 3 ch / 46 vv / 659 words
+- phm: greek 1 ch / 25 vv / 334 words
+- hb: greek 13 ch / 303 vv / 4935 words
+- jm: greek 5 ch / 108 vv / 1739 words
+- 1pe: greek 5 ch / 105 vv / 1678 words
+- 2pe: greek 3 ch / 61 vv / 1098 words
+- 1jn: greek 5 ch / 105 vv / 2137 words
+- 2jn: greek 1 ch / 13 vv / 245 words
+- 3jn: greek 1 ch / 15 vv / 219 words
+- jd: greek 1 ch / 25 vv / 459 words
+- re: greek 22 ch / 406 vv / 9839 words

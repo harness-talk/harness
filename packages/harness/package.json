@@ -1,0 +1,29 @@
+{
+  "name": "harness-talk",
+  "version": "0.2.0",
+  "description": "The King James Bible, addressed for machines. One command: loopback daemon, MCP server and typed clients for the harness.talk corpus.",
+  "license": "LGPL-3.0-or-later",
+  "type": "module",
+  "private": false,
+  "exports": {
+    ".": "./client/index.mjs",
+    "./client": "./client/index.mjs",
+    "./manifest": "./client/manifest.json"
+  },
+  "types": "./client/index.d.ts",
+  "bin": {
+    "harness-talk": "./bin/harness-talk.mjs"
+  },
+  "files": ["bin", "client", "mcp", "daemon", "README.md", "LICENSE", "LICENSE.GPL"],
+  "scripts": {
+    "check": "node bin/harness-talk.mjs help >/dev/null && node -e \"import('./client/index.mjs').then(m=>{if(typeof m.createClient!=='function')process.exit(1)})\" && npm pack --dry-run",
+    "release": "npm run check && npm version patch && npm publish --access public",
+    "release:minor": "npm run check && npm version minor && npm publish --access public"
+  },
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=20" },
+  "keywords": ["bible", "kjv", "mcp", "agents", "loopback", "harness.talk", "model-context-protocol"],
+  "homepage": "https://harness.talk/agents",
+  "bugs": "https://github.com/THookz/Immutable/issues",
+  "repository": { "type": "git", "url": "https://github.com/THookz/Immutable", "directory": "packages/harness" }
+}
