@@ -4,9 +4,9 @@
   "_provenance": {
     "edition": "Geneva Bible, 1560 first edition",
     "facsimile": "archive.org/details/1560-the-geneva-bible",
-    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-18 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14, 15, 16, 17, and 18 and are carried as notes beginning with those words, exactly as printed. One faint gloss at Genesis 14:10 was omitted rather than reconstructed. Chapters 19 onward are in progress."
+    "coverage": "Book argument and Genesis 1-22 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. Genesis 19 (argument and notes b-t) is from leaves 21-22. Genesis 20 (argument and notes a-p) is from leaves 22-23. Genesis 21 (argument and notes a-n) is from leaves 23-24. Genesis 22 (argument and notes a-i) is from leaf 24. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14-22 and are carried as notes beginning with those words, exactly as printed. Notes omitted rather than reconstructed where the source imaging was faint or clipped: one gloss at Genesis 14:10, Genesis 19 note 'a' at v1 (bottom edge of leaf 21), and the Beer-shéba 'Or,' gloss at Genesis 21:31 (heavily abbreviated). Chapters 23 onward are in progress."
   },
   "annotations": [
     {
@@ -2150,6 +2150,665 @@
       "ref": "gn.18.32",
       "anchor": "What if ten be founde there?",
       "text": "If God refused not the praier for the wicked Sodomites, euen to the sixt request, how muche more wil he grante the praiers of the godlie for the afflicted Church?",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19:arg",
+      "kind": "argument",
+      "ref": "gn.19",
+      "text": "Lot receiueth two Angels into his house. 4 The filthy lustes of the Sodomites. 16 Lot is deliuered. 24 Sodóm is destroied. 26 Lots wife is made a piller of salt. 33 Lots daughters lye with their father, of whome come Moab and Ammón.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.3:b",
+      "kind": "note",
+      "ref": "gn.19.3",
+      "anchor": "he preased vpon them earnestly",
+      "text": "That is, he praied them so instantly.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.3:c",
+      "kind": "note",
+      "ref": "gn.19.3",
+      "anchor": "did bake vnleauened bread",
+      "text": "Not for that thei had necessitie, but because that time was not yet come that thei wolde reueile them selues.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.4:d",
+      "kind": "note",
+      "ref": "gn.19.4",
+      "anchor": "all the people from all quarters",
+      "text": "Nothing is more dangerous, then to dwel where sinne reigneth: for it corrupteth all.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.8:e",
+      "kind": "note",
+      "ref": "gn.19.8",
+      "anchor": "I haue two daughters",
+      "text": "He deserueth praise in defending his guestes, but he is to be blamed in seking vnlaufull meanes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.8:f",
+      "kind": "note",
+      "ref": "gn.19.8",
+      "anchor": "vnder the shadowe of my rofe",
+      "text": "That I shulde preserue them from all iniurie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.13:g",
+      "kind": "note",
+      "ref": "gn.19.13",
+      "anchor": "we wil destroie this place",
+      "text": "This proueth that the Angels are ministers, aswel to execute Gods wrath, as to declare his fauour.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.16:h",
+      "kind": "note",
+      "ref": "gn.19.16",
+      "anchor": "as he prolonged the time",
+      "text": "The mercie of God striueth to ouercome mans slownes in following Gods calling.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.17:i",
+      "kind": "note",
+      "ref": "gn.19.17",
+      "anchor": "loke not behinde thee",
+      "text": "He willed him to flee from Gods iudgements, and not to be sorie to depart from the riche countrei and ful of vaine pleasures.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.20:k",
+      "kind": "note",
+      "ref": "gn.19.20",
+      "anchor": "is it not a litle one",
+      "text": "Thogh it be litle, yet it is great ynough to saue my life: wherein he offendeth in chosing another place then the Angel had appointed him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.22:l",
+      "kind": "note",
+      "ref": "gn.19.22",
+      "anchor": "I can do nothing til thou be come thether",
+      "text": "Because Gods commandement was to destroie the citie and to saue Lot.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.22:m",
+      "kind": "note",
+      "ref": "gn.19.22",
+      "anchor": "the name of the citie was called Zóar",
+      "text": "Which before was called Beláh, chap. 14,2.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.26:n",
+      "kind": "note",
+      "ref": "gn.19.26",
+      "anchor": "turned into a piller of salt",
+      "text": "As touching the bodie onely: & this was a notable monument of Gods vengeance to all them that passed that way.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.30:o",
+      "kind": "note",
+      "ref": "gn.19.30",
+      "anchor": "he feared to tarie in Zóar",
+      "text": "Hauing before felt Gods mercie, he durst not prouoke him againe by continuing among the wicked.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.31:p",
+      "kind": "note",
+      "ref": "gn.19.31",
+      "anchor": "there is not a man in the earth",
+      "text": "Meaning, in the countrei, which the Lord had now destroied.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.32:q",
+      "kind": "note",
+      "ref": "gn.19.32",
+      "anchor": "we wil make our father drinke wine",
+      "text": "For except he had bene ouercome with wine, he wolde neuer haue done that abominable act.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.36:r",
+      "kind": "note",
+      "ref": "gn.19.36",
+      "anchor": "bothe the daughters of Lot with childe",
+      "text": "Thus God permitted him to fall moste horribly in the solitarie moutaynes, whome the wickednes of Sodóm colde not ouercome.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.37:s",
+      "kind": "note",
+      "ref": "gn.19.37",
+      "anchor": "the father of the Moabites",
+      "text": "Who as they were borne in moste horrible incest, so were they and their posteritie vile and wicked.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.38:t",
+      "kind": "note",
+      "ref": "gn.19.38",
+      "anchor": "she called his name Ben-ammi",
+      "text": "That is, sone of my people: signifying, that thei rather reioyced in their sinne, then repented for the same.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.14:or",
+      "kind": "note",
+      "ref": "gn.19.14",
+      "anchor": "which maried his daughters",
+      "text": "Or, shulde marie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.15:or",
+      "kind": "note",
+      "ref": "gn.19.15",
+      "anchor": "thy two daughters which are here",
+      "text": "Ebr. which are founde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.19.35:or",
+      "kind": "note",
+      "ref": "gn.19.35",
+      "anchor": "preserue sede of our father",
+      "text": "Ebr. kepe aliue.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20:arg",
+      "kind": "argument",
+      "ref": "gn.20",
+      "text": "Abrahám dwelleth as a stranger in the land of Gerár. 2 Abimélech taketh awaie his wife 3 God reproueth the King, 9 And the King, Abrahám. 11 Saráh is restored with great giftes 17 Abrahám praieth, and the King and his are healed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.1:a",
+      "kind": "note",
+      "ref": "gn.20.1",
+      "anchor": "betwene Cadésh & Shur",
+      "text": "Which was toward Egypt.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.2:b",
+      "kind": "note",
+      "ref": "gn.20.2",
+      "anchor": "She is my sister",
+      "text": "Abrahám had now twise falle into this faute: suche is mans frailtie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.3:c",
+      "kind": "note",
+      "ref": "gn.20.3",
+      "anchor": "thou art but dead",
+      "text": "So greatly God detesteth the breache of mariage.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.4:d",
+      "kind": "note",
+      "ref": "gn.20.4",
+      "anchor": "wilt thou slaie euen the righteous nacion",
+      "text": "The infideles confessed that God wolde not punish but for iust occasion: therfore when soeuer he punisheth, the occasion is iust.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.5:e",
+      "kind": "note",
+      "ref": "gn.20.5",
+      "anchor": "with an vpright minde",
+      "text": "As one failing by ignorance, and not doing euil of purpose.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.5:f",
+      "kind": "note",
+      "ref": "gn.20.5",
+      "anchor": "innocent hands haue I done this",
+      "text": "Not thinking to do any man harme.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.6:g",
+      "kind": "note",
+      "ref": "gn.20.6",
+      "anchor": "I kept thee also that thou shuldest not sinne",
+      "text": "God by his holie Spirit reteineth the that offend by ignorace, that thei fall not into greater inconueniece.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.7:h",
+      "kind": "note",
+      "ref": "gn.20.7",
+      "anchor": "for he is a Prophet",
+      "text": "That is, one, to whome God reueileth him self familiarly.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.7:i",
+      "kind": "note",
+      "ref": "gn.20.7",
+      "anchor": "he shal praye for thee",
+      "text": "For the prayer of the godlie is of force towards God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.9:k",
+      "kind": "note",
+      "ref": "gn.20.9",
+      "anchor": "brought on me and on my kingdome this great sinne",
+      "text": "The wickednes of the King bringeth Gods wrath vpon the whole realme.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.11:l",
+      "kind": "note",
+      "ref": "gn.20.11",
+      "anchor": "Surely the feare of God is not in this place",
+      "text": "He sheweth that no honestie can be hoped for, where the feare of God is not.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.12:m",
+      "kind": "note",
+      "ref": "gn.20.12",
+      "anchor": "she is my sister: for she is the daughter of my father",
+      "text": "By sister, he meaneth his cosin germain, & by daughter, Abrahams nece: for so the Ebrewes vse these wordes. Chap. 12,13.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.16:n",
+      "kind": "note",
+      "ref": "gn.20.16",
+      "anchor": "he is the vaile of thine eies",
+      "text": "Such an head, as with whome thou maist be preserued from all dangers.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.16:o",
+      "kind": "note",
+      "ref": "gn.20.16",
+      "anchor": "and she was thus reproued",
+      "text": "God caused this heathen King to reproue her, because she dissembled, since God had giuen her a housband, as her vaile and defense.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.18:p",
+      "kind": "note",
+      "ref": "gn.20.18",
+      "anchor": "the Lord had shut vp euerie wombe",
+      "text": "Had taken away fro them the gift of conceiuing.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.8:or",
+      "kind": "note",
+      "ref": "gn.20.8",
+      "anchor": "tolde all these things vnto them",
+      "text": "Ebr. in their eares.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.20.15:or",
+      "kind": "note",
+      "ref": "gn.20.15",
+      "anchor": "my land is before thee",
+      "text": "Or, is at thy commandement.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21:arg",
+      "kind": "argument",
+      "ref": "gn.21",
+      "text": "Izhák is borne. 9 Ishmaél mocketh Izhák 14 Hagár is cast out with her sonne. 17 The Angel comforteth Hagár. 22 The couenant betwene Abimélech & Abrahám.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.2:a",
+      "kind": "note",
+      "ref": "gn.21.2",
+      "anchor": "bare Abrahám a sonne in his olde age",
+      "text": "Therefore the miracle was greater.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.7:b",
+      "kind": "note",
+      "ref": "gn.21.7",
+      "anchor": "Who wolde haue said to Abrahám",
+      "text": "She accuseth her selfe of ingratitude that she did not beleue the Angel.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.9:c",
+      "kind": "note",
+      "ref": "gn.21.9",
+      "anchor": "mocking",
+      "text": "He derided Gods promes made to Izhák, which the Apostle calleth persecutió. Gal. 4,29.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.12:d",
+      "kind": "note",
+      "ref": "gn.21.12",
+      "anchor": "in Izhák shal thy sede be called",
+      "text": "The promised sede shalbe couted fró Izhák and not from Ishmaél. Rom 9,7. ebr 11,18.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.13:e",
+      "kind": "note",
+      "ref": "gn.21.13",
+      "anchor": "I wil make him a nació also",
+      "text": "The Ishmaelites shal come of him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.14:f",
+      "kind": "note",
+      "ref": "gn.21.14",
+      "anchor": "sent her away",
+      "text": "True faith renoceth all natural affectiós to obey Gods comandemet.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.17:g",
+      "kind": "note",
+      "ref": "gn.21.17",
+      "anchor": "God heard the voyce of the childe",
+      "text": "For his promes sake made to Abrahám, and not because y child had discretion and iudgemet to pray.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.19:h",
+      "kind": "note",
+      "ref": "gn.21.19",
+      "anchor": "God opened her eies",
+      "text": "Except God open our eies, we can nether se, nor vse the meanes which are before vs.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.20:i",
+      "kind": "note",
+      "ref": "gn.21.20",
+      "anchor": "God was with the childe",
+      "text": "As touching outwarde thigs God caused him to prosper.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.24:k",
+      "kind": "note",
+      "ref": "gn.21.24",
+      "anchor": "I wil sweare",
+      "text": "So y it is a lauful thig to take an othe in matters of importance, for to iustifie the trueth and to assure others of our sinceritie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.26:l",
+      "kind": "note",
+      "ref": "gn.21.26",
+      "anchor": "I knowe not who hathe done this thing",
+      "text": "Wicked seruants do many euils vnknowé to their masters.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.32:m",
+      "kind": "note",
+      "ref": "gn.21.32",
+      "anchor": "Thus made they a couenant at Beer-shéba",
+      "text": "Thus we se that the godlie, as touching outwarde things, may make peace with the wicked, if they knowe not the true God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.33:n",
+      "kind": "note",
+      "ref": "gn.21.33",
+      "anchor": "called there on the Name of the Lord",
+      "text": "That is, he worshiped God in all points of true religion.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.20:or",
+      "kind": "note",
+      "ref": "gn.21.20",
+      "anchor": "was an archer",
+      "text": "Or, shot in the bowe and was an hunter.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.21.23:or",
+      "kind": "note",
+      "ref": "gn.21.23",
+      "anchor": "thou wilt not hurt me",
+      "text": "Ebr. deale falsly with me, or lye.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22:arg",
+      "kind": "argument",
+      "ref": "gn.22",
+      "text": "1,2 The faith of Abrahám is proued in offring his sonne Izhák. 8 Izhák is a figure of Christ. 20 The generation of Nahór Abrahams brother, of whome cometh Rebekáh.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.2:a",
+      "kind": "note",
+      "ref": "gn.22.2",
+      "anchor": "vnto the lande of Moriáh",
+      "text": "Which signifieth the feare of God, in the which place he was honored: and Salomó afterward buylt the temple.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.2:b",
+      "kind": "note",
+      "ref": "gn.22.2",
+      "anchor": "offre him there for a burnt offring",
+      "text": "Herein stode y chiefest point of his tentation, seinghe was commanded to offre vp him in whome God had promised to blesse all the nations of the worlde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.5:c",
+      "kind": "note",
+      "ref": "gn.22.5",
+      "anchor": "come againe vnto you",
+      "text": "He douted not, but God wolde accomplish his promes thogh he shulde sacrifice his sonne.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.8:d",
+      "kind": "note",
+      "ref": "gn.22.8",
+      "anchor": "God wil prouide him a lambe",
+      "text": "The onely way to ouercome all tentations is to rest vpó Gods prouidence.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.9:e",
+      "kind": "note",
+      "ref": "gn.22.9",
+      "anchor": "bound Izhák his sonne",
+      "text": "For it is like y his father had declared to him Gods comandemet, whereunto he shewed him self obedient. Iam. 2,21.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.12:f",
+      "kind": "note",
+      "ref": "gn.22.12",
+      "anchor": "now I knowe that thou fearest God",
+      "text": "That is, by thy true obedience thou hast declared thy liuelie faith.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.14:g",
+      "kind": "note",
+      "ref": "gn.22.14",
+      "anchor": "In the mount wil the Lord be sene",
+      "text": "The name is changed, to shewe y God dothe both se & prouide secretly for his, and also euidently is sene and felt in time couenient.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.16:h",
+      "kind": "note",
+      "ref": "gn.22.16",
+      "anchor": "By my selfe haue I sworne",
+      "text": "Signifying, that there is no greater then he.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.24:i",
+      "kind": "note",
+      "ref": "gn.22.24",
+      "anchor": "his concubine called Reumáh",
+      "text": "Concubine is oftentimes taken in the good parte for those women which were inferior to the wiues.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.12:or",
+      "kind": "note",
+      "ref": "gn.22.12",
+      "anchor": "thou hast not spared thine onely sonne",
+      "text": "Or, and hast not withholden thine onelie sonne from me.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.14:or",
+      "kind": "note",
+      "ref": "gn.22.14",
+      "anchor": "called the name of that place, Iehouáh-ijreh",
+      "text": "Or, The Lord wil se, or prouide.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.17:or",
+      "kind": "note",
+      "ref": "gn.22.17",
+      "anchor": "thy sede shal possesse the gate of his ennemies",
+      "text": "Or, holdes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.22.21:or",
+      "kind": "note",
+      "ref": "gn.22.21",
+      "anchor": "Kemuél the father of Arám",
+      "text": "Or, of the Syrians.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23:arg",
+      "kind": "argument",
+      "ref": "gn.23",
+      "text": "2 Abrahám lamenteth the death of Saráh 4 He bieth a field, to bury her, of the Hittites. 13 The equitie of Abrahám. 19 Saráh is buryed in Machpeláh.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.2:a",
+      "kind": "note",
+      "ref": "gn.23.2",
+      "anchor": "Abrahám came to mourne for Saráh and to wepe for her",
+      "text": "That is when he had mourned: so y godlie may mourne, if they passe not measure: and y natural affection is comendable.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.6:b",
+      "kind": "note",
+      "ref": "gn.23.6",
+      "anchor": "thou art a prince of God among vs",
+      "text": "That is, godlie or excellent: for y Ebrewes so speake of all things that are notable, because all excellencie cometh of God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.10:c",
+      "kind": "note",
+      "ref": "gn.23.10",
+      "anchor": "went in at the gates of his citie",
+      "text": "Meaning, all the citizens & inhabitants.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.12:d",
+      "kind": "note",
+      "ref": "gn.23.12",
+      "anchor": "Then Abrahám bowed him self before the people",
+      "text": "To shewe y he had them in good estimation and reuerence.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.15:e",
+      "kind": "note",
+      "ref": "gn.23.15",
+      "anchor": "foure hundreth shekels of siluer",
+      "text": "The commune shekel is about 20 pece, so the 400 shekels mount to 33 li 6 shill & 8 pence, after 5 shill sterl. the once.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.20:f",
+      "kind": "note",
+      "ref": "gn.23.20",
+      "anchor": "a possession of buryal by the Hittites",
+      "text": "That is, all the people confirmed y sale.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.1:or",
+      "kind": "note",
+      "ref": "gn.23.1",
+      "anchor": "so long liued she",
+      "text": "Ebr. the yeres of the life of Saráh.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.3:or",
+      "kind": "note",
+      "ref": "gn.23.3",
+      "anchor": "talked with the Hittites",
+      "text": "Ebr. sonnes of Heth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.8:or",
+      "kind": "note",
+      "ref": "gn.23.8",
+      "anchor": "If it be your minde",
+      "text": "Ebr. in your soule.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.9:or1",
+      "kind": "note",
+      "ref": "gn.23.9",
+      "anchor": "the caue of Machpeláh",
+      "text": "Or, double caue, because one was within another.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.9:or2",
+      "kind": "note",
+      "ref": "gn.23.9",
+      "anchor": "for as muche money as it is worthe",
+      "text": "Ebr. in ful siluer.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.23.18:or",
+      "kind": "note",
+      "ref": "gn.23.18",
+      "anchor": "of all that went in at the gates of his citie",
+      "text": "Or, citizens.",
       "source": "geneva-notes"
     }
   ]
