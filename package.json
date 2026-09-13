@@ -28,6 +28,7 @@
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "pdfjs-dist": "^6.3.289",
     "postcss": "^8.5",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3",
