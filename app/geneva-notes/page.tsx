@@ -194,7 +194,7 @@ export default function GenevaNotesPage() {
           <h2>See them for yourself</h2>
           <p>
             The surest way to meet the notes is to look at the page they live on. Every chapter in the reader now has a{" "}
-            <strong>&ldquo;See the real 1560 page&rdquo;</strong> button that opens the actual first-edition leaf from the
+            <strong>&ldquo;Compare the 1560 page&rdquo;</strong> button that opens the actual first-edition leaf from the
             Internet Archive — the true marginalia, on the true page, in the public domain.
           </p>
           <div className="not-prose flex flex-wrap items-center gap-3">

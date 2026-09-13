@@ -33,7 +33,7 @@ export function Marginalia({
   return (
     <aside aria-label="Marginalia" className="flex flex-col gap-10 lg:sticky lg:top-20 lg:self-start">
       {/* Geneva marginal notes */}
-      <section aria-labelledby="geneva-head" className="flex flex-col gap-3">
+      <section id="geneva-notes" aria-labelledby="geneva-head" className="flex scroll-mt-20 flex-col gap-3">
         <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
           <h2 id="geneva-head" className="running-head">
             Geneva notes
@@ -45,8 +45,9 @@ export function Marginalia({
         {geneva.available ? (
           <div className="flex flex-col gap-4 text-[0.95rem] leading-relaxed">
             <p className="text-pretty text-[0.78rem] leading-relaxed text-foreground/60">
-              Hand-transcribed from the 1560 first edition, original spelling, and checkable against the page —
-              use <em>See the real 1560 page</em> above. Notes illegible in the facsimile are omitted, never reconstructed.
+              Hand-transcribed from the 1560 first edition in its original spelling. Each note is keyed to the word it
+              glosses — tap a letter in the text to jump to its note, or <em>Compare the 1560 page</em> above to check it
+              against the facsimile. Notes illegible in the facsimile are omitted, never reconstructed.
             </p>
             {args.map((a) => (
               <p key={a.id} className="italic text-foreground/85">
@@ -58,11 +59,20 @@ export function Marginalia({
                 {notes.map((a) => {
                   const v = a.ref.split(".")[2];
                   return (
-                    <li key={a.id} className="flex gap-2.5">
-                      <a href={`#v${v}`} className="verse-num mt-[0.45em] w-5 shrink-0 text-right">
+                    <li
+                      key={a.id}
+                      id={noteDomId(a.ref, a.id)}
+                      className="flex scroll-mt-24 gap-2.5 rounded-sm target:-mx-1.5 target:bg-gilt/10 target:px-1.5 target:py-1"
+                    >
+                      <a
+                        href={`#v${v}`}
+                        className="verse-num mt-[0.45em] w-5 shrink-0 text-right hover:text-gilt"
+                        title={`Back to verse ${v}`}
+                      >
                         {v}
                       </a>
                       <span className="text-foreground/85">
+                        <span className="mr-1 align-super font-display text-[0.7em] text-rubric">{noteMarker(a.id)}</span>
                         {a.anchor ? <em className="text-foreground">{a.anchor} </em> : null}
                         {a.text}
                       </span>
@@ -126,6 +136,18 @@ export function Marginalia({
       </section>
     </aside>
   );
+}
+
+/** A stable, selector-safe DOM id for a note, shared with the inline markers in the reader. */
+function noteDomId(ref: string, id: string) {
+  const letter = id.split(":").pop() ?? "";
+  return `note-${ref.replace(/\./g, "-")}-${letter}`;
+}
+
+/** The marker printed at the keyed word: the note's letter, or a bar for an alternate reading. */
+function noteMarker(id: string) {
+  const letter = id.split(":").pop() ?? "";
+  return letter === "or" ? "‖" : letter;
 }
 
 function Row({ k, v }: { k: string; v: string }) {

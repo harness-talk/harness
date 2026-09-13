@@ -159,6 +159,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
           <VerseReader
             verses={p.verses}
             headings={headings}
+            notes={geneva.available ? geneva.annotations.filter((a) => a.kind === "note") : []}
             bookId={r.book.id}
             chapter={r.chapter}
             originals={originals}

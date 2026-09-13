@@ -62,7 +62,7 @@ export function FacsimileViewer({
         className="inline-flex min-h-11 items-center gap-2 rounded-sm border border-rule px-3 py-1.5 font-display text-[0.66rem] uppercase tracking-[0.16em] text-gilt transition-colors hover:border-rubric hover:text-rubric"
       >
         <FrameIcon />
-        See the real 1560 page
+        Compare the 1560 page
       </button>
 
       {open ? (

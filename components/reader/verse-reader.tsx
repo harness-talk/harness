@@ -16,6 +16,7 @@ import { VerseText } from "./verse-text";
 export function VerseReader({
   verses,
   headings,
+  notes,
   bookId,
   chapter,
   originals,
@@ -24,6 +25,7 @@ export function VerseReader({
 }: {
   verses: VerseRecord[];
   headings: Annotation[];
+  notes?: Annotation[];
   bookId: string;
   chapter: number;
   originals?: Map<number, OriginalVersePayload>;
@@ -36,6 +38,16 @@ export function VerseReader({
     headingBefore.set(v, h.text);
   }
 
+  // Notes grouped by verse, so each verse can carry its keyed footnote markers.
+  const notesByVerse = new Map<number, Annotation[]>();
+  for (const n of notes ?? []) {
+    const v = Number(n.ref.split(".")[2]);
+    if (!Number.isFinite(v)) continue;
+    const arr = notesByVerse.get(v);
+    if (arr) arr.push(n);
+    else notesByVerse.set(v, [n]);
+  }
+
   return (
     <div id={readerId} data-original="off" data-geneva="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
       {verses.map((v, i) => {
@@ -43,6 +55,7 @@ export function VerseReader({
         const o = originals?.get(v.verse);
         const rtl = o?.language === "hebrew" || o?.language === "aramaic";
         const g = geneva?.get(v.verse);
+        const verseNotes = notesByVerse.get(v.verse) ?? [];
         return (
           <div key={v.ref} className="contents">
             {heading ? (
@@ -62,6 +75,20 @@ export function VerseReader({
               <div className="flex min-w-0 flex-col gap-1">
                 <p className={i === 0 ? "drop-initial text-pretty" : "text-pretty"}>
                   <VerseText text={v.text} />
+                  {verseNotes.length ? (
+                    <span className="whitespace-nowrap">
+                      {verseNotes.map((n) => (
+                        <a
+                          key={n.id}
+                          href={`#${noteDomId(n.ref, n.id)}`}
+                          className="ml-[0.15em] inline-block px-0.5 align-super font-display text-[0.6em] text-rubric/80 hover:text-rubric"
+                          aria-label={`Note ${noteMarker(n.id)} on verse ${v.verse}`}
+                        >
+                          {noteMarker(n.id)}
+                        </a>
+                      ))}
+                    </span>
+                  ) : null}
                 </p>
                 {geneva ? (
                   <p className="hidden text-[0.95em] leading-[1.7] text-foreground/75 text-pretty group-data-[geneva=on]/reader:block">
@@ -99,4 +126,15 @@ export function VerseReader({
       </p>
     </div>
   );
+}
+
+/** Mirrors the margin's note ids so an inline marker jumps to its note. */
+function noteDomId(ref: string, id: string) {
+  const letter = id.split(":").pop() ?? "";
+  return `note-${ref.replace(/\./g, "-")}-${letter}`;
+}
+
+function noteMarker(id: string) {
+  const letter = id.split(":").pop() ?? "";
+  return letter === "or" ? "‖" : letter;
 }
