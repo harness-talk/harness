@@ -1,0 +1,161 @@
+{
+  "source": "geneva-notes",
+  "book": "jnh",
+  "_provenance": {
+    "edition": "Geneva Bible, 1560 first edition",
+    "facsimile": "archive.org/details/1560-the-geneva-bible",
+    "leaves": [748, 749, 750],
+    "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed; the facsimile shows every note in place.",
+    "coverage": "Book argument, chapter arguments, and verified marginal notes. Not every marginal letter is transcribed yet."
+  },
+  "annotations": [
+    {
+      "id": "geneva-notes:jnh.1:arg",
+      "kind": "argument",
+      "ref": "jnh.1",
+      "text": "When Ionah had long prophecied in Israel and had litle profited, God gaue him expresse charge to go, and denounce his iudgements against Niniueh the chief citie of the Assyrians, because he had appointed, that thei which were of the heathen, shulde conuert by the mightie power of his worde, and that within thre daies preaching, that Israel might se how horribly thei had prouoked Gods wrath, which for the space of so many yeres, had not conuerted to the Lord for so many Prophetes and so diligent preaching. He prophecied vnder Ioash, and Ieroboam, as 2 King 14,25.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.1.1:a",
+      "kind": "note",
+      "ref": "jnh.1.1",
+      "anchor": "vnto Ionah the sonne of Amittai",
+      "text": "After that he had preached a long time in Israel: and so Ezekiel, after that for a time he had prophecied in Iuda, he had visions in Babylon, Ezek 1,1.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.1.2:b",
+      "kind": "note",
+      "ref": "jnh.1.2",
+      "anchor": "go to Niniueh",
+      "text": "For seing ye great obstinacion of ye Israelites, he sent his Prophet to the Gentiles yt they might prouoke them to repentance or at least make them inexcusable: for Niniueh was the chief citie of the Assyrians.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.1.2:c",
+      "kind": "note",
+      "ref": "jnh.1.2",
+      "anchor": "that great citie",
+      "text": "For as autors write, it conteined in circuit about eight & fortie mile & had a thousand and fyue hundreth towres, and at this time there were an hundreth & twentie thousand children therein, Chap 4,11.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.1.14:k",
+      "kind": "note",
+      "ref": "jnh.1.14",
+      "anchor": "We beseche thee",
+      "text": "This declareth that the very wicked in their necessities flee vnto God for succour, and also that they are touched with a certein feare to shead mans blood, where as they knowe no manifest signe of wickednes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.1.16:l",
+      "kind": "note",
+      "ref": "jnh.1.16",
+      "anchor": "feared the Lord",
+      "text": "They were touched with a certeine repentance of their life past, and began to worship the true God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2:arg",
+      "kind": "argument",
+      "ref": "jnh.2",
+      "text": "Ionah is in the fishes belly, and praieth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2.1:a",
+      "kind": "note",
+      "ref": "jnh.2.1",
+      "anchor": "praied vnto the Lord",
+      "text": "Being now swallowed vp of death, and seing no remedy to escape, his faith brast out vnto the Lord, knowing yt out of the very hel he was able to deliuer him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2.2:b",
+      "kind": "note",
+      "ref": "jnh.2.2",
+      "anchor": "belly of hel",
+      "text": "For he was now in the fishes belly as in a graue or place of darkenes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2.3:c",
+      "kind": "note",
+      "ref": "jnh.2.3",
+      "anchor": "For thou haddest cast me",
+      "text": "This declared what his prayer was, & how he laboured betwene hope and despayre, considering the neglect of his vocation & Gods iudgements for the same: but yet in the end faith gate the victorie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2.6:d",
+      "kind": "note",
+      "ref": "jnh.2.6",
+      "anchor": "thou hast broght vp my life",
+      "text": "Thou hast deliuered me from the belly of the fishe & all these dangers, as it were raising me from death to life.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2.8:e",
+      "kind": "note",
+      "ref": "jnh.2.8",
+      "anchor": "They that wait vpon lying vanities",
+      "text": "They that depend vpon any thing saue on God alone.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.2.8:f",
+      "kind": "note",
+      "ref": "jnh.2.8",
+      "anchor": "forsake their owne mercie",
+      "text": "Thei refuse their owne felicitie & that goodnes yt they shulde els receiue of God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.3:arg",
+      "kind": "argument",
+      "ref": "jnh.3",
+      "text": "Ionah is sent againe to Niniueh. The Niniuites at his preaching repent, and the King of Niniueh with them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.3.1:a",
+      "kind": "note",
+      "ref": "jnh.3.1",
+      "anchor": "the worde of the Lord came vnto Ionah",
+      "text": "This is a great declaration of Gods mercie yt he receiueth him againe & sendeth him forth as his Prophet which had before shewed him self so weake.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.3.3:b",
+      "kind": "note",
+      "ref": "jnh.3.3",
+      "anchor": "an exceading great citie",
+      "text": "Which conteined thre daies iourney in circuit, as is before declared, Chap 1,2.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.4:arg",
+      "kind": "argument",
+      "ref": "jnh.4",
+      "text": "The great goodnes of God towards Niniueh. Ionah murmureth, and is reproued.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.4.9:g",
+      "kind": "note",
+      "ref": "jnh.4.9",
+      "anchor": "I do wel to be angry vnto the death",
+      "text": "This declareth the great inconueniences wherinto Gods seruants do fall when they giue place to their owne affection, & do not in all things willingly submit them selues to God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:jnh.4.11:h",
+      "kind": "note",
+      "ref": "jnh.4.11",
+      "anchor": "shulde not I spare Niniueh",
+      "text": "Thus God mercifully reproueth him, which wolde put him self & this gourde, and yet wolde restraine God to shewe his compassion to so innocent a sort of people.",
+      "source": "geneva-notes"
+    }
+  ]
+}

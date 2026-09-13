@@ -42,6 +42,10 @@ export function Marginalia({
         </div>
         {geneva.available ? (
           <div className="flex flex-col gap-4 text-[0.95rem] leading-relaxed">
+            <p className="text-pretty text-[0.78rem] leading-relaxed text-foreground/60">
+              Hand-transcribed from the 1560 first edition, original spelling, and checkable against the page —
+              use <em>See the real 1560 page</em> above. Notes illegible in the facsimile are omitted, never reconstructed.
+            </p>
             {args.map((a) => (
               <p key={a.id} className="italic text-foreground/85">
                 {a.text}
