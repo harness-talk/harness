@@ -4,9 +4,9 @@
   "_provenance": {
     "edition": "Geneva Bible, 1560 first edition",
     "facsimile": "archive.org/details/1560-the-geneva-bible",
-    "leaves": [6, 7, 8, 9, 10],
+    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-4 (chapter arguments and verified marginal notes). Chapters 5 onward are in progress."
+    "coverage": "Book argument and Genesis 1-13 complete (chapter arguments and verified marginal notes). Genesis 14 is PARTIAL: the chapter argument and notes a-d (verses 1 and 3) are transcribed from leaf 17; the Melchizedek apparatus (notes e onward) falls on the next leaf, which was temporarily unavailable in the source imaging at transcription time and is deferred rather than reconstructed. Chapters 15 onward are in progress."
   },
   "annotations": [
     {
@@ -658,6 +658,996 @@
       "ref": "gn.4.26",
       "anchor": "call vpon the Name of the Lord",
       "text": "In these dayes God began to moue the hearts of the godlie to restore religion, which a long time by the wicked had bene suppressed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5:arg",
+      "kind": "argument",
+      "ref": "gn.5",
+      "text": "The genealogie, 5 Age and deathe of Adám, 6 His succession vnto Nóah and his children.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.1:a",
+      "kind": "note",
+      "ref": "gn.5.1",
+      "anchor": "in the likenes of God",
+      "text": "Read Chap. 1,26.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.2:b",
+      "kind": "note",
+      "ref": "gn.5.2",
+      "anchor": "called their name Adám",
+      "text": "By giuing them bothe one name, he noteth the inseparable coniunction of man and wife.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.3:c",
+      "kind": "note",
+      "ref": "gn.5.3",
+      "anchor": "in his owne likenes",
+      "text": "Aswel concerning his creation, as his corruption.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.4:d",
+      "kind": "note",
+      "ref": "gn.5.4",
+      "anchor": "after he had begotten Sheth",
+      "text": "He proueth Adams generation by them, which came of Sheth, to the whiche is the true Church, and also what care God had ouer the same from the beginning, in that he continued euer his graces toward it by a continual succession.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.8:e",
+      "kind": "note",
+      "ref": "gn.5.8",
+      "anchor": "nine hundreth and twelue yeres",
+      "text": "The chief cause of long life in the first age was the multiplication of mankinde, that according to Gods commandement at the beginning the worlde might be increased with people, which might vniuersally praise his Name.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.22:f",
+      "kind": "note",
+      "ref": "gn.5.22",
+      "anchor": "walked with God",
+      "text": "That is, he led an vpright and godlie life.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.24:g",
+      "kind": "note",
+      "ref": "gn.5.24",
+      "anchor": "he was no more sene",
+      "text": "To shewe there was a better life prepared, and to be a testimonie of the immortalitie of soules and bodies. As to inquire where he became, is mere curiositie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.5.29:h",
+      "kind": "note",
+      "ref": "gn.5.29",
+      "anchor": "comfort vs concerning our worke",
+      "text": "Lámech had respect to the promes, Chap. 3,15, and desired to se the deliuerer, which shulde be sent, and yet sawe but a figure thereof: he also spake this by the Spirit of prophecie, because Nóah deliuered the Church, and preserued it by his obedience.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6:arg",
+      "kind": "argument",
+      "ref": "gn.6",
+      "text": "God threateneth to bring the flood. 5 Man is altogether corrupt. 18 Nóah is preserued in the Arke, which he was commanded to make.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.2:a",
+      "kind": "note",
+      "ref": "gn.6.2",
+      "anchor": "the sonnes of God",
+      "text": "The children of the godlie, which began to degenerate.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.2:b",
+      "kind": "note",
+      "ref": "gn.6.2",
+      "anchor": "the daughters of men",
+      "text": "Those that came of wicked parents, as of Káin.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.2:c",
+      "kind": "note",
+      "ref": "gn.6.2",
+      "anchor": "they were faire",
+      "text": "Hauing more respect to their beautie, and to worldely considerations, then to their maners and godlines.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.3:d",
+      "kind": "note",
+      "ref": "gn.6.3",
+      "anchor": "My Spirit shal not alway striue with man",
+      "text": "Because man colde not be wonne by Gods lenitie and long sufferance, whereby he stroue to ouercome him, he wolde no longer stay his vengeance.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.3:e",
+      "kind": "note",
+      "ref": "gn.6.3",
+      "anchor": "an hundreth and twentie yeres",
+      "text": "Which terme God gaue man to repent before he wolde destroy the earth. 1 Pet. 3, 20.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.4:f",
+      "kind": "note",
+      "ref": "gn.6.4",
+      "anchor": "men of renoume",
+      "text": "Which vsurped autoritie ouer others, and did degenerate from the simplicitie wherein their fathers liued.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.6:g",
+      "kind": "note",
+      "ref": "gn.6.6",
+      "anchor": "it repented the Lord",
+      "text": "God doeth neuer repent, but speaketh after our capacitie, because he did destroye him: in that, as it were, he did disanowe him to be his creature.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.7:h",
+      "kind": "note",
+      "ref": "gn.6.7",
+      "anchor": "from man to beast",
+      "text": "God declareth how muche he detesteth sinne, seing the punishment thereof extendeth to the brute beastes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.8:i",
+      "kind": "note",
+      "ref": "gn.6.8",
+      "anchor": "founde grace in the eyes of the Lord",
+      "text": "God was merciful vnto him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.11:k",
+      "kind": "note",
+      "ref": "gn.6.11",
+      "anchor": "filled with crueltie",
+      "text": "Meaning that all were giuen to the contempt of God and oppression of their neighbours.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.16:l",
+      "kind": "note",
+      "ref": "gn.6.16",
+      "anchor": "the lowe, seconde and third roume",
+      "text": "That is, of thre heightes, as appeareth in this figure.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.18:m",
+      "kind": "note",
+      "ref": "gn.6.18",
+      "anchor": "establish my couenant",
+      "text": "To the intent that in this great enterprise and mockings of the whole worlde thou maist be confirmed, that thy faith faile not.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.6.22:n",
+      "kind": "note",
+      "ref": "gn.6.22",
+      "anchor": "so did he",
+      "text": "That is, he obeyed Gods commandements in all points.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7:arg",
+      "kind": "argument",
+      "ref": "gn.7",
+      "text": "Nóah and his entre into the Arke. 20 The flood destroyeth all the rest vpon the earth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.1:a",
+      "kind": "note",
+      "ref": "gn.7.1",
+      "anchor": "righteous before me in this age",
+      "text": "In respect of the rest of the worlde, and because he had a desire to serue God and liue vprightly.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.2:b",
+      "kind": "note",
+      "ref": "gn.7.2",
+      "anchor": "of euerie cleane beast",
+      "text": "Which might be offred in sacrifice, whereof six were for breed and the seuenth for sacrifice.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.9:c",
+      "kind": "note",
+      "ref": "gn.7.9",
+      "anchor": "came two and two vnto Nóah",
+      "text": "God compelled them to present themselues to Nóah, as they did before to Adám, when he gaue them names, Chap. 2, 19.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.11:d",
+      "kind": "note",
+      "ref": "gn.7.11",
+      "anchor": "the seconde moneth",
+      "text": "Which was about the beginning of Maie, when all things did moste florish.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.11:e",
+      "kind": "note",
+      "ref": "gn.7.11",
+      "anchor": "the fountaines of the great depe",
+      "text": "Bothe the waters in the earth did ouerflowe, and also the cloudes powred downe.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.15:f",
+      "kind": "note",
+      "ref": "gn.7.15",
+      "anchor": "of all flesh wherein is the breath of life",
+      "text": "Euerie liuing thing that God wolde haue to be preserued on earth, came into the Arke to Nóah.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.16:g",
+      "kind": "note",
+      "ref": "gn.7.16",
+      "anchor": "the Lord shut him in",
+      "text": "So that Gods secret power defended him against the rage of the mightie waters.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.23:h",
+      "kind": "note",
+      "ref": "gn.7.23",
+      "anchor": "he destroyed euerie thing",
+      "text": "That is, God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.7.23:i",
+      "kind": "note",
+      "ref": "gn.7.23",
+      "anchor": "Nóah onely remained",
+      "text": "Learne what it is to obey God onely, and to forsake the multitude. 1. Pet. 3, 20.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8:arg",
+      "kind": "argument",
+      "ref": "gn.8",
+      "text": "The waters asswage. 15 Nóah is commanded to come forthe of the Arke. 20 He sacrificeth to the Lord, 21 who promiseth that he wil no more drowne the worlde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.1:a",
+      "kind": "note",
+      "ref": "gn.8.1",
+      "anchor": "God remembred Nóah",
+      "text": "Not that God forgetteth his at any time, but when he sendeth succour, he sheweth that he remembreth them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.4:b",
+      "kind": "note",
+      "ref": "gn.8.4",
+      "anchor": "vpon the mountaines of Ararát",
+      "text": "Which were mountaines in Armenia.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.7:c",
+      "kind": "note",
+      "ref": "gn.8.7",
+      "anchor": "which went out going forthe and returning",
+      "text": "The rauen went out of the Arke, but returned not, because it founde carions to fede vpon.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.9:d",
+      "kind": "note",
+      "ref": "gn.8.9",
+      "anchor": "the doue founde no rest",
+      "text": "This teacheth vs that all the worlde is not able to giue vs one moment of rest, but onely God in whose hand are all creatures.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.11:e",
+      "kind": "note",
+      "ref": "gn.8.11",
+      "anchor": "an oliue leafe",
+      "text": "Whereby appeared that the trees remained, and also that God fauorablie regarded Nóah in giuing him hope of quietnes to come.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.17:f",
+      "kind": "note",
+      "ref": "gn.8.17",
+      "anchor": "bring forthe with thee",
+      "text": "The obedience of Nóah is set forthe, in that he wolde nothing enterprise without the assurance of Gods wil.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.19:g",
+      "kind": "note",
+      "ref": "gn.8.19",
+      "anchor": "went out of the Arke by their kindes",
+      "text": "For God had giuen them this instinct to kepe them selues in their kindes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.20:h",
+      "kind": "note",
+      "ref": "gn.8.20",
+      "anchor": "buylt an altar vnto the Lord",
+      "text": "For sacrifices, which were institute from the beginning, to teache man to acknowledge God the autor of life, and to giue him thankes for the same.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.21:i",
+      "kind": "note",
+      "ref": "gn.8.21",
+      "anchor": "a sauour of rest",
+      "text": "That is, he shewed him selfe content and appeased.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.21:k",
+      "kind": "note",
+      "ref": "gn.8.21",
+      "anchor": "the imaginacion of mans heart is euil",
+      "text": "God promiseth not to spare mankinde for their merites, but for that he wil be merciful notwithstanding their sinnes, whereunto they are giuen euen from their birth. Mat. 15, 19.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.8.22:l",
+      "kind": "note",
+      "ref": "gn.8.22",
+      "anchor": "the earth remaineth",
+      "text": "That is, all the times of the yere shal kepe their course to the worldes end.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9:arg",
+      "kind": "argument",
+      "ref": "gn.9",
+      "text": "The confirmacion of mariage. 3 Permission of meates. 6 The power of the sworde. 14 The rainebowe is the signe of Gods promes. 21 Nóah is drunken & mocked of his sonne, whome he curseth. 29 The age & death of Nóah.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.1:a",
+      "kind": "note",
+      "ref": "gn.9.1",
+      "anchor": "God blessed Nóah and his sonnes",
+      "text": "God increased them with frute, and declared vnto them his counsel touching replenishing of the earth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.2:b",
+      "kind": "note",
+      "ref": "gn.9.2",
+      "anchor": "the feare of you shalbe vpon euerie beast",
+      "text": "By the vertue of this commandement beastes rage not so muche against man as they wolde, yea and many serue to his vse thereby.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.3:c",
+      "kind": "note",
+      "ref": "gn.9.3",
+      "anchor": "Euerie thing that moueth and liueth shalbe meat for you",
+      "text": "By this permission man may with a good conscience vse the creatures of God for his necessitie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.4:d",
+      "kind": "note",
+      "ref": "gn.9.4",
+      "anchor": "flesh with the life thereof",
+      "text": "That is, liuing creatures, and the flesh of beastes that are strangled: and hereby all crueltie is forbidden.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.5:e",
+      "kind": "note",
+      "ref": "gn.9.5",
+      "anchor": "I wil require your blood",
+      "text": "That is, I wil take vengeance for your blood.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.6:f",
+      "kind": "note",
+      "ref": "gn.9.6",
+      "anchor": "Whoso shedeth mans blood, by man shal his blood be shed",
+      "text": "Not onely by the magistrate, but oft times God raiseth vp one murtherer to kil another.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.6:g",
+      "kind": "note",
+      "ref": "gn.9.6",
+      "anchor": "in the image of God hathe he made man",
+      "text": "Therefore to kil man is to deface Gods image, and so the iniurie is not onely done to man, but to God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.9:h",
+      "kind": "note",
+      "ref": "gn.9.9",
+      "anchor": "I establish my couenant with you",
+      "text": "To assure you that the worlde shalbe no more destroyed by a flood.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.10:i",
+      "kind": "note",
+      "ref": "gn.9.10",
+      "anchor": "with euerie liuing creature",
+      "text": "The children which are not yet borne, are comprehended in Gods couenant made with their fathers. Isa. 54,9.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.13:k",
+      "kind": "note",
+      "ref": "gn.9.13",
+      "anchor": "I haue set my bowe in the cloude",
+      "text": "Hereby we se that signes or sacraments oght not to be separate from the worde. Eccles. 43,12.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.15:l",
+      "kind": "note",
+      "ref": "gn.9.15",
+      "anchor": "Then wil I remember my couenant",
+      "text": "When men shal se my bowe in the heauen, they shal knowe that I haue not forgotten my couenant with them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.17:m",
+      "kind": "note",
+      "ref": "gn.9.17",
+      "anchor": "This is the signe of the couenant",
+      "text": "God doeth repeat this the oftener to confirme Nóahs faith so muche more.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.18:n",
+      "kind": "note",
+      "ref": "gn.9.18",
+      "anchor": "the sonnes of Nóah going forthe of the Arke",
+      "text": "He declareth what the vertue was of Gods blessing, when he said, Increase and bring forthe. Chap. 1,28.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.20:o",
+      "kind": "note",
+      "ref": "gn.9.20",
+      "anchor": "began to be an housband man",
+      "text": "This is set before our eies to shewe what an horrible thing dronkennes is.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.21:p",
+      "kind": "note",
+      "ref": "gn.9.21",
+      "anchor": "was vncouered in the middes of his tent",
+      "text": "Of whome came the Canaanites that wicked nation, who were also cursed of God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.22:q",
+      "kind": "note",
+      "ref": "gn.9.22",
+      "anchor": "sawe the nakednes of his father, and tolde his two brethren",
+      "text": "In derision and contempt of his father.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.25:r",
+      "kind": "note",
+      "ref": "gn.9.25",
+      "anchor": "Cursed be Canáan",
+      "text": "He pronounceth as a Prophet the curse of God against all them, that honour not their parents: for Ham and his posteritie were accursed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.25:s",
+      "kind": "note",
+      "ref": "gn.9.25",
+      "anchor": "a seruant of seruantes",
+      "text": "That is, a moste vile slaue.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.9.27:t",
+      "kind": "note",
+      "ref": "gn.9.27",
+      "anchor": "that he may dwel in the tentes of Shem",
+      "text": "He declareth that the Gentiles, which came of Iapheth and were separated from the Church, shulde be ioyned to the same by the persuasion of Gods Spirit and preaching of the Gospel.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10:arg",
+      "kind": "argument",
+      "ref": "gn.10",
+      "text": "The increase of mankinde by Nóah and his sonnes. 10 The beginning of cities, contreis and nations.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.1:a",
+      "kind": "note",
+      "ref": "gn.10.1",
+      "anchor": "these are the generacions of the sonnes of Nóah",
+      "text": "These generacions are here recited partely to declare the marueilous increase in so smale a time, and also to set forthe their great forgetfulnes of Gods graces toward their fathers.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.2:b",
+      "kind": "note",
+      "ref": "gn.10.2",
+      "anchor": "Madái, and Iauán",
+      "text": "Of Madái, and Iauán came the Medes and Grekes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.5:c",
+      "kind": "note",
+      "ref": "gn.10.5",
+      "anchor": "the yles of the Gentiles",
+      "text": "The Iewes so call all countreis which are separated from them by sea, as Grecia, Italie, &c which were giuen to the children of Iapheth, of whome came the Gentiles.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.6:d",
+      "kind": "note",
+      "ref": "gn.10.6",
+      "anchor": "the sonnes of Ham were Cush, and Mizráim",
+      "text": "Of Cush and Mizráim came the Ethiopians and Egyptians.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.8:e",
+      "kind": "note",
+      "ref": "gn.10.8",
+      "anchor": "Nimród, who began to be mightie in the earth",
+      "text": "Meaning, a cruel oppressor and tyrant.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.9:f",
+      "kind": "note",
+      "ref": "gn.10.9",
+      "anchor": "As Nimród the mightie hunter before the Lord",
+      "text": "His tyrannie came into a prouerbe as hated bothe of God and man: for he passed not to commit crueltie euen in Gods presence.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.10:g",
+      "kind": "note",
+      "ref": "gn.10.10",
+      "anchor": "the beginning of his kingdome was Babél",
+      "text": "For there was another citie in Egypt called also Babél.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.13:h",
+      "kind": "note",
+      "ref": "gn.10.13",
+      "anchor": "Mizráim begate Ludím",
+      "text": "Of Lud came the Lydians.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.21:i",
+      "kind": "note",
+      "ref": "gn.10.21",
+      "anchor": "Vnto Shem also the father of all the sonnes of Eber",
+      "text": "In his stock the Church was preserued: therfore Moses leaueth of speaking of Iapheth and Ham, and intreateth of Shem more at large.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.21:k",
+      "kind": "note",
+      "ref": "gn.10.21",
+      "anchor": "the sonnes of Eber",
+      "text": "Of whome came the Ebrewes or Iewes. 1 Chro. 1,17.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.10.25:l",
+      "kind": "note",
+      "ref": "gn.10.25",
+      "anchor": "in his dayes was the earth diuided",
+      "text": "This diuision came by the diuersitie of languages, as appeareth chap. 11,9.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11:arg",
+      "kind": "argument",
+      "ref": "gn.11",
+      "text": "The buylding of Babél was the cause of the confusion of tongues. 10 The age and generacion of Shem vnto Abram. 31 Abrams departure from Vr with his father Térah, Saraí & Lot. 32 The age and death of Térah.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.2:a",
+      "kind": "note",
+      "ref": "gn.11.2",
+      "anchor": "as they went from the East",
+      "text": "In the yere an hundreth and thirtie after the flood.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.2:b",
+      "kind": "note",
+      "ref": "gn.11.2",
+      "anchor": "they founde a plaine in the land of Shinár",
+      "text": "To wit, Nimród and his companie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.2:c",
+      "kind": "note",
+      "ref": "gn.11.2",
+      "anchor": "from the East",
+      "text": "That is, from Armenia, where the Arke stayed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.2:d",
+      "kind": "note",
+      "ref": "gn.11.2",
+      "anchor": "in the land of Shinár",
+      "text": "Which was afterward called Caldea.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.4:e",
+      "kind": "note",
+      "ref": "gn.11.4",
+      "anchor": "let vs buylde vs a citie and a tower",
+      "text": "They were moued with pride and ambition, thinking to preferre their own glorie to Gods honour.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.5:f",
+      "kind": "note",
+      "ref": "gn.11.5",
+      "anchor": "But the Lord came downe, to se the citie and tower",
+      "text": "Meaning, that he declared by effect that he knewe their wicked entreprise: for Gods power is euerie where.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.6:g",
+      "kind": "note",
+      "ref": "gn.11.6",
+      "anchor": "Beholde, the people is one",
+      "text": "God speaketh this in derision because of their foolish persuasion and enterprise.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.7:h",
+      "kind": "note",
+      "ref": "gn.11.7",
+      "anchor": "let vs go downe, and there confounde their language",
+      "text": "He speaketh, as thogh he toke counsel with his owne wisdome and power: to wit, with the Sonne and holy Gost: signifying the greatnes and certeintie of the punishment.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.9:i",
+      "kind": "note",
+      "ref": "gn.11.9",
+      "anchor": "the name of it was called Babél",
+      "text": "By this great plague of the confusion of tongues, appeareth Gods horrible iudgement against mans pride and vaine glorie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.10:k",
+      "kind": "note",
+      "ref": "gn.11.10",
+      "anchor": "These are the generacions of Shem",
+      "text": "He returneth to the genealogie of Shem, to come to the historie of Abrám, wherein the Church of God is described, which is Moses principal purpose.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.27:l",
+      "kind": "note",
+      "ref": "gn.11.27",
+      "anchor": "Térah begate Abrám, Nahór, and Harán",
+      "text": "He maketh mencion first of Abrám, not because he was the first borne, but for the historie, which properly apperteineth vnto him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.29:m",
+      "kind": "note",
+      "ref": "gn.11.29",
+      "anchor": "the father of Iscáh",
+      "text": "Some thinke that this Iscáh was Saraí.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.31:n",
+      "kind": "note",
+      "ref": "gn.11.31",
+      "anchor": "Then Térah toke Abrám his sonne",
+      "text": "Albeit the oracle of God came to Abram, yet the honour is giuen to Térah, because he was the father. Iosh. 24,2.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.11.31:o",
+      "kind": "note",
+      "ref": "gn.11.31",
+      "anchor": "they came to Harán, and dwelt there",
+      "text": "Which was a citie of Mesopotamia.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12:arg",
+      "kind": "argument",
+      "ref": "gn.12",
+      "text": "Abrám by Gods commandement goeth to Canáan. 3 Christ is promised. 7 Abram buyldeth altars for exercise and declaration of his faith among the infidelles. 10 Because of the derthe he goeth into Egypt. 15 Pharaoh taketh his wife, and is punished.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.1:a",
+      "kind": "note",
+      "ref": "gn.12.1",
+      "anchor": "Get thee out of thy countrei",
+      "text": "From the flood to this time were thre hundreth thre score and thre yere.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.1:b",
+      "kind": "note",
+      "ref": "gn.12.1",
+      "anchor": "vnto the land that I wil shewe thee",
+      "text": "In appointing him no certeine place he proueth so muche more his faith and obedience.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.3:c",
+      "kind": "note",
+      "ref": "gn.12.3",
+      "anchor": "in thee shal all families of the earth be blessed",
+      "text": "The worlde shal recouer by thy sede, which is Christ, the blessing which we lost in Adám.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.5:d",
+      "kind": "note",
+      "ref": "gn.12.5",
+      "anchor": "the soules that they had gotten in Harán",
+      "text": "Meaning, as wel seruants as cattel.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.6:e",
+      "kind": "note",
+      "ref": "gn.12.6",
+      "anchor": "passed through the land vnto the place of Shechém",
+      "text": "He wandred to and tro in the land before he colde finde a settling place: thus God exerciseth the faith of his children.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.6:f",
+      "kind": "note",
+      "ref": "gn.12.6",
+      "anchor": "the Canaanite was then in the land",
+      "text": "Which was a cruel and rebellious nation, by whome God kept his in a continual exercise.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.7:g",
+      "kind": "note",
+      "ref": "gn.12.7",
+      "anchor": "there buylded he an altar vnto the Lord",
+      "text": "It was not ynough for him to worship God in his heart, but it was expedient to declare by outward profession his faith before men, whereof this altar was a signe.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.8:h",
+      "kind": "note",
+      "ref": "gn.12.8",
+      "anchor": "remouing thence vnto a mountaine Eastward from Beth-él",
+      "text": "Because of the troubles that he had among that wicked people.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.8:i",
+      "kind": "note",
+      "ref": "gn.12.8",
+      "anchor": "called on the name of the Lord",
+      "text": "And so serued the true God and renounced all idolatrie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.9:k",
+      "kind": "note",
+      "ref": "gn.12.9",
+      "anchor": "Abrám went forthe going and iourneing towarde the South",
+      "text": "Thus the children of God may loke for no rest in this worlde, but must waite for the heauenlie rest and quietnes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.10:l",
+      "kind": "note",
+      "ref": "gn.12.10",
+      "anchor": "there came a famine in the land",
+      "text": "This was a newe trial of Abrams faith: wherby we se that the end of one affliction is the beginning of an other.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.13:m",
+      "kind": "note",
+      "ref": "gn.12.13",
+      "anchor": "Say, I pray thee, that thou art my sister",
+      "text": "By this we maie learne not to vse vnlaufull meanes, nor to put others in danger to saue our selues: read verse twentie: albeit it maie appeare that Abrá feared not somuch death, as that, if he shuld die without issue, Gods promes shulde not haue take place: wherein appeared a weake faith.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.15:n",
+      "kind": "note",
+      "ref": "gn.12.15",
+      "anchor": "the woman was taken into Pharaohs house",
+      "text": "To be his wife.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.17:o",
+      "kind": "note",
+      "ref": "gn.12.17",
+      "anchor": "the Lord plagued Pharaóh and his house with great plagues",
+      "text": "The Lord toke the defence of this poore stranger against a mightie King: and as he is euer careful ouer his, so did he preserue Saraí.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.12.20:p",
+      "kind": "note",
+      "ref": "gn.12.20",
+      "anchor": "Pharaóh gaue men commandement concerning him",
+      "text": "To the entent that none shulde hurt him ether in his persone or goods.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13:arg",
+      "kind": "argument",
+      "ref": "gn.13",
+      "text": "Abrám departeth out of Egypt. 11 Lot departeth from him. 13 The wickednes of the Sodomites. 14 The promes made to Abram is renued. 18 Abram buyldeth an altar to the Lord.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.1:a",
+      "kind": "note",
+      "ref": "gn.13.1",
+      "anchor": "Then Abrám went vp from Egypt",
+      "text": "His great riches gotten in Egypt hindred him not to folowe his vocation.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.3:b",
+      "kind": "note",
+      "ref": "gn.13.3",
+      "anchor": "toward Beth-él",
+      "text": "He calleth the place by that name, which was after giuen vnto it. chap.28,19.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.6:c",
+      "kind": "note",
+      "ref": "gn.13.6",
+      "anchor": "So that the land colde not beare them",
+      "text": "This incommoditie came by their riches, which brake friendeship, and as it were, the bond of nature.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.7:d",
+      "kind": "note",
+      "ref": "gn.13.7",
+      "anchor": "the Canaanite and the Perizzite dwelled at that time in the land",
+      "text": "Who seing their contencion might blaspheme God and destroie them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.8:e",
+      "kind": "note",
+      "ref": "gn.13.8",
+      "anchor": "Let there be no strife",
+      "text": "He cutteth of the occasion of contencion: therfore the euil ceaseth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.9:f",
+      "kind": "note",
+      "ref": "gn.13.9",
+      "anchor": "if thou wilt take the left hand",
+      "text": "Abrám resigneth his owne right to bie peace.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.10:g",
+      "kind": "note",
+      "ref": "gn.13.10",
+      "anchor": "as the garden of the Lord",
+      "text": "Which was in Edén, chap.2,10.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.11:h",
+      "kind": "note",
+      "ref": "gn.13.11",
+      "anchor": "they departed the one from the other",
+      "text": "This was done by Gods prouidence, that onely Abram and his sede might dwel in the land of Canáan.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.11:i",
+      "kind": "note",
+      "ref": "gn.13.11",
+      "anchor": "Then Lot chose vnto him all the plaine of Iordén",
+      "text": "Lot thinking to get paradise found hel.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.14:k",
+      "kind": "note",
+      "ref": "gn.13.14",
+      "anchor": "the Lord said vnto Abrám (after that Lot was departed from him)",
+      "text": "The Lord comforted him, lest he shulde haue taken thoght for the departure of his nephew. Chap.12,7. & 15,1. & 26,4.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.13.15:l",
+      "kind": "note",
+      "ref": "gn.13.15",
+      "anchor": "wil I giue vnto thee and to thy sede for euer",
+      "text": "Meaning, a long time, and til the comming of Christ, as Exo.21,6.deu.15,17.ier.2,20 and spiritually, this is referred to the true children of Abrám, borne according to the promes, and not according to the flesh, which are heires of the true land of Canáan.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14:arg",
+      "kind": "argument",
+      "ref": "gn.14",
+      "text": "12 In the ouerthrowe of Sodóm Lot is taken prisoner. 16 Abram deliuereth him. 18 Melchi-zedek commeth to mete him. 23 Abrám wolde not be enriched by the King of Sodóm.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.1:a",
+      "kind": "note",
+      "ref": "gn.14.1",
+      "anchor": "Shinár",
+      "text": "That is, of Babylon: by Kings here meaning them, that were gouernours of cities.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.1:b",
+      "kind": "note",
+      "ref": "gn.14.1",
+      "anchor": "the nacions",
+      "text": "Of a people gathered of diuers coūtries.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.3:c",
+      "kind": "note",
+      "ref": "gn.14.3",
+      "anchor": "ioyned together",
+      "text": "Ambicion is the chief cause of warres among princes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.3:d",
+      "kind": "note",
+      "ref": "gn.14.3",
+      "anchor": "the salte Sea",
+      "text": "Called also the dead Sea, or the lake Asphaltite nere vnto Sodóm and Gomoráh.",
       "source": "geneva-notes"
     }
   ]
