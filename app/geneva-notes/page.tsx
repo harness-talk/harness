@@ -185,8 +185,8 @@ export default function GenevaNotesPage() {
           </p>
           <p className="not-prose rounded-sm border border-rule bg-foreground/[0.02] p-4 text-[0.9rem] leading-relaxed text-foreground/80">
             On harness.talk the verse text is served from a clean transcription of the <strong>1599</strong> edition, and
-            the facsimile pages are the <strong>1560</strong> first edition. The note <em>text</em> is a separate,
-            clearly-labelled experimental reconstruction — see below.
+            the facsimile pages are the <strong>1560</strong> first edition. The note <em>text</em> is transcribed by hand
+            from those 1560 pages, book by book, in the reformers&apos; own spelling — see below.
           </p>
         </section>
 
@@ -214,19 +214,19 @@ export default function GenevaNotesPage() {
             </a>
           </div>
           <p className="mt-6 flex flex-wrap items-center gap-3">
-            <StatusBadge status="partial">Readable note text · future work</StatusBadge>
+            <StatusBadge status="partial">Note text · transcribed book by book</StatusBadge>
           </p>
           <p>
-            Turning the notes into clean, searchable <em>text</em> is a harder problem, and we would rather be honest
-            about it than fake it. No clean public-domain transcription of the 1560 notes exists, and the only machine
-            text on the facsimile is an OCR of the old type that is too garbled to publish as the reformers&apos; words
-            without inventing them. So for now the notes come back as the <em>page</em>, not as reconstructed text: the
-            reader&apos;s margin stays empty rather than show anything unverified, and the API answers{" "}
-            <code>source_not_ingested</code> for the note text. See{" "}
+            The notes are also coming back as clean, searchable <em>text</em> — transcribed by hand from the 1560
+            facsimile pages, in the reformers&apos; own spelling, one book at a time. No usable public-domain transcription
+            of the 1560 notes existed, and the only machine text on the facsimile is an OCR of the old type too garbled to
+            publish, so we read the pages ourselves rather than invent the words. Each note is checkable against the page
+            it came from. Where a book has not been transcribed yet, the margin stands on the facsimile and the API
+            answers <code>source_not_ingested</code> for its note text. See{" "}
             <Link href="/translations#registry" className="text-rubric underline underline-offset-[3px]">
               the source registry
             </Link>{" "}
-            for exactly what is ingested and what is not.
+            for exactly which books are done.
           </p>
         </section>
 

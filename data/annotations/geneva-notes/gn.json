@@ -1,0 +1,664 @@
+{
+  "source": "geneva-notes",
+  "book": "gn",
+  "_provenance": {
+    "edition": "Geneva Bible, 1560 first edition",
+    "facsimile": "archive.org/details/1560-the-geneva-bible",
+    "leaves": [6, 7, 8, 9, 10],
+    "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
+    "coverage": "Book argument and Genesis 1-4 (chapter arguments and verified marginal notes). Chapters 5 onward are in progress."
+  },
+  "annotations": [
+    {
+      "id": "geneva-notes:gn:arg",
+      "kind": "argument",
+      "ref": "gn.1",
+      "text": "Moses in effect declareth the things which are here chiefly to be considered: First, that the worlde and all things therein were created by God, and that man being placed in this great tabernacle of the worlde to beholde Gods wonderful workes, and to praise his Name for the infinite graces, wherewith he had endued him, fel willingly from God through disobedience: who yet for his owne mercies sake restored him to life, and confirmed him in the same by his promes of Christ to come, by whome he shulde ouercome Satan, death and hel. Secondely, that the wicked, vnmindeful of Gods moste excellent benefites, remained stil in their wickednes, and falling moste horribly from sinne to sinne, prouoked God (who by his preachers called them continually to repentance) at length to destroye the whole worlde. Thirdly, he assureth vs by the example of Abraham, Izhak, Iaakob and the rest of the Patriarkes, that his mercies neuer faile them, whome he chuseth to be his Church, and to professe his Name in earth, but in all their afflictions and persecutions he euer assisteth them, sendeth comforte, and deliuereth them. And because the beginning, increase, preseruacion and successe thereof might be onely attributed to God, Moses sheweth by the examples of Kain, Ishmael, Esau and others, which were noble in mans iudgement, that this Church dependeth not on the estimacion and nobilitie of the worlde: and also by the fewenes of them, which haue at all times worshiped him purely according to his worde, that it standeth not in the multitude, but in the poore and dispised, in the smale flock and litle nomber, that man in his wisdome might be confounded, and the Name of God euer more praised.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1:arg",
+      "kind": "argument",
+      "ref": "gn.1",
+      "text": "God created the heauen and the earth, 3 The light and the darkenes, 8 The firmament. 9 He separateth the water from the earth 16 He createth the sunne, the moone, and the starres. 21 He createth the fish, birdes, beastes. 26 He createth man and giueth him rule ouer all creatures, 29 And prouideth nourriture for man and beast.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.1:a",
+      "kind": "note",
+      "ref": "gn.1.1",
+      "anchor": "In the beginning",
+      "text": "First of all, and before that anie creature was, God made heauen and earth of nothing.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.2:b",
+      "kind": "note",
+      "ref": "gn.1.2",
+      "anchor": "without forme and voyde",
+      "text": "As a lumpe, and without anie creature in it: for the waters couered all.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.2:c",
+      "kind": "note",
+      "ref": "gn.1.2",
+      "anchor": "darkenes was vpon the depe",
+      "text": "Darkenes couered the depe waters: for yet ye light was not created.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.2:d",
+      "kind": "note",
+      "ref": "gn.1.2",
+      "anchor": "the Spirit of God moued",
+      "text": "He maintained this confused heape by his secret power. Ebr. 11,3.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.3:e",
+      "kind": "note",
+      "ref": "gn.1.3",
+      "anchor": "Let there be light",
+      "text": "The light was made before either sunne or moone was created: therefore we must not attribute that to the creatures that are Gods instruments, which onely apperteineth to God. The 1. day.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.7:f",
+      "kind": "note",
+      "ref": "gn.1.7",
+      "anchor": "the waters which were vnder the firmament",
+      "text": "As the sea and riuers, from those waters that are in the cloudes, which are vpholden by Gods power, lest they shulde ouerwhelme the worlde. Psal. 148,4.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.8:g",
+      "kind": "note",
+      "ref": "gn.1.8",
+      "anchor": "God called the firmament, Heauen",
+      "text": "That is, the region of the ayre, and all that is aboue vs. The 2. day.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.11:h",
+      "kind": "note",
+      "ref": "gn.1.11",
+      "anchor": "Let the earth budde forthe",
+      "text": "So that we se it is the onely power of Gods worde that maketh the earth fruteful, which els naturally is barren.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.11:i",
+      "kind": "note",
+      "ref": "gn.1.11",
+      "anchor": "and it was so",
+      "text": "This sentence is so oft repeated to signe that God made all creatures to serue to his glorie, and to the profit of man: but for sinne they were acursed, yet to the elect by Christ they are restored and serue to their welth. The 3. day.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.14:k",
+      "kind": "note",
+      "ref": "gn.1.14",
+      "anchor": "Let there be lightes",
+      "text": "By the lightes he meaneth the sunne, the moone and the starres. deut. 4,19.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.14:l",
+      "kind": "note",
+      "ref": "gn.1.14",
+      "anchor": "to separate the daie from the night",
+      "text": "Which is the artificial day, from the sunne rising to the going downe.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.14:m",
+      "kind": "note",
+      "ref": "gn.1.14",
+      "anchor": "for signes, and for seasons",
+      "text": "Of things apperteining to natural and political ordres and seasons.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.16:n",
+      "kind": "note",
+      "ref": "gn.1.16",
+      "anchor": "two great lightes",
+      "text": "To wit, the sunne and the moone: and here he speaketh as man iudgeth by his eye: for els the moone is lesse then the planete Saturn.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.17:o",
+      "kind": "note",
+      "ref": "gn.1.17",
+      "anchor": "to giue light vpon the earth",
+      "text": "To giue sufficient light, as instruments appointed for the same, to serue to mans vse. iere. 31,35.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.19:p",
+      "kind": "note",
+      "ref": "gn.1.19",
+      "anchor": "the fourth daie",
+      "text": "The 4. day.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.20:q",
+      "kind": "note",
+      "ref": "gn.1.20",
+      "anchor": "the mouing creature that hathe life",
+      "text": "As fish and wormes which slide, swimme or crepe.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.22:r",
+      "kind": "note",
+      "ref": "gn.1.22",
+      "anchor": "God blessed them, saying",
+      "text": "That is, by the vertue of his worde he gaue power to his creatures to ingendre. The 5. day.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.26:s",
+      "kind": "note",
+      "ref": "gn.1.26",
+      "anchor": "Let vs make man in our image",
+      "text": "God comanded the water and the earth to bring forthe other creatures: but of man he made him self the workeman, signifying that God taketh counsel with his wisdome and vertue, purposing to make an excellent worke aboue all the rest of his creacion.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.26:t",
+      "kind": "note",
+      "ref": "gn.1.26",
+      "anchor": "according to our likenes",
+      "text": "This image and licknes of God in man is expounded Ephes. 4,24: where he is wisdom that man was created after God in righteousnes and true holines, meaning by these two wordes all perfection, as wisdome, trueth, innocencie, power, and such like.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.28:u",
+      "kind": "note",
+      "ref": "gn.1.28",
+      "anchor": "Bring forthe frute and multiplie",
+      "text": "The propagacion of man is the blessing of God. Psal. 128.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.1.29:x",
+      "kind": "note",
+      "ref": "gn.1.29",
+      "anchor": "I haue giuen vnto you euerie herbe",
+      "text": "Gods great liberalitie to man taketh away all excuse of his ingratitude.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2:arg",
+      "kind": "argument",
+      "ref": "gn.2",
+      "text": "God resteth the seuenth day, and sanctifieth it. 15 He setteth man in the garden. 22 He createth the woman. 29 Mariage is ordeined.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.1:a",
+      "kind": "note",
+      "ref": "gn.2.1",
+      "anchor": "the heauens and the earth were finished",
+      "text": "That is, the innumerable abundance of creatures in heauen and earth. Exod. 20,11. and 31,17. ebr. 4,4.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.2:b",
+      "kind": "note",
+      "ref": "gn.2.2",
+      "anchor": "he rested the seuenth day",
+      "text": "For he had now finished his creation, but his prouidence stil watcheth ouer his creatures, and gouerneth them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.3:c",
+      "kind": "note",
+      "ref": "gn.2.3",
+      "anchor": "sanctified it",
+      "text": "Appointed it to be kept holy, that man might therein consider the excellencie of his workes and Gods goodnes towards him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.5:d",
+      "kind": "note",
+      "ref": "gn.2.5",
+      "anchor": "the Lord God had not caused it to raine vpon the earth",
+      "text": "God onely openeth the heauens and shutteth them, he sendeth drought and raine according to his good pleasure.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.7:e",
+      "kind": "note",
+      "ref": "gn.2.7",
+      "anchor": "made the man of the dust of the grounde",
+      "text": "He sheweth whereof mans bodye was created, to the intent that man shulde not glorie in the excellencie of his owne nature.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.8:f",
+      "kind": "note",
+      "ref": "gn.2.8",
+      "anchor": "a garden Eastwarde in Eden",
+      "text": "This was the name of a place, as some thinke, in Mesopotamia, moste pleasant and abundant in all things.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.9:g",
+      "kind": "note",
+      "ref": "gn.2.9",
+      "anchor": "the tre of life",
+      "text": "Which was a signe of the life receaued of God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.9:h",
+      "kind": "note",
+      "ref": "gn.2.9",
+      "anchor": "the tre of knowledge of good and euil",
+      "text": "That is, of miserable experience, which came by disobeying God. Eccle. 24,35.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.11:i",
+      "kind": "note",
+      "ref": "gn.2.11",
+      "anchor": "the whole land of Hauiláh",
+      "text": "Which Hauiláh is a countrey ioyning to Persia Estwarde and enclineth towarde the West.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.15:k",
+      "kind": "note",
+      "ref": "gn.2.15",
+      "anchor": "put him into the garden of Eden, that he might dresse it",
+      "text": "God wolde not haue man ydle, thogh as yet there was no nede to labour.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.16:l",
+      "kind": "note",
+      "ref": "gn.2.16",
+      "anchor": "the Lord God commanded the man",
+      "text": "So that man might knowe there was a soueraigne Lord, to whome he owed obedience.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.17:m",
+      "kind": "note",
+      "ref": "gn.2.17",
+      "anchor": "thou shalt dye the death",
+      "text": "By this death he meaneth the separacion of man from God, who is our life and chief felicitie: and also that our disobedience is the cause thereof.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.19:n",
+      "kind": "note",
+      "ref": "gn.2.19",
+      "anchor": "broght them vnto the man",
+      "text": "By meuing them to come and submit them selues to Adám.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.22:o",
+      "kind": "note",
+      "ref": "gn.2.22",
+      "anchor": "made he a woman",
+      "text": "Signifying that mankinde was perfit, when the woman was created, which before was like an vnperfit buylding.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.24:p",
+      "kind": "note",
+      "ref": "gn.2.24",
+      "anchor": "shal man leaue his father and his mother",
+      "text": "So that mariage requireth a greater duetie of vs towarde our wiues, then otherwise we are bounde to shewe to our parents.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.2.25:q",
+      "kind": "note",
+      "ref": "gn.2.25",
+      "anchor": "were not ashamed",
+      "text": "For before sinne entred, all things were honest and comely.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3:arg",
+      "kind": "argument",
+      "ref": "gn.3",
+      "text": "The woman seduced by the serpent, 6 Entiseth her housband to sinne. 14 They thre are punished 15 Christ is promised 19 Man is dust. 22 Man is cast out of paradise.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.1:a",
+      "kind": "note",
+      "ref": "gn.3.1",
+      "anchor": "the serpent was more subtil then anie beast",
+      "text": "As Satan can change him selfe into an Angel of light, so did he abuse the wisdome of the serpent to deceaue man.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.1:b",
+      "kind": "note",
+      "ref": "gn.3.1",
+      "anchor": "he said to the woman",
+      "text": "God suffered Satan to make the serpent his instrument and to speake in him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.3:c",
+      "kind": "note",
+      "ref": "gn.3.3",
+      "anchor": "lest ye dye",
+      "text": "In douting of Gods threatning she yelded to Satan.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.5:e",
+      "kind": "note",
+      "ref": "gn.3.5",
+      "anchor": "ye shalbe as gods, knowing good and euil",
+      "text": "As thogh he shulde say, God doeth not forbid you to eat of the frute, saue that he knoweth that if you shulde eat thereof, you shulde be like to him. Eccles. 25,33. 1 tim. 2,14.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.6:f",
+      "kind": "note",
+      "ref": "gn.3.6",
+      "anchor": "and he did eat",
+      "text": "Not so muche to please his wife, as moued by ambicion at her persuasion.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.7:g",
+      "kind": "note",
+      "ref": "gn.3.7",
+      "anchor": "they knewe that they were naked",
+      "text": "They began to fele their miserie, but they soght not to God for remedie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.8:h",
+      "kind": "note",
+      "ref": "gn.3.8",
+      "anchor": "hid them selues from the presence of the Lord God",
+      "text": "The sinful conscience fleeth Gods presence.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.10:i",
+      "kind": "note",
+      "ref": "gn.3.10",
+      "anchor": "I was naked, therefore I hid my self",
+      "text": "His hypocrisie appeareth in that he hid the cause of his nakednes, which was the transgression of Gods commandement.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.12:k",
+      "kind": "note",
+      "ref": "gn.3.12",
+      "anchor": "The woman which thou gauest to be with me",
+      "text": "His wickednes and lacke of true repentance appeareth in this, that he burdeneth God with his faute, because he had giuen him a wife.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.13:l",
+      "kind": "note",
+      "ref": "gn.3.13",
+      "anchor": "The serpent beguyled me",
+      "text": "In stead of confessing her sinne, she increaseth it by accusing the serpent.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.14:m",
+      "kind": "note",
+      "ref": "gn.3.14",
+      "anchor": "Because thou hast done this",
+      "text": "He asked the reason of Adám and his wife, because he wolde bring them to repentance, but he asketh not the serpent, because he wolde shewe him no mercie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.14:n",
+      "kind": "note",
+      "ref": "gn.3.14",
+      "anchor": "dust shalt thou eat all the dayes of thy life",
+      "text": "As a vile and contemptible beast. Isa. 65,25.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.15:o",
+      "kind": "note",
+      "ref": "gn.3.15",
+      "anchor": "put enimitie betwene thee and the woman",
+      "text": "He chiefly meaneth Satan, by whose motion and craft the serpent deceiued the woman.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.15:p",
+      "kind": "note",
+      "ref": "gn.3.15",
+      "anchor": "He shal breake thine head",
+      "text": "That is, the power of sinne and death.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.15:q",
+      "kind": "note",
+      "ref": "gn.3.15",
+      "anchor": "thou shalt bruise his heele",
+      "text": "Satan shal sting Christ and his members, but not ouercome them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.16:r",
+      "kind": "note",
+      "ref": "gn.3.16",
+      "anchor": "I wil greatly increase thy sorowes",
+      "text": "The Lord comforteth Adám by the promes of the blessed sede, and also punisheth the body for the sinne, which the soule shulde haue bene punished for, that the spirit hauing conceiued hope of forgiuenes, might liue by faith.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.17:s",
+      "kind": "note",
+      "ref": "gn.3.17",
+      "anchor": "cursed is the earth for thy sake",
+      "text": "The transgression of Gods commandement was the cause that bothe mankinde and all other creatures were subiect to the curse.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.18:t",
+      "kind": "note",
+      "ref": "gn.3.18",
+      "anchor": "Thornes also, and thystles shal it bring forthe to thee",
+      "text": "These are not the natural frutes of the earth, but procede of the corruption of sinne.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.21:u",
+      "kind": "note",
+      "ref": "gn.3.21",
+      "anchor": "make coates of skinnes",
+      "text": "Or, gaue them knowledge to make them selues coates.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.22:x",
+      "kind": "note",
+      "ref": "gn.3.22",
+      "anchor": "Beholde, the man is become as one of vs",
+      "text": "By this derision he reprocheth Adáms miserie, whereinto he was fallen by ambition.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.3.22:y",
+      "kind": "note",
+      "ref": "gn.3.22",
+      "anchor": "take also of the tre of life",
+      "text": "Adám depriued of life lost also the signe thereof.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4:arg",
+      "kind": "argument",
+      "ref": "gn.4",
+      "text": "The generacion of mankinde. 8 Káin killeth Hábel. 23 Lámech a tyrant encourageth his fearful wiues. 26 True religion is restored.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.1:a",
+      "kind": "note",
+      "ref": "gn.4.1",
+      "anchor": "conceiued and bare Káin",
+      "text": "Mans nature, the state of mariage, and Gods blessing were not vtterly abolished through sinne, but the qualitie or condition thereof was changed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.1:b",
+      "kind": "note",
+      "ref": "gn.4.1",
+      "anchor": "I haue obteined a man by the Lord",
+      "text": "That is, according to the Lords promes, Chap. 3,15: so she read, as reioysing for the sonne, whome she wolde offer to the Lord as the first frutes of her birth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.3:c",
+      "kind": "note",
+      "ref": "gn.4.3",
+      "anchor": "an oblacion vnto the Lord",
+      "text": "This declareth that the father instructed his children in the knowledge of God, and also how God gaue the sacrifices to signifie their saluation, albeit they were destitute of the sacrament of the tre of life. Ebr. 11,4.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.5:d",
+      "kind": "note",
+      "ref": "gn.4.5",
+      "anchor": "he had no regarde",
+      "text": "Because he was an hypocrite and offred onely for outwarde shew without sinceritie of heart.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.7:e",
+      "kind": "note",
+      "ref": "gn.4.7",
+      "anchor": "shalt thou not be accepted",
+      "text": "Bothe thou and thy sacrifice shalbe acceptable to me.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.7:f",
+      "kind": "note",
+      "ref": "gn.4.7",
+      "anchor": "sinne lieth at the dore",
+      "text": "Sinne shal torment thy conscience.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.7:g",
+      "kind": "note",
+      "ref": "gn.4.7",
+      "anchor": "vnto thee his desire shal be subiect",
+      "text": "The dignitie of the first borne is giuen to Káin ouer his brother Hábel. Wisd. 10,3. mat. 23,35. 1 ioh. 3,12.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.9:h",
+      "kind": "note",
+      "ref": "gn.4.9",
+      "anchor": "Am I my brothers keper",
+      "text": "This is the nature of the reprobate, when they are reproued of their hypocrisie, euen to neglect God and despite him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.10:i",
+      "kind": "note",
+      "ref": "gn.4.10",
+      "anchor": "the voyce of thy brothers blood cryeth",
+      "text": "God reuengeth the wrongs of his Saints, thogh none complaine: for the iniquitie it selfe cryeth for vengeance.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.11:k",
+      "kind": "note",
+      "ref": "gn.4.11",
+      "anchor": "thou art cursed from the earth",
+      "text": "The earth shalbe a witnes against thee, which mercifully receiued that blood, and thou moste cruelly shed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.12:l",
+      "kind": "note",
+      "ref": "gn.4.12",
+      "anchor": "a vagabonde and a rennegate",
+      "text": "Thou shalt neuer haue rest: for thine heart shalbe in continual feare and care.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.13:m",
+      "kind": "note",
+      "ref": "gn.4.13",
+      "anchor": "My punishment is greater then I can beare",
+      "text": "He burdeneth God as a cruel iudge.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.15:n",
+      "kind": "note",
+      "ref": "gn.4.15",
+      "anchor": "he shalbe punished seuen folde",
+      "text": "Not for the loue he bare to Káin, but to suppresse murther.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.15:o",
+      "kind": "note",
+      "ref": "gn.4.15",
+      "anchor": "the Lord set a marke vpon Káin",
+      "text": "A visible signe of Gods iudgement that others shulde feare.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.17:p",
+      "kind": "note",
+      "ref": "gn.4.17",
+      "anchor": "buylt a citie",
+      "text": "Thinking thereby to be sure and to haue lesse occasion to feare Gods iudgements against him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.19:q",
+      "kind": "note",
+      "ref": "gn.4.19",
+      "anchor": "toke to him two wiues",
+      "text": "The lawful institucion of mariage, which is that two shulde be one flesh, was first corrupt in the house of Káin by Lámech.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.23:r",
+      "kind": "note",
+      "ref": "gn.4.23",
+      "anchor": "for I wolde slaye a man in my woúde",
+      "text": "His wiues seing that all men hated him for his crueltie, were afraied: therefore he braggeth that there is none so lusty that were able to resist, althogh he were already wounded.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.24:s",
+      "kind": "note",
+      "ref": "gn.4.24",
+      "anchor": "seuentie times seuen folde",
+      "text": "He mocked at Gods sufferance in Káin, iesting as thogh God wolde suffre none to punish him, and yet gaue him licence to murther others.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.4.26:t",
+      "kind": "note",
+      "ref": "gn.4.26",
+      "anchor": "call vpon the Name of the Lord",
+      "text": "In these dayes God began to moue the hearts of the godlie to restore religion, which a long time by the wicked had bene suppressed.",
+      "source": "geneva-notes"
+    }
+  ]
+}
