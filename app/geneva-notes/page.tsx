@@ -214,13 +214,15 @@ export default function GenevaNotesPage() {
             </a>
           </div>
           <p className="mt-6 flex flex-wrap items-center gap-3">
-            <StatusBadge status="partial">Reconstructed notes · experimental</StatusBadge>
+            <StatusBadge status="partial">Readable note text · future work</StatusBadge>
           </p>
           <p>
-            We are also rebuilding the note <em>text</em> so it can be read and searched. Because no clean transcription of
-            the 1560 notes exists, this layer is machine-reconstructed from the facsimile and is clearly labelled{" "}
-            <em>reconstructed / unverified</em> wherever it appears, always with a one-click path back to the original
-            page. It is never mixed with the trusted scripture text. See{" "}
+            Turning the notes into clean, searchable <em>text</em> is a harder problem, and we would rather be honest
+            about it than fake it. No clean public-domain transcription of the 1560 notes exists, and the only machine
+            text on the facsimile is an OCR of the old type that is too garbled to publish as the reformers&apos; words
+            without inventing them. So for now the notes come back as the <em>page</em>, not as reconstructed text: the
+            reader&apos;s margin stays empty rather than show anything unverified, and the API answers{" "}
+            <code>source_not_ingested</code> for the note text. See{" "}
             <Link href="/translations#registry" className="text-rubric underline underline-offset-[3px]">
               the source registry
             </Link>{" "}

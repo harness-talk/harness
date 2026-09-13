@@ -6,8 +6,9 @@ import { GENEVA_1560_SOURCE_ID } from "./sources";
  * The 1560 Geneva Bible facsimile — real page photographs served from the Internet
  * Archive IIIF endpoint (CC0). This module maps a book+chapter to an APPROXIMATE opening
  * leaf and builds image / deep-link URLs. It serves no transcribed text: the archive item's
- * only text layer is unreliable OCR of the 1560 type (see the geneva-notes reconstruction
- * track). Mapping is opening-level, hand-calibrated, and always labelled approximate.
+ * only text layer is unreliable OCR of the 1560 type, so the notes come back as the page
+ * image, not as machine text. Mapping is opening-level, hand-calibrated, and always labelled
+ * approximate.
  */
 
 interface Sample {
