@@ -25,7 +25,9 @@ export function Marginalia({
   geneva: { available: boolean; reason?: string; annotations: Annotation[] };
 }) {
   const args = geneva.annotations.filter((a) => a.kind === "argument");
-  const notes = geneva.annotations.filter((a) => a.kind === "note");
+  const notes = geneva.annotations
+    .filter((a) => a.kind === "note")
+    .sort((a, b) => (Number(a.ref.split(".")[2]) || 0) - (Number(b.ref.split(".")[2]) || 0));
   const xrefs = geneva.annotations.filter((a) => a.kind === "crossref");
 
   return (

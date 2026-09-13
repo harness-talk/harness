@@ -4,9 +4,9 @@
   "_provenance": {
     "edition": "Geneva Bible, 1560 first edition",
     "facsimile": "archive.org/details/1560-the-geneva-bible",
-    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-15 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Chapters 16 onward are in progress."
+    "coverage": "Book argument and Genesis 1-16 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14, 15, and 16 and are carried as notes beginning with those words, exactly as printed. One faint gloss at Genesis 14:10 was omitted rather than reconstructed. Chapters 17 onward are in progress."
   },
   "annotations": [
     {
@@ -1743,6 +1743,173 @@
       "ref": "gn.15.16",
       "anchor": "measure of their wickednes is not yet ful",
       "text": "Thogh God suffre the wicked for a time, yet his vengeance falleth vpon them, when the measure of their wickednes is ful.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.5:or",
+      "kind": "note",
+      "ref": "gn.14.5",
+      "anchor": "Shaueh Kiriatháim",
+      "text": "Or, the plaine.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.15:ebr",
+      "kind": "note",
+      "ref": "gn.14.15",
+      "anchor": "Damascus",
+      "text": "Ebr. Damések.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.22:or",
+      "kind": "note",
+      "ref": "gn.14.22",
+      "anchor": "I haue lift vp mine hand",
+      "text": "Or, I haue sworne.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.23:ebr",
+      "kind": "note",
+      "ref": "gn.14.23",
+      "anchor": "so muche as a threde or shoulachet",
+      "text": "Ebr. If I take from thee a threde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.1:or",
+      "kind": "note",
+      "ref": "gn.15.1",
+      "anchor": "the worde of the Lord came vnto Abrám",
+      "text": "Or, the Lord spake to Abrám.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.12:ebr",
+      "kind": "note",
+      "ref": "gn.15.12",
+      "anchor": "a great fearefull darcknes fel vpon him",
+      "text": "Ebr. feare and great darcknes fel vpon him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.16:or",
+      "kind": "note",
+      "ref": "gn.15.16",
+      "anchor": "in the fourth generation",
+      "text": "Or, after foure hundreth yeres.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.18:ebr",
+      "kind": "note",
+      "ref": "gn.15.18",
+      "anchor": "the riuer Euphrates",
+      "text": "Ebr. Perath.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16:arg",
+      "kind": "argument",
+      "ref": "gn.16",
+      "text": "Saráí being barren, giueth Hagár to Abrám. 4 Which conceiueth & despiseth her dame. 6 And being il handled fleeth. 7 The Angel comforteth her. 11,12 The name and maners of her sonne. 13 She calleth vpon the Lord, whome she findeth true.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.1:a",
+      "kind": "note",
+      "ref": "gn.16.1",
+      "anchor": "bare him no children",
+      "text": "It semeth that she had respect to Gods promes, which colde not be accomplished without issue.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.2:b",
+      "kind": "note",
+      "ref": "gn.16.2",
+      "anchor": "restrayned me from childe bearing",
+      "text": "She faileth in binding Gods power to the commune ordre of nature, as thogh God colde not giue her children in her olde age.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.2:ebr",
+      "kind": "note",
+      "ref": "gn.16.2",
+      "anchor": "receiue a childe by her",
+      "text": "Ebr. be buylded by her.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.5:c",
+      "kind": "note",
+      "ref": "gn.16.5",
+      "anchor": "Thou doest me wrong",
+      "text": "This punishment declareth what thei gaine that attempt any thing against the worde of God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.5:ebr",
+      "kind": "note",
+      "ref": "gn.16.5",
+      "anchor": "Thou doest me wrong",
+      "text": "Ebr. mine iniurie is vpon thee.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.6:or",
+      "kind": "note",
+      "ref": "gn.16.6",
+      "anchor": "in thine hand",
+      "text": "Or, power.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.7:d",
+      "kind": "note",
+      "ref": "gn.16.7",
+      "anchor": "the Angel of the Lord founde her",
+      "text": "Which was Christ, as appeareth verse 10 & chap. 18.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.9:e",
+      "kind": "note",
+      "ref": "gn.16.9",
+      "anchor": "humble thy selfe vnder her handes",
+      "text": "God reiecteth none estate of people in their miseries, but sendeth them comfort.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.12:f",
+      "kind": "note",
+      "ref": "gn.16.12",
+      "anchor": "he shal dwel in the presence of all his brethren",
+      "text": "That is, the Ishmaelites shalbe a peculiar people by them selues & not a portion of an other people.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.12:or",
+      "kind": "note",
+      "ref": "gn.16.12",
+      "anchor": "he shalbe a wilde man",
+      "text": "Or, fearce and cruel, or, as a wilde asse.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.13:g",
+      "kind": "note",
+      "ref": "gn.16.13",
+      "anchor": "loked after him that seeth me",
+      "text": "She rebuketh her owne dulnes and acknowledgeth Gods graces, who was present with her euery where.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.16.14:or",
+      "kind": "note",
+      "ref": "gn.16.14",
+      "anchor": "Beér-laháí-roí",
+      "text": "Or, the well of the liuing and seing me.",
       "source": "geneva-notes"
     }
   ]
