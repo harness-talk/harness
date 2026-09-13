@@ -4,9 +4,9 @@
   "_provenance": {
     "edition": "Geneva Bible, 1560 first edition",
     "facsimile": "archive.org/details/1560-the-geneva-bible",
-    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-14 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Chapters 15 onward are in progress."
+    "coverage": "Book argument and Genesis 1-15 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Chapters 16 onward are in progress."
   },
   "annotations": [
     {
@@ -1696,6 +1696,53 @@
       "ref": "gn.14.24",
       "anchor": "the yong men haue eaten",
       "text": "He wolde not ÿ his liberalitie shulde be hurtful to others.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15:arg",
+      "kind": "argument",
+      "ref": "gn.15",
+      "text": "The Lord is Abrams defence and rewarde. 6 He is iustified by faith. 13 The seruitude and deliuerance out of Egypt is declared. 18 The land of Canáan is promised the fourth time.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.2:a",
+      "kind": "note",
+      "ref": "gn.15.2",
+      "anchor": "seing I go childeles",
+      "text": "His feare was not onely lest he shulde not haue children, but lest the promes of the blessed sede shulde not be accomplished in him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.8:b",
+      "kind": "note",
+      "ref": "gn.15.8",
+      "anchor": "whereby shal I knowe",
+      "text": "This is a particular motion of Gods Spirit, which is not lawful for all to followe in asking signes: but was permitted to some by a peculiar motion, as to Gideón and Ezechías.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.10:c",
+      "kind": "note",
+      "ref": "gn.15.10",
+      "anchor": "diuided them in the middes",
+      "text": "This was the olde custome in making couenants, Ierem. 34,18: to the which God added these conditions, that Abrams posteritie shulde be as torne in peces, but after thei shulde be coupled together: also that it shulde be assailed, but yet deliuered.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.13:d",
+      "kind": "note",
+      "ref": "gn.15.13",
+      "anchor": "foure hundreth yeres",
+      "text": "Counting from the birth of Izhák to their departure out of Egypt, which declareth that God wil suffer his to be afflicted in this worlde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.15.16:e",
+      "kind": "note",
+      "ref": "gn.15.16",
+      "anchor": "measure of their wickednes is not yet ful",
+      "text": "Thogh God suffre the wicked for a time, yet his vengeance falleth vpon them, when the measure of their wickednes is ful.",
       "source": "geneva-notes"
     }
   ]
