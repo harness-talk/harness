@@ -40,5 +40,26 @@
     "sha256": "8139d920f6396e3ce79374b0337a6f232cba86f7973d7d4be6ce9c425b7e60dd",
     "note": "CrossWire KJV SWORD module (v3.1, OSIS with Strong's). Casing witness: it marks the divine name explicitly (<divineName>), so its LORD/GOD vote is markup, not a transcriber's shift key. Contributes no text.",
     "fetchedAt": "2026-09-06T09:37:09.041Z"
+  },
+  "geneva-1560-meta": {
+    "url": "https://archive.org/download/1560-the-geneva-bible/1560-the-geneva-bible_meta.xml",
+    "into": "geneva-1560-meta.xml",
+    "note": "Internet Archive item metadata for the 1560 Geneva Bible first edition (identifier 1560-the-geneva-bible, CC0/public domain). Provenance anchor for the facsimile; contributes no served text.",
+    "sha256": "750f6d206fa1860994ff755a36c586283f813f101497dd3f917553e728bcb3a0",
+    "fetchedAt": "2026-09-13T08:00:13.013Z"
+  },
+  "geneva-1560-pages": {
+    "url": "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_page_numbers.json",
+    "into": "geneva-1560-page_numbers.json",
+    "note": "Leaf/page index for the 1560 facsimile. Used ONLY to map a book+chapter to an approximate opening leaf; contributes no served text.",
+    "sha256": "e2d36abc19f04766bba3adfb39a0fe8844c99841c03f80e388254ad7a922ba55",
+    "fetchedAt": "2026-09-13T08:00:13.013Z"
+  },
+  "geneva-1560-ocr": {
+    "url": "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_djvu.txt",
+    "into": "geneva-1560-djvu.txt",
+    "note": "Unreliable blackletter OCR of the 1560 facsimile. NEVER served as scripture; locked only as tamper-evident INPUT to the experimental notes-reconstruction pipeline.",
+    "sha256": "52bca831234725b063bd72ac9ba8e32142c9a314e53fbb838b29961b304fe73d",
+    "fetchedAt": "2026-09-13T08:00:13.013Z"
   }
 }

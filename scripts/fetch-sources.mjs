@@ -61,6 +61,24 @@ const SOURCES = {
     into: "geneva-1599",
     note: "Geneva Bible, 1599 edition, original spelling, USFM straight from eBible.org (public domain). Verse text only; the marginal notes are not in this source. (The GitHub mirror of this text has a corrupted Genesis 38 — do not substitute it.) eBible.org is slow; allow several minutes.",
   },
+  "geneva-1560-meta": {
+    kind: "file",
+    url: "https://archive.org/download/1560-the-geneva-bible/1560-the-geneva-bible_meta.xml",
+    into: "geneva-1560-meta.xml",
+    note: "Internet Archive item metadata for the 1560 Geneva Bible first edition (identifier 1560-the-geneva-bible, CC0/public domain). Provenance anchor for the facsimile; contributes no served text.",
+  },
+  "geneva-1560-pages": {
+    kind: "file",
+    url: "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_page_numbers.json",
+    into: "geneva-1560-page_numbers.json",
+    note: "Leaf/page index for the 1560 facsimile. Used ONLY to map a book+chapter to an approximate opening leaf for the facsimile image viewer; contributes no served text.",
+  },
+  "geneva-1560-ocr": {
+    kind: "file",
+    url: "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_djvu.txt",
+    into: "geneva-1560-djvu.txt",
+    note: "ABBYY/Tesseract OCR of the 1560 blackletter facsimile. UNRELIABLE (long-s ſ→f, fused columns and margins) — NEVER served as scripture. Locked only as the raw, tamper-evident INPUT to the experimental notes-reconstruction pipeline (scripts/build-geneva-notes.mjs), which labels every output 'reconstructed / unverified'.",
+  },
 };
 
 const sha = (p) => createHash("sha256").update(readFileSync(p)).digest("hex");

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <identifier>1560-the-geneva-bible</identifier>
+  <mediatype>texts</mediatype>
+  <collection>folkscanomy_religion_bible</collection>
+  <collection>folkscanomy_religion</collection>
+  <collection>folkscanomy</collection>
+  <creator>FAITH OF OUR FATHERS</creator>
+  <date>1560</date>
+  <description>The Geneva Bible 1560</description>
+  <scanner>Internet Archive HTML5 Uploader 1.7.0</scanner>
+  <subject>The Geneva Bible</subject>
+  <subject>1560</subject>
+  <title>The Geneva Bible 1560</title>
+  <uploader>jabezanderson43@gmail.com</uploader>
+  <publicdate>2024-02-17 17:36:10</publicdate>
+  <addeddate>2024-02-17 17:36:10</addeddate>
+  <curation>[curator]validator@archive.org[/curator][date]20240217173649[/date][comment]checked for malware[/comment]</curation>
+  <identifier-access>http://archive.org/details/1560-the-geneva-bible</identifier-access>
+  <identifier-ark>ark:/13960/s2dr78kn295</identifier-ark>
+  <ppi>300</ppi>
+  <ocr>tesseract 5.3.0-6-g76ae</ocr>
+  <ocr_parameters>-l eng+lat+Latin</ocr_parameters>
+  <ocr_module_version>0.0.21</ocr_module_version>
+  <ocr_autonomous>true</ocr_autonomous>
+  <ocr_detected_script>Latin</ocr_detected_script>
+  <ocr_detected_script_conf>0.9945</ocr_detected_script_conf>
+  <ocr_detected_lang>en</ocr_detected_lang>
+  <ocr_detected_lang_conf>1.0000</ocr_detected_lang_conf>
+  <page_number_confidence>0</page_number_confidence>
+  <page_number_module_version>1.0.4</page_number_module_version>
+  <language>eng</language>
+  <collection_added>folkscanomy_religion</collection_added>
+  <collection_added>folkscanomy</collection_added>
+  <collection_added>additional_collections</collection_added>
+</metadata>

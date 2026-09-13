@@ -9,6 +9,8 @@ import { JsonLd } from "@/components/site/json-ld";
 import { VerseReader } from "@/components/reader/verse-reader";
 import { Marginalia } from "@/components/reader/marginalia";
 import { ChapterNav } from "@/components/reader/chapter-nav";
+import { FacsimileViewer } from "@/components/reader/facsimile-viewer";
+import { leafForChapter, facsimileInfo } from "@/lib/bible/facsimile";
 import { OriginalsToggle } from "@/components/reader/originals-toggle";
 import { originalsAvailable, originalVersesFor, originalSourceFor, originalChapterCount, type OriginalVersePayload } from "@/lib/bible/originals";
 import { sourceById } from "@/lib/bible/sources";
@@ -63,6 +65,10 @@ export default async function ChapterPage({ params }: { params: Params }) {
   }
   const origLabel = r.book.testament === "OT" ? "Hebrew" : "Greek";
   const origLong = r.book.testament === "OT" ? "Hebrew (WLC / OSHB)" : "Greek (SBLGNT — critical text, not the Textus Receptus)";
+
+  // The real 1560 first-edition page (Internet Archive facsimile, CC0) — page images only.
+  const fax = leafForChapter(r.book.id, r.chapter);
+  const faxInfo = facsimileInfo();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -127,6 +133,16 @@ export default async function ChapterPage({ params }: { params: Params }) {
             <div className="mt-3 flex flex-wrap items-center gap-3">
               <OriginalsToggle label="Show Geneva" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
               {hasOriginals ? <OriginalsToggle label={`Show ${origLabel}`} sourceLabel={origLong} readerId="reader" /> : null}
+              <FacsimileViewer
+                bookName={r.book.name}
+                chapter={r.chapter}
+                initialLeaf={fax.leaf}
+                approximate={fax.approximate}
+                unmapped={fax.unmapped}
+                iiifBase={faxInfo.iiifBase}
+                archiveReader={faxInfo.archiveReader}
+                leaves={faxInfo.leaves}
+              />
               {hasOriginals && origCount != null && origCount !== p.verses.length ? (
                 <p className="running-head text-foreground/50">
                   {origLabel} numbers {origCount} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped

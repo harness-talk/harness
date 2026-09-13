@@ -4,7 +4,7 @@
  * that is not ingested (see `status`).
  */
 export type SourceStatus = "ingested" | "partial" | "declared";
-export type SourceKind = "text" | "annotations" | "original-language";
+export type SourceKind = "text" | "annotations" | "original-language" | "facsimile";
 
 export interface Source {
   id: string;
@@ -18,11 +18,18 @@ export interface Source {
   edition?: string;
   license: string;
   url?: string;
+  /**
+   * True when the served text is machine-reconstructed (OCR + AI cleanup) rather than a
+   * verified transcription. Such a source is never a textual witness and is always shown
+   * behind a visible "reconstructed / unverified" label with a path back to the facsimile.
+   */
+  reconstructed?: boolean;
   notes: string[]; // honest caveats, shown in the provenance panel and /api/v1/sources
 }
 
 export const KJV_SOURCE_ID = "kjv-1611";
 export const GENEVA_SOURCE_ID = "geneva-1599";
+export const GENEVA_1560_SOURCE_ID = "geneva-1560";
 export const GENEVA_NOTES_SOURCE_ID = "geneva-notes";
 
 /** Text sources with a full verse corpus on disk (data/{dir}); the first is the body text. */
@@ -70,19 +77,38 @@ export const SOURCES: Source[] = [
     ],
   },
   {
+    id: GENEVA_1560_SOURCE_ID,
+    label: "Geneva Bible, 1560 first edition — facsimile",
+    shortLabel: "Geneva 1560 (facsimile)",
+    kind: "facsimile",
+    language: "en",
+    status: "partial",
+    year: 1560,
+    edition: "The Bible and Holy Scriptures conteyned in the Olde and Newe Testament — printed at Geneva by Rowland Hall, 1560 (the first edition)",
+    license: "CC0 1.0 / public domain (Internet Archive item '1560-the-geneva-bible')",
+    url: "https://archive.org/details/1560-the-geneva-bible",
+    notes: [
+      "The true first edition: real page photographs of the 1560 Geneva Bible — the first English study Bible, the first with verse numbers, printed in readable roman type, with the reformers' marginal notes in the margins of the actual page. Served as a facsimile page-image viewer (Internet Archive IIIF), leaf by leaf, 1,224 leaves.",
+      "This source carries page IMAGES, not transcribed text. The only text layer the archive item has is a 2012/2024 OCR of the 1560 type, and it is unreliable (long-s ſ read as f, the two columns and side notes fused together); it is NOT served as scripture or as note text. Verse text is served from the clean 1599 transcription (geneva-1599); a separate, clearly labelled experimental layer (geneva-notes) reconstructs the note text.",
+      "Chapter-to-leaf mapping is approximate and opening-level, not verse-level: it points at the leaf where a book or nearby chapter opens, calibrated against leaves inspected by hand (e.g. Genesis opens at leaf 7). Browse forward/back from there; every image links to the same leaf on archive.org.",
+    ],
+  },
+  {
     id: GENEVA_NOTES_SOURCE_ID,
     label: "Geneva Bible marginal notes and chapter arguments",
     shortLabel: "Geneva notes",
     kind: "annotations",
     language: "en",
-    status: "declared",
+    status: "partial",
+    reconstructed: true,
     year: 1560,
-    edition: "Geneva Bible, 1560 first edition (Rowland Hall, Geneva), with the 1599 revisions noted where they differ",
-    license: "Public domain",
+    edition: "Geneva Bible, 1560 first edition (Rowland Hall, Geneva) — marginal notes, chapter arguments and cross-references",
+    license: "Public domain (text); reconstruction is machine-generated",
+    url: "https://archive.org/details/1560-the-geneva-bible",
     notes: [
       "The reformers' own commentary in the margins: the chapter arguments, the doctrinal and explanatory notes, and the cross-references. This is the layer that made the Geneva Bible the people's study Bible and the one King James disliked.",
-      "Not yet ingested. No clean public-domain transcription exists; the Internet Archive facsimile's OCR is unreliable in the margins, and the sites that host a transcription forbid automated copying. Ingestion will be note-by-note from a verified transcription; status becomes 'partial' per book as notes are verified.",
-      "Where not ingested, the API returns source_not_ingested and the reader's margin stays empty rather than showing anything unverified.",
+      "EXPERIMENTAL, MACHINE-RECONSTRUCTED, UNVERIFIED. No clean public-domain transcription of the 1560 notes exists. This layer is built offline by a pipeline that reads the archive.org facsimile OCR and uses an AI cleanup pass to repair the mangled typography into readable text WITHOUT inventing content. It is not a textual witness. Every reconstructed note keeps its raw OCR span for audit and carries a confidence score; always compare against the facsimile page.",
+      "Ingested per book, not wholesale — status is 'partial'. Books that have not been run through the pipeline return source_not_ingested and the reader's margin stays empty rather than showing anything unverified. The trusted KJV 1611 body and the Geneva 1599 verse text are never mixed with this reconstructed text.",
     ],
   },
   {
@@ -142,6 +168,7 @@ export function isTextSource(id: string): id is TextSourceId {
 
 export const KJV_SOURCE = sourceById(KJV_SOURCE_ID)!;
 export const GENEVA_SOURCE = sourceById(GENEVA_SOURCE_ID)!;
+export const GENEVA_1560_SOURCE = sourceById(GENEVA_1560_SOURCE_ID)!;
 export const GENEVA_NOTES_SOURCE = sourceById(GENEVA_NOTES_SOURCE_ID)!;
 
 /** Canonical public origin — used for JSON-LD, sitemaps, llms.txt and problem+json `type` URIs. */
