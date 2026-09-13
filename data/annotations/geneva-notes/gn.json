@@ -4,9 +4,9 @@
   "_provenance": {
     "edition": "Geneva Bible, 1560 first edition",
     "facsimile": "archive.org/details/1560-the-geneva-bible",
-    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-17 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14, 15, 16, and 17 and are carried as notes beginning with those words, exactly as printed. One faint gloss at Genesis 14:10 was omitted rather than reconstructed. Chapters 18 onward are in progress."
+    "coverage": "Book argument and Genesis 1-18 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14, 15, 16, 17, and 18 and are carried as notes beginning with those words, exactly as printed. One faint gloss at Genesis 14:10 was omitted rather than reconstructed. Chapters 19 onward are in progress."
   },
   "annotations": [
     {
@@ -2006,6 +2006,150 @@
       "ref": "gn.17.23",
       "anchor": "as God had commanded him",
       "text": "Thei were wel instructed which obeied to be circumcised without resistance: which declareth that masters in their houses oght to be as preachers to their families, that from the highest to the lowest they may obey the wil of God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.argument",
+      "kind": "argument",
+      "ref": "gn.18",
+      "anchor": null,
+      "text": "Abrahám receiueth thre Angels into his house. 10 Izhák is promised againe. 12 Saráh laugheth. 14 Christ is promised to all nations. 19 Abrahám taught his familie to knowe God. 21 The destruction of Sodóm is declared vnto Abrahám. 23 Abrahám prayeth for them.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.1:or",
+      "kind": "note",
+      "ref": "gn.18.1",
+      "anchor": "plaine of Mamré",
+      "text": "Or, oke groue.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.2:a",
+      "kind": "note",
+      "ref": "gn.18.2",
+      "anchor": "thre men stode by him",
+      "text": "That is, thre Angels in mans shape.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.3:b",
+      "kind": "note",
+      "ref": "gn.18.3",
+      "anchor": "Lord, if I haue now founde fauour",
+      "text": "Speaking to one of them, in whome appeared to be most maiestie: for he thoght thei had bene men.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.4:c",
+      "kind": "note",
+      "ref": "gn.18.4",
+      "anchor": "wash your fete",
+      "text": "For men vsed because of the great heat to go bare foted in those parties.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.5:d",
+      "kind": "note",
+      "ref": "gn.18.5",
+      "anchor": "come to your seruant",
+      "text": "As sent of God, that I shulde do my ductie to you.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.6:or",
+      "kind": "note",
+      "ref": "gn.18.6",
+      "anchor": "thre measures of fine meale",
+      "text": "Ebr. Seim.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.8:e",
+      "kind": "note",
+      "ref": "gn.18.8",
+      "anchor": "thei did eat",
+      "text": "For as God gaue them bodies for a time, so gaue he the faculties thereof, to walke, to eat and drincke, & suche like.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.12:f",
+      "kind": "note",
+      "ref": "gn.18.12",
+      "anchor": "shal I haue lust?",
+      "text": "For she rather had respect to the ordre of nature, then beleued the promes of God. 1 Pet. 3,6.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.14:or",
+      "kind": "note",
+      "ref": "gn.18.14",
+      "anchor": "Shal any thing be harde to the Lord?",
+      "text": "Or, hid.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.17:g",
+      "kind": "note",
+      "ref": "gn.18.17",
+      "anchor": "Shal I hide from Abrahám",
+      "text": "Iehouáh the Ebrewe worde, which we call Lord, sheweth that this Angel was Christ: for this worde is onely applied to God.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.19:h",
+      "kind": "note",
+      "ref": "gn.18.19",
+      "anchor": "he wil commande his sonnes and his housholde",
+      "text": "He sheweth that fathers oght bothe to knowe Gods iudgements & to declare them to their children.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.21:i",
+      "kind": "note",
+      "ref": "gn.18.21",
+      "anchor": "I wil go downe now, and se",
+      "text": "God speaketh after the facion of men: that is, I wil entre into iudgement with good aduis.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.21:k",
+      "kind": "note",
+      "ref": "gn.18.21",
+      "anchor": "according to the crie",
+      "text": "For our sins crie for vengeance thogh none accuse vs.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.25:or",
+      "kind": "note",
+      "ref": "gn.18.25",
+      "anchor": "shulde not the Iudge of all the worlde do right?",
+      "text": "Ebr. do iudgement?",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.26:l",
+      "kind": "note",
+      "ref": "gn.18.26",
+      "anchor": "If I shal finde in Sodóm fifty righteous",
+      "text": "God declareth that his iudgements were done in great mercie, forasmuche as all were so corrupt, that not onely fiftie, but ten righteous men colde not be founde there: and also that the wicked are spared for the righteous sake.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.27:m",
+      "kind": "note",
+      "ref": "gn.18.27",
+      "anchor": "I am but dust and asshes",
+      "text": "Hereby we learne, that the nerer we approche vnto God, the more doeth our miserable estate appeare, and the more are we humbled.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.18.32:n",
+      "kind": "note",
+      "ref": "gn.18.32",
+      "anchor": "What if ten be founde there?",
+      "text": "If God refused not the praier for the wicked Sodomites, euen to the sixt request, how muche more wil he grante the praiers of the godlie for the afflicted Church?",
       "source": "geneva-notes"
     }
   ]
