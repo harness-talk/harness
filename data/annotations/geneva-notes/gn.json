@@ -6,7 +6,7 @@
     "facsimile": "archive.org/details/1560-the-geneva-bible",
     "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-16 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14, 15, and 16 and are carried as notes beginning with those words, exactly as printed. One faint gloss at Genesis 14:10 was omitted rather than reconstructed. Chapters 17 onward are in progress."
+    "coverage": "Book argument and Genesis 1-17 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14, 15, 16, and 17 and are carried as notes beginning with those words, exactly as printed. One faint gloss at Genesis 14:10 was omitted rather than reconstructed. Chapters 18 onward are in progress."
   },
   "annotations": [
     {
@@ -1910,6 +1910,102 @@
       "ref": "gn.16.14",
       "anchor": "Beér-laháí-roí",
       "text": "Or, the well of the liuing and seing me.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.arg",
+      "kind": "argument",
+      "ref": "gn.17.1",
+      "anchor": "THE ARGVMENT",
+      "text": "Abrams name is changed to confirme him in the promes. 8 The land of Canáan is the fift time promised. 12 Circumcision is instituted. 15 Saráí is named Saráh. 18 Abrahám prayeth for Ishmaél. 19 Izhák is promised.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.1:or",
+      "kind": "note",
+      "ref": "gn.17.1",
+      "anchor": "walke before me, and be thou vpright",
+      "text": "Or, almightie. Or, without hypocrisie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.4:a",
+      "kind": "note",
+      "ref": "gn.17.4",
+      "anchor": "a father of manie nacions",
+      "text": "Not onely according to the flesh, but of a farre greater multitude by faith, Rom. 4,17.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.5:b",
+      "kind": "note",
+      "ref": "gn.17.5",
+      "anchor": "thy name shalbe Abrahám",
+      "text": "The changing of his name is a seale to confirme Gods promes vnto him.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.10:c",
+      "kind": "note",
+      "ref": "gn.17.10",
+      "anchor": "Let euerie man childe among you be circumcised",
+      "text": "Circumcision is called the couenant, because it signifieth the couenant & hathe the promes of grace ioyned to it: which phrase is commune to all sacraments. Act. 7,8.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.11:d",
+      "kind": "note",
+      "ref": "gn.17.11",
+      "anchor": "ye shal circumcise the foreskin of your flesh",
+      "text": "That priuie parte is circumcised to shewe that all that is begotten of man is corrupt and must be mortified. Rom. 4,11.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.14:e",
+      "kind": "note",
+      "ref": "gn.17.14",
+      "anchor": "the vncircumcised man childe... shalbe cut of from his people",
+      "text": "Albeit women were not circumcised, yet were they partakers of Gods promes: for vnder the mankinde all was consecrated, & here is declared, that whosoeuer contemneth the signe, despiseth also the promes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.15:or",
+      "kind": "note",
+      "ref": "gn.17.15",
+      "anchor": "Saráh shalbe her name",
+      "text": "Or, dame, or, princesse.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.17:f",
+      "kind": "note",
+      "ref": "gn.17.17",
+      "anchor": "fel vpon his face, and laughed",
+      "text": "Which proceded of a sodden ioye, and not of infidelitie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.20:g",
+      "kind": "note",
+      "ref": "gn.17.20",
+      "anchor": "As concerning Ishmaél",
+      "text": "The euerlasting couenant is made with the children of the Spirit: and with the children of the flesh is made the temporal promes, as was promised to Ishmaél.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.20:or",
+      "kind": "note",
+      "ref": "gn.17.20",
+      "anchor": "I wil multiplie him exceadingly",
+      "text": "Ebr. greatly greatly.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.17.23:h",
+      "kind": "note",
+      "ref": "gn.17.23",
+      "anchor": "as God had commanded him",
+      "text": "Thei were wel instructed which obeied to be circumcised without resistance: which declareth that masters in their houses oght to be as preachers to their families, that from the highest to the lowest they may obey the wil of God.",
       "source": "geneva-notes"
     }
   ]
