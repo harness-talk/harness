@@ -6,7 +6,7 @@
     "facsimile": "archive.org/details/1560-the-geneva-bible",
     "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-13 complete (chapter arguments and verified marginal notes). Genesis 14 is PARTIAL: the chapter argument and notes a-d (verses 1 and 3) are transcribed from leaf 17; the Melchizedek apparatus (notes e onward) falls on the next leaf, which was temporarily unavailable in the source imaging at transcription time and is deferred rather than reconstructed. Chapters 15 onward are in progress."
+    "coverage": "Book argument and Genesis 1-14 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Chapters 15 onward are in progress."
   },
   "annotations": [
     {
@@ -728,7 +728,7 @@
       "kind": "note",
       "ref": "gn.5.29",
       "anchor": "comfort vs concerning our worke",
-      "text": "Lámech had respect to the promes, Chap. 3,15, and desired to se the deliuerer, which shulde be sent, and yet sawe but a figure thereof: he also spake this by the Spirit of prophecie, because Nóah deliuered the Church, and preserued it by his obedience.",
+      "text": "Lámech had respect to the promes, Chap. 3,15, and desired to se the deliuerer, which shulde be sent, and yet sawe but a figure thereof: he also spake this by the Spirit of prophecie, because N��ah deliuered the Church, and preserued it by his obedience.",
       "source": "geneva-notes"
     },
     {
@@ -1648,6 +1648,54 @@
       "ref": "gn.14.3",
       "anchor": "the salte Sea",
       "text": "Called also the dead Sea, or the lake Asphaltite nere vnto Sodóm and Gomoráh.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.10:e",
+      "kind": "note",
+      "ref": "gn.14.10",
+      "anchor": "vale of Siddím",
+      "text": "And afterward was ouerwhelmed with water, and so was called the salt Sea.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.12:f",
+      "kind": "note",
+      "ref": "gn.14.12",
+      "anchor": "toke Lot",
+      "text": "The godlie are plagued manie times with the wicked: therfore their companie is dangerous.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.14:g",
+      "kind": "note",
+      "ref": "gn.14.14",
+      "anchor": "broght forthe of them that were borne",
+      "text": "God moued them to ioyne with Abrám, and preserued him frō their idolatrie and superstitions.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.18:h",
+      "kind": "note",
+      "ref": "gn.14.18",
+      "anchor": "broght forthe bread and wine",
+      "text": "For Abrám and his soldiers refreshing, & not to offer sacrifice.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.19:i",
+      "kind": "note",
+      "ref": "gn.14.19",
+      "anchor": "blessed him",
+      "text": "In that Melchi-zedek fed Abrám, he declared him selfe to represent a King: & in ÿ he blessed him, the high Priest.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.14.24:k",
+      "kind": "note",
+      "ref": "gn.14.24",
+      "anchor": "the yong men haue eaten",
+      "text": "He wolde not ÿ his liberalitie shulde be hurtful to others.",
       "source": "geneva-notes"
     }
   ]
