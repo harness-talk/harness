@@ -142,6 +142,28 @@ export function parallelChapter(bookId: string, n: number, source: TextSourceId)
   return new Map(ch?.verses.map((v) => [v.v, v.text]) ?? []);
 }
 
+/**
+ * The hand-transcribed Geneva 1560 first-edition verse text for a chapter, keyed by verse
+ * number. Partial by design: only chapters transcribed from the page images live on disk
+ * (data/geneva-1560/{book}.json). Any book or chapter not yet transcribed returns an empty
+ * map, and the reader falls back to the 1560 facsimile page — nothing is substituted, never
+ * remapped, never OCR.
+ */
+export function geneva1560Chapter(bookId: string, n: number): Map<number, string> {
+  const key = `geneva-1560-text/${bookId}`;
+  let d = bookDataCache.get(key);
+  if (!d) {
+    try {
+      d = JSON.parse(readFileSync(join(DATA, "geneva-1560", `${bookId}.json`), "utf8")) as BookData;
+    } catch {
+      return new Map();
+    }
+    bookDataCache.set(key, d);
+  }
+  const ch = d.chapters.find((c) => c.n === n);
+  return new Map(ch?.verses.map((v) => [v.v, v.text]) ?? []);
+}
+
 export function chapterPayload(ref: Ref) {
   const ch = chapter(ref.book.id, ref.chapter)!;
   const meta = bookMeta(ref.book.id)!;

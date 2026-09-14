@@ -30,6 +30,7 @@ export interface Source {
 export const KJV_SOURCE_ID = "kjv-1611";
 export const GENEVA_SOURCE_ID = "geneva-1599";
 export const GENEVA_1560_SOURCE_ID = "geneva-1560";
+export const GENEVA_1560_TEXT_SOURCE_ID = "geneva-1560-text";
 export const GENEVA_NOTES_SOURCE_ID = "geneva-notes";
 
 /** Text sources with a full verse corpus on disk (data/{dir}); the first is the body text. */
@@ -91,6 +92,24 @@ export const SOURCES: Source[] = [
       "The true first edition: real page photographs of the 1560 Geneva Bible — the first English study Bible, the first with verse numbers, printed in readable roman type, with the reformers' marginal notes in the margins of the actual page. Served as a facsimile page-image viewer (Internet Archive IIIF), leaf by leaf, 1,224 leaves.",
       "This source carries page IMAGES, not transcribed text. The only text layer the archive item has is a 2012/2024 OCR of the 1560 type, and it is unreliable (long-s ſ read as f, the two columns and side notes fused together); it is NOT served as scripture or as note text. Verse text is served from the clean 1599 transcription (geneva-1599); a separate, clearly labelled experimental layer (geneva-notes) reconstructs the note text.",
       "Chapter-to-leaf mapping is approximate and opening-level, not verse-level: it points at the leaf where a book or nearby chapter opens, calibrated against leaves inspected by hand (e.g. Genesis opens at leaf 7). Browse forward/back from there; every image links to the same leaf on archive.org.",
+    ],
+  },
+  {
+    id: GENEVA_1560_TEXT_SOURCE_ID,
+    label: "Geneva Bible, 1560 first edition — verse text (hand-transcribed)",
+    shortLabel: "Geneva 1560",
+    kind: "text",
+    language: "en",
+    status: "partial",
+    year: 1560,
+    edition: "The Bible and Holy Scriptures conteyned in the Olde and Newe Testament — printed at Geneva by Rowland Hall, 1560 (the first edition), original spelling",
+    license: "Public domain (text)",
+    url: "https://archive.org/details/1560-the-geneva-bible",
+    notes: [
+      "The verse text of the true first edition, hand-transcribed directly from the 1560 page images (Internet Archive IIIF), original spelling preserved exactly as printed — long-s, u/v and i/j as set, the ampersand and the yͤ / yͭ contractions, e.g. Gen 1:1 'In the beginning God created ye heauen and the earth.' Served in the reader as a labelled 'Geneva 1560' column beside the 1611 and the 1599.",
+      "Not OCR. The archive item's own machine text of the 1560 roman type is unreliable (long-s ſ read as f, the two columns and side notes fused) and is never served. Every verse in this source was read off the page and is checkable against it; words illegible in the imaging are left out of the chapter, not reconstructed.",
+      "Transcription in progress, chapter by chapter. Only the chapters present in data/geneva-1560/ are served; for every other chapter the reader falls back to the 1560 facsimile page image (source geneva-1560), and the column says so plainly rather than substituting the 1599 text in its place.",
+      "The 1560 and 1599 verse text are nearly identical (the 1599 revised the notes, not the text); this column exists so the first edition can be read and compared in its own spelling, not as a substitute witness. Ingested and human-verified so far: Genesis 1.",
     ],
   },
   {
@@ -169,6 +188,7 @@ export function isTextSource(id: string): id is TextSourceId {
 export const KJV_SOURCE = sourceById(KJV_SOURCE_ID)!;
 export const GENEVA_SOURCE = sourceById(GENEVA_SOURCE_ID)!;
 export const GENEVA_1560_SOURCE = sourceById(GENEVA_1560_SOURCE_ID)!;
+export const GENEVA_1560_TEXT_SOURCE = sourceById(GENEVA_1560_TEXT_SOURCE_ID)!;
 export const GENEVA_NOTES_SOURCE = sourceById(GENEVA_NOTES_SOURCE_ID)!;
 
 /** Canonical public origin — used for JSON-LD, sitemaps, llms.txt and problem+json `type` URIs. */

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type ReaderLayer = "original" | "geneva" | "geneva-notes" | "compare";
+export type ReaderLayer = "original" | "geneva" | "geneva-1560" | "geneva-notes" | "compare";
 
 /**
  * A single switch that reveals an extra line under every verse — the original-language

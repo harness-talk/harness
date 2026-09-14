@@ -22,6 +22,7 @@ export function VerseReader({
   originals,
   originalLabel,
   geneva,
+  geneva1560,
   readerId = "reader",
 }: {
   verses: VerseRecord[];
@@ -32,6 +33,7 @@ export function VerseReader({
   originals?: Map<number, OriginalVersePayload>;
   originalLabel?: string;
   geneva?: Map<number, string>;
+  geneva1560?: Map<number, string>;
   readerId?: string;
 }) {
   const headingBefore = new Map<number, string>();
@@ -51,12 +53,13 @@ export function VerseReader({
   }
 
   return (
-    <div id={readerId} data-original="off" data-geneva="off" data-geneva-notes="off" data-compare="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
+    <div id={readerId} data-original="off" data-geneva="off" data-geneva-1560="off" data-geneva-notes="off" data-compare="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
       {verses.map((v, i) => {
         const heading = headingBefore.get(v.verse);
         const o = originals?.get(v.verse);
         const rtl = o?.language === "hebrew" || o?.language === "aramaic";
         const g = geneva?.get(v.verse);
+        const g1560 = geneva1560?.get(v.verse);
         const verseNotes = notesByVerse.get(v.verse) ?? [];
         return (
           <div key={v.ref} className="contents">
@@ -113,6 +116,15 @@ export function VerseReader({
                         </li>
                       ))}
                     </ul>
+                  </div>
+                ) : null}
+                {geneva1560 ? (
+                  <div className="hidden min-w-0 group-data-[geneva-1560=on]/reader:block group-data-[compare=on]/reader:block group-data-[compare=on]/reader:border-l-2 group-data-[compare=on]/reader:border-rubric/35 group-data-[compare=on]/reader:pl-3">
+                    <span className="running-head mb-1 hidden text-rubric/75 group-data-[compare=on]/reader:block">Geneva &middot; 1560</span>
+                    <p className="text-[0.95em] leading-[1.7] text-foreground/75 text-pretty">
+                      <span className="running-head mr-2 align-middle text-[0.6em] text-rubric/75 group-data-[compare=on]/reader:hidden">Geneva 1560</span>
+                      {g1560 ?? <span className="running-head text-foreground/45">not yet transcribed &mdash; compare the 1560 page</span>}
+                    </p>
                   </div>
                 ) : null}
                 {geneva ? (

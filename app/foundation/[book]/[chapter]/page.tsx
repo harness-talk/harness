@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CANON, bookById } from "@/lib/bible/canon";
-import { bookMeta, chapterPayload, parallelChapter } from "@/lib/bible/store";
+import { bookMeta, chapterPayload, parallelChapter, geneva1560Chapter } from "@/lib/bible/store";
 import { annotationsFor, kjvHeadings } from "@/lib/bible/annotations";
-import { GENEVA_NOTES_SOURCE_ID, GENEVA_SOURCE, GENEVA_SOURCE_ID, KJV_SOURCE, SITE_URL } from "@/lib/bible/sources";
+import { GENEVA_1560_TEXT_SOURCE, GENEVA_NOTES_SOURCE_ID, GENEVA_SOURCE, GENEVA_SOURCE_ID, KJV_SOURCE, SITE_URL } from "@/lib/bible/sources";
 import { JsonLd } from "@/components/site/json-ld";
 import { VerseReader } from "@/components/reader/verse-reader";
 import { Marginalia } from "@/components/reader/marginalia";
@@ -52,6 +52,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
   const geneva = annotationsFor(GENEVA_NOTES_SOURCE_ID, r);
   const headings = kjvHeadings(r);
   const genevaText = parallelChapter(r.book.id, r.chapter, GENEVA_SOURCE_ID);
+  const geneva1560Text = geneva1560Chapter(r.book.id, r.chapter);
 
   // Original-language layer (OT: Hebrew WLC/OSHB, NT: Greek SBLGNT). Own versification, never remapped.
   const origSourceId = originalSourceFor(r.book);
@@ -140,6 +141,9 @@ export default async function ChapterPage({ params }: { params: Params }) {
                   layer="compare"
                 />
                 <span aria-hidden className="mx-0.5 h-5 w-px bg-rule" />
+                {geneva1560Text.size ? (
+                  <OriginalsToggle label="Geneva 1560" sourceLabel={GENEVA_1560_TEXT_SOURCE.label} readerId="reader" layer="geneva-1560" />
+                ) : null}
                 <OriginalsToggle label="Geneva 1599" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
                 {geneva.available && geneva.annotations.some((a) => a.kind === "note") ? (
                   <OriginalsToggle
@@ -162,7 +166,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
                   leaves={faxInfo.leaves}
                 />
               </div>
-              {(hasOriginals && origCount != null && origCount !== p.verses.length) || genevaText.size !== p.verses.length ? (
+              {(hasOriginals && origCount != null && origCount !== p.verses.length) || genevaText.size !== p.verses.length || (geneva1560Text.size > 0 && geneva1560Text.size !== p.verses.length) ? (
                 <div className="flex flex-col gap-0.5">
                   {hasOriginals && origCount != null && origCount !== p.verses.length ? (
                     <p className="running-head normal-case tracking-normal text-foreground/45">
@@ -172,6 +176,11 @@ export default async function ChapterPage({ params }: { params: Params }) {
                   {genevaText.size !== p.verses.length ? (
                     <p className="running-head normal-case tracking-normal text-foreground/45">
                       Geneva 1599 numbers {genevaText.size} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
+                    </p>
+                  ) : null}
+                  {geneva1560Text.size > 0 && geneva1560Text.size !== p.verses.length ? (
+                    <p className="running-head normal-case tracking-normal text-foreground/45">
+                      Geneva 1560 text transcribed for {geneva1560Text.size} of {p.verses.length} verses here — the rest link to the 1560 page
                     </p>
                   ) : null}
                 </div>
@@ -188,6 +197,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
             originals={originals}
             originalLabel={origLabel}
             geneva={genevaText}
+            geneva1560={geneva1560Text.size ? geneva1560Text : undefined}
             readerId="reader"
           />
 
