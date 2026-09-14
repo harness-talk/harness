@@ -131,6 +131,12 @@ export default async function ChapterPage({ params }: { params: Params }) {
             </h1>
             {p.title ? <p className="mt-2 text-base italic leading-relaxed text-foreground/75 text-pretty">{p.title}</p> : null}
             <div className="mt-3 flex flex-wrap items-center gap-3">
+              <OriginalsToggle
+                label="Parallel columns"
+                sourceLabel={`Read King James 1611, Geneva 1599${hasOriginals ? `, and ${origLabel}` : ""} side by side`}
+                readerId="reader"
+                layer="compare"
+              />
               <OriginalsToggle label="Show Geneva 1599" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
               {hasOriginals ? <OriginalsToggle label={`Show ${origLabel}`} sourceLabel={origLong} readerId="reader" /> : null}
               <FacsimileViewer
@@ -163,6 +169,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
             bookId={r.book.id}
             chapter={r.chapter}
             originals={originals}
+            originalLabel={origLabel}
             geneva={genevaText}
             readerId="reader"
           />

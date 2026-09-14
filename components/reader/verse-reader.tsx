@@ -20,6 +20,7 @@ export function VerseReader({
   bookId,
   chapter,
   originals,
+  originalLabel,
   geneva,
   readerId = "reader",
 }: {
@@ -29,6 +30,7 @@ export function VerseReader({
   bookId: string;
   chapter: number;
   originals?: Map<number, OriginalVersePayload>;
+  originalLabel?: string;
   geneva?: Map<number, string>;
   readerId?: string;
 }) {
@@ -49,7 +51,7 @@ export function VerseReader({
   }
 
   return (
-    <div id={readerId} data-original="off" data-geneva="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
+    <div id={readerId} data-original="off" data-geneva="off" data-compare="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
       {verses.map((v, i) => {
         const heading = headingBefore.get(v.verse);
         const o = originals?.get(v.verse);
@@ -72,49 +74,64 @@ export function VerseReader({
               >
                 {v.verse}
               </a>
-              <div className="flex min-w-0 flex-col gap-1">
-                <p className={i === 0 ? "drop-initial text-pretty" : "text-pretty"}>
-                  <VerseText text={v.text} />
-                  {verseNotes.length ? (
-                    <span className="whitespace-nowrap">
-                      {verseNotes.map((n) => (
-                        <a
-                          key={n.id}
-                          href={`#${noteDomId(n.ref, n.id)}`}
-                          className="ml-[0.15em] inline-block px-0.5 align-super font-display text-[0.6em] text-rubric/80 hover:text-rubric"
-                          aria-label={`Note ${noteMarker(n.id)} on verse ${v.verse}`}
-                        >
-                          {noteMarker(n.id)}
-                        </a>
-                      ))}
-                    </span>
-                  ) : null}
-                </p>
-                {geneva ? (
-                  <p className="hidden text-[0.95em] leading-[1.7] text-foreground/75 text-pretty group-data-[geneva=on]/reader:block">
-                    <span className="running-head mr-2 align-middle text-[0.6em] text-rubric">Geneva 1599</span>
-                    {g ?? <span className="running-head text-foreground/45">no verse at this number in the Geneva versification</span>}
+              {/*
+                Reading mode: sources stack as lines under the verse (toggles reveal them).
+                Parallel mode (data-compare=on): sources become aligned, labeled columns —
+                a color-ruled comparison stack on mobile, true side-by-side columns at md+.
+                Auto-fit keeps the columns even for however many sources are present.
+              */}
+              <div className="flex min-w-0 flex-col gap-1 group-data-[compare=on]/reader:gap-4 md:group-data-[compare=on]/reader:grid md:group-data-[compare=on]/reader:grid-cols-[repeat(auto-fit,minmax(0,1fr))] md:group-data-[compare=on]/reader:items-start md:group-data-[compare=on]/reader:gap-6">
+                <div className="min-w-0 group-data-[compare=on]/reader:border-l-2 group-data-[compare=on]/reader:border-gilt/70 group-data-[compare=on]/reader:pl-3">
+                  <span className="running-head mb-1 hidden text-gilt group-data-[compare=on]/reader:block">King James &middot; 1611</span>
+                  <p className={i === 0 ? "drop-initial text-pretty" : "text-pretty"}>
+                    <VerseText text={v.text} />
+                    {verseNotes.length ? (
+                      <span className="whitespace-nowrap">
+                        {verseNotes.map((n) => (
+                          <a
+                            key={n.id}
+                            href={`#${noteDomId(n.ref, n.id)}`}
+                            className="ml-[0.15em] inline-block px-0.5 align-super font-display text-[0.6em] text-rubric/80 hover:text-rubric"
+                            aria-label={`Note ${noteMarker(n.id)} on verse ${v.verse}`}
+                          >
+                            {noteMarker(n.id)}
+                          </a>
+                        ))}
+                      </span>
+                    ) : null}
                   </p>
+                </div>
+                {geneva ? (
+                  <div className="hidden min-w-0 group-data-[geneva=on]/reader:block group-data-[compare=on]/reader:block group-data-[compare=on]/reader:border-l-2 group-data-[compare=on]/reader:border-rubric/60 group-data-[compare=on]/reader:pl-3">
+                    <span className="running-head mb-1 hidden text-rubric group-data-[compare=on]/reader:block">Geneva &middot; 1599</span>
+                    <p className="text-[0.95em] leading-[1.7] text-foreground/75 text-pretty">
+                      <span className="running-head mr-2 align-middle text-[0.6em] text-rubric group-data-[compare=on]/reader:hidden">Geneva 1599</span>
+                      {g ?? <span className="running-head text-foreground/45">no verse at this number in the Geneva versification</span>}
+                    </p>
+                  </div>
                 ) : null}
                 {originals ? (
-                  <p
-                    lang={o ? (rtl ? "he" : "grc") : undefined}
-                    dir={rtl ? "rtl" : "ltr"}
-                    className={`hidden text-[0.95em] leading-[1.7] text-foreground/75 group-data-[original=on]/reader:block ${rtl ? "font-hebrew text-right" : "font-greek"}`}
-                  >
-                    {o ? (
-                      <>
-                        {o.text}
-                        {o.language === "aramaic" ? (
-                          <span dir="ltr" className="running-head ml-2 align-middle text-[0.6em] text-foreground/45">
-                            Aramaic
-                          </span>
-                        ) : null}
-                      </>
-                    ) : (
-                      <span className="running-head text-foreground/45">not present in the original-language versification at this number</span>
-                    )}
-                  </p>
+                  <div className="hidden min-w-0 group-data-[original=on]/reader:block group-data-[compare=on]/reader:block group-data-[compare=on]/reader:border-l-2 group-data-[compare=on]/reader:border-foreground/25 group-data-[compare=on]/reader:pl-3">
+                    <span className="running-head mb-1 hidden text-foreground/50 group-data-[compare=on]/reader:block">{originalLabel ?? (rtl ? "Hebrew" : "Greek")}</span>
+                    <p
+                      lang={o ? (rtl ? "he" : "grc") : undefined}
+                      dir={rtl ? "rtl" : "ltr"}
+                      className={`text-[0.95em] leading-[1.7] text-foreground/75 ${rtl ? "font-hebrew text-right" : "font-greek"}`}
+                    >
+                      {o ? (
+                        <>
+                          {o.text}
+                          {o.language === "aramaic" ? (
+                            <span dir="ltr" className="running-head ml-2 align-middle text-[0.6em] text-foreground/45">
+                              Aramaic
+                            </span>
+                          ) : null}
+                        </>
+                      ) : (
+                        <span className="running-head text-foreground/45">not present in the original-language versification at this number</span>
+                      )}
+                    </p>
+                  </div>
                 ) : null}
               </div>
             </div>

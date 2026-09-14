@@ -174,6 +174,16 @@
     line-height: 0.82;
     padding-top: 0.08em;
   }
+  /* In parallel-columns mode the drop cap would break the narrow column; reset it to plain. */
+  [data-compare='on'] .drop-initial::first-letter {
+    float: none;
+    margin-right: 0;
+    padding-top: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+  }
   /* superior verse numbers in the gutter */
   .verse-num {
     @apply font-mono text-[0.7rem] leading-none text-rubric select-none;
