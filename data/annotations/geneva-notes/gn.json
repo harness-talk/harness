@@ -6,7 +6,7 @@
     "facsimile": "archive.org/details/1560-the-geneva-bible",
     "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-22 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. Genesis 19 (argument and notes b-t) is from leaves 21-22. Genesis 20 (argument and notes a-p) is from leaves 22-23. Genesis 21 (argument and notes a-n) is from leaves 23-24. Genesis 22 (argument and notes a-i) is from leaf 24. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14-22 and are carried as notes beginning with those words, exactly as printed. Notes omitted rather than reconstructed where the source imaging was faint or clipped: one gloss at Genesis 14:10, Genesis 19 note 'a' at v1 (bottom edge of leaf 21), and the Beer-shéba 'Or,' gloss at Genesis 21:31 (heavily abbreviated). Chapters 23 onward are in progress."
+    "coverage": "Book argument and Genesis 1-22 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. Genesis 19 (argument and notes b-t) is from leaves 21-22. Genesis 20 (argument and notes a-p) is from leaves 22-23. Genesis 21 (argument and notes a-n) is from leaves 23-24. Genesis 22 (argument and notes a-i) is from leaf 24. Genesis 23 (argument and notes a-f) is from leaves 24-25. Genesis 24 (argument and notes a-z, including the wrapped second letter run and the standalone scripture citations) is from leaves 25-27. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14-24 and are carried as notes beginning with those words, exactly as printed. Notes omitted rather than reconstructed where the source imaging was faint or clipped: one gloss at Genesis 14:10, Genesis 19 note 'a' at v1 (bottom edge of leaf 21), the Beer-shéba 'Or,' gloss at Genesis 21:31 (heavily abbreviated), and at Genesis 24 the side reference at v54 and the 'ten dayes' gloss at v55 (both illegible on leaf 27). Chapters 25 onward are in progress."
   },
   "annotations": [
     {
@@ -2809,6 +2809,397 @@
       "ref": "gn.23.18",
       "anchor": "of all that went in at the gates of his citie",
       "text": "Or, citizens.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24:arg",
+      "kind": "argument",
+      "ref": "gn.24",
+      "text": "1 Abrahám causeth his seruant to sweare to take a wife for Izhák in his owne kinred. 12 The seruant prayeth to God. 34 His fidelitie towarde his master. 50 The friends of Rebekáh commit the matter to God. 58 They aske her consent and she agreeth. 67 And is maryed to Izhák.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.1:or",
+      "kind": "note",
+      "ref": "gn.24.1",
+      "anchor": "striken in yeres",
+      "text": "Ebr. come into dayes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.2:ref",
+      "kind": "note",
+      "ref": "gn.24.2",
+      "anchor": "Put now thine hand vnder my thigh",
+      "text": "Chap. 47,29.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.2:a",
+      "kind": "note",
+      "ref": "gn.24.2",
+      "anchor": "Put now thine hand vnder my thigh",
+      "text": "Which ceremonie declared ý seruants obedience towards his master, and ý masters power ouer the seruant.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.3:b",
+      "kind": "note",
+      "ref": "gn.24.3",
+      "anchor": "I wil make thee sweare by the Lord",
+      "text": "This sheweth that an othe may be required in a lawful cause.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.4:c",
+      "kind": "note",
+      "ref": "gn.24.4",
+      "anchor": "thou shalt go vnto my countrie",
+      "text": "He wolde not ý his sonne shulde mary out of the godlie familie: for the inconuenients ý come by marying with the vngodlie are set forthe in sondrie places of the Scriptures.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.6:d",
+      "kind": "note",
+      "ref": "gn.24.6",
+      "anchor": "bring not my sonne thether againe",
+      "text": "Left he shulde lose the inheritance promised.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.7:ref",
+      "kind": "note",
+      "ref": "gn.24.7",
+      "anchor": "Vnto thy sede wil I giue this land",
+      "text": "Chap. 12,7. & 13,15. & 15,18. & 26,4.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.8:or",
+      "kind": "note",
+      "ref": "gn.24.8",
+      "anchor": "discharged of this mine othe",
+      "text": "Ebr. innocent.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.10:or",
+      "kind": "note",
+      "ref": "gn.24.10",
+      "anchor": "Arám Naharáim",
+      "text": "Or, Mesopotamia, or, Syria of the two floods: to wit, of Tygris and Euphrates.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.10:e",
+      "kind": "note",
+      "ref": "gn.24.10",
+      "anchor": "the citie of Nahór",
+      "text": "That is, to Charán.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.11:or",
+      "kind": "note",
+      "ref": "gn.24.11",
+      "anchor": "made his camels to lie downe",
+      "text": "Ebr. to bowe their knees.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.12:f",
+      "kind": "note",
+      "ref": "gn.24.12",
+      "anchor": "send me good spede this day",
+      "text": "He groudeth his prayer vpon Gods promes made to his master.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.12:or",
+      "kind": "note",
+      "ref": "gn.24.12",
+      "anchor": "send me good spede",
+      "text": "Or, cause me to mete.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.14:g",
+      "kind": "note",
+      "ref": "gn.24.14",
+      "anchor": "Grant that ý maide",
+      "text": "The seruant moued by Gods Spirit desired to be assured by a signe, whether God prospered his iourney or no.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.15:h",
+      "kind": "note",
+      "ref": "gn.24.15",
+      "anchor": "Rebekáh came out",
+      "text": "God giueth good successe to all things ý are vndertaken for the glorie of his Name and according to his worde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.16:i",
+      "kind": "note",
+      "ref": "gn.24.16",
+      "anchor": "she went downe to the well",
+      "text": "Here is declared ý God euer heareth the praiers of his, and granteth their requestes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.18:or",
+      "kind": "note",
+      "ref": "gn.24.18",
+      "anchor": "Drinke syr",
+      "text": "Ebr. my lord.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.19:or",
+      "kind": "note",
+      "ref": "gn.24.19",
+      "anchor": "vntil thei haue dronken ynough",
+      "text": "Ebr. haue made an end of drinking.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.22:or",
+      "kind": "note",
+      "ref": "gn.24.22",
+      "anchor": "a golden abillement",
+      "text": "Or, earing.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.22:k",
+      "kind": "note",
+      "ref": "gn.24.22",
+      "anchor": "a golden abillement",
+      "text": "God permitted manie things both in apparel and other things ý are nowe forbid: specially when thei apperteine not to our mortificacion.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.22:l",
+      "kind": "note",
+      "ref": "gn.24.22",
+      "anchor": "halfe a shekel weight",
+      "text": "The golden shekel is here ment and not that of siluer.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.27:m",
+      "kind": "note",
+      "ref": "gn.24.27",
+      "anchor": "Blessed be the Lord God of my master Abrahám",
+      "text": "He boasteth not his good fortune (as do the wicked) but acknollageth that God hath dealt mercifully with his master in kepig promes.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.30:n",
+      "kind": "note",
+      "ref": "gn.24.30",
+      "anchor": "he stode by the camels at the well",
+      "text": "For he waited on Gods hand, who had now heard his praier.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.31:o",
+      "kind": "note",
+      "ref": "gn.24.31",
+      "anchor": "Come in ý blessed of ý Lord",
+      "text": "To wit, Labán.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.31:p",
+      "kind": "note",
+      "ref": "gn.24.31",
+      "anchor": "I haue prepared the house",
+      "text": "The gentle interteinemet of strangers vsed among the godlie fathers.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.32:q",
+      "kind": "note",
+      "ref": "gn.24.32",
+      "anchor": "vnsadeled the camels",
+      "text": "The fidelitie that seruants owe to their masters, causeth them to preferre their masters busines to their owne necessitie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.35:r",
+      "kind": "note",
+      "ref": "gn.24.35",
+      "anchor": "the Lord hathe blessed my master",
+      "text": "To blesse, signifieth here to enriche, or encrease with substance, as ý next in ý same verse declareth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.37:s",
+      "kind": "note",
+      "ref": "gn.24.37",
+      "anchor": "daughters of the Canaanites",
+      "text": "The Canaanites were accursed & therfore the godlie colde not ioine with thé in mariage.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.38:t",
+      "kind": "note",
+      "ref": "gn.24.38",
+      "anchor": "vnto my fathers house",
+      "text": "Meaning among his kisfolkes, as ver. 40.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.41:u",
+      "kind": "note",
+      "ref": "gn.24.41",
+      "anchor": "discharged of mine othe",
+      "text": "Which by mine autoritie I caused thee to make.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.42:or",
+      "kind": "note",
+      "ref": "gn.24.42",
+      "anchor": "prosper my iourney",
+      "text": "Or, waie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.43:ref",
+      "kind": "note",
+      "ref": "gn.24.43",
+      "anchor": "I stand by the well of water",
+      "text": "Verse 13.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.44:or",
+      "kind": "note",
+      "ref": "gn.24.44",
+      "anchor": "which the Lord hathe prepared",
+      "text": "Or, appointed.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.45:x",
+      "kind": "note",
+      "ref": "gn.24.45",
+      "anchor": "speaking in mine heart",
+      "text": "Signifiyng ý this praier was not spoke by the mouth, but onely meditate in his heart.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.48:y",
+      "kind": "note",
+      "ref": "gn.24.48",
+      "anchor": "I bowed downe & worshipped ý Lord",
+      "text": "He sheweth what is our duetie, when we haue receiued anie benefite of the Lord.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.48:or",
+      "kind": "note",
+      "ref": "gn.24.48",
+      "anchor": "right waie",
+      "text": "Ebr. in the waie of trueth.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.49:z",
+      "kind": "note",
+      "ref": "gn.24.49",
+      "anchor": "deale mercifully and truely with my master",
+      "text": "Yf you wil frely & faithfully giue your daughter to my masters sonne.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.49:a",
+      "kind": "note",
+      "ref": "gn.24.49",
+      "anchor": "to the right hand or to the left",
+      "text": "That is, ý I maie prouide els where.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.50:b",
+      "kind": "note",
+      "ref": "gn.24.50",
+      "anchor": "This thing is proceded of the Lord",
+      "text": "So sone as thei perceiue that it is Gods ordinance thei yelde.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.51:or1",
+      "kind": "note",
+      "ref": "gn.24.51",
+      "anchor": "Rebekáh is before thee",
+      "text": "Or, at thy commandement.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.51:or2",
+      "kind": "note",
+      "ref": "gn.24.51",
+      "anchor": "as the Lord hathe said",
+      "text": "Or, ordeined.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.57:e",
+      "kind": "note",
+      "ref": "gn.24.57",
+      "anchor": "we wil call the maide, and aske her consent",
+      "text": "This sheweth that parents haue not autoritie to mary their childré without consent of the parties.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.57:or",
+      "kind": "note",
+      "ref": "gn.24.57",
+      "anchor": "aske her consent",
+      "text": "Ebr. her mouthe.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.60:d",
+      "kind": "note",
+      "ref": "gn.24.60",
+      "anchor": "possesse the gate of his ennemies",
+      "text": "That is, let it be victorious ouer his ennemies: which blessig is fully accomplished in Iesus Christ.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.62:ref",
+      "kind": "note",
+      "ref": "gn.24.62",
+      "anchor": "Beer-lahai-roi",
+      "text": "Chap. 16,14. and 25,10.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.63:e",
+      "kind": "note",
+      "ref": "gn.24.63",
+      "anchor": "went out to pray in the field",
+      "text": "This was ý exercise of ý godlie fathers to meditate Gods promisses & to pray for the accomplishmet therof.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.65:f",
+      "kind": "note",
+      "ref": "gn.24.65",
+      "anchor": "she toke a vaile and couered her",
+      "text": "The custome was, that the spouse was broght to her housband, her head beig couered, in token of shamefastnes & chastitie.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.24.67:or",
+      "kind": "note",
+      "ref": "gn.24.67",
+      "anchor": "coforted after his mothers death",
+      "text": "Or, had left mourning for his mother.",
       "source": "geneva-notes"
     }
   ]
