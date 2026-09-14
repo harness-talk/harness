@@ -130,42 +130,51 @@ export default async function ChapterPage({ params }: { params: Params }) {
               <span className="text-rubric">{r.chapter}</span>
             </h1>
             {p.title ? <p className="mt-2 text-base italic leading-relaxed text-foreground/75 text-pretty">{p.title}</p> : null}
-            <div className="mt-3 flex flex-wrap items-center gap-3">
-              <OriginalsToggle
-                label="Parallel columns"
-                sourceLabel={`Read King James 1611, Geneva 1599${hasOriginals ? `, and ${origLabel}` : ""} side by side`}
-                readerId="reader"
-                layer="compare"
-              />
-              <OriginalsToggle label="Show Geneva 1599" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
-              {geneva.available && geneva.annotations.some((a) => a.kind === "note") ? (
+            <div className="mt-3 flex flex-col gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="running-head mr-0.5 text-foreground/40">Compare</span>
                 <OriginalsToggle
-                  label="Show Geneva 1560 notes"
-                  sourceLabel="The reformers' 1560 marginal notes, shown inline beneath each verse"
+                  label="Parallel columns"
+                  sourceLabel={`Read King James 1611, Geneva 1599${hasOriginals ? `, and ${origLabel}` : ""} side by side`}
                   readerId="reader"
-                  layer="geneva-notes"
+                  layer="compare"
                 />
-              ) : null}
-              {hasOriginals ? <OriginalsToggle label={`Show ${origLabel}`} sourceLabel={origLong} readerId="reader" /> : null}
-              <FacsimileViewer
-                bookName={r.book.name}
-                chapter={r.chapter}
-                initialLeaf={fax.leaf}
-                approximate={fax.approximate}
-                unmapped={fax.unmapped}
-                iiifBase={faxInfo.iiifBase}
-                archiveReader={faxInfo.archiveReader}
-                leaves={faxInfo.leaves}
-              />
-              {hasOriginals && origCount != null && origCount !== p.verses.length ? (
-                <p className="running-head text-foreground/50">
-                  {origLabel} numbers {origCount} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
-                </p>
-              ) : null}
-              {genevaText.size !== p.verses.length ? (
-                <p className="running-head text-foreground/50">
-                  Geneva 1599 numbers {genevaText.size} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
-                </p>
+                <span aria-hidden className="mx-0.5 h-5 w-px bg-rule" />
+                <OriginalsToggle label="Geneva 1599" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
+                {geneva.available && geneva.annotations.some((a) => a.kind === "note") ? (
+                  <OriginalsToggle
+                    label="Geneva 1560 notes"
+                    sourceLabel="The reformers' 1560 marginal notes, shown inline beside each verse"
+                    readerId="reader"
+                    layer="geneva-notes"
+                  />
+                ) : null}
+                {hasOriginals ? <OriginalsToggle label={origLabel} sourceLabel={origLong} readerId="reader" /> : null}
+                <span aria-hidden className="mx-0.5 h-5 w-px bg-rule" />
+                <FacsimileViewer
+                  bookName={r.book.name}
+                  chapter={r.chapter}
+                  initialLeaf={fax.leaf}
+                  approximate={fax.approximate}
+                  unmapped={fax.unmapped}
+                  iiifBase={faxInfo.iiifBase}
+                  archiveReader={faxInfo.archiveReader}
+                  leaves={faxInfo.leaves}
+                />
+              </div>
+              {(hasOriginals && origCount != null && origCount !== p.verses.length) || genevaText.size !== p.verses.length ? (
+                <div className="flex flex-col gap-0.5">
+                  {hasOriginals && origCount != null && origCount !== p.verses.length ? (
+                    <p className="running-head normal-case tracking-normal text-foreground/45">
+                      {origLabel} numbers {origCount} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
+                    </p>
+                  ) : null}
+                  {genevaText.size !== p.verses.length ? (
+                    <p className="running-head normal-case tracking-normal text-foreground/45">
+                      Geneva 1599 numbers {genevaText.size} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
+                    </p>
+                  ) : null}
+                </div>
               ) : null}
             </div>
           </header>

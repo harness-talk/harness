@@ -102,9 +102,9 @@ export function VerseReader({
                   </p>
                 </div>
                 {verseNotes.length ? (
-                  <div className="hidden min-w-0 group-data-[geneva-notes=on]/reader:block group-data-[compare=on]/reader:hidden">
-                    <span className="running-head mb-1 block text-gilt/80">Geneva 1560 notes</span>
-                    <ul className="flex flex-col gap-1.5 border-l-2 border-gilt/30 pl-3 text-[0.9em] leading-[1.6] text-foreground/70">
+                  <div className="hidden min-w-0 group-data-[geneva-notes=on]/reader:block group-data-[compare=on]/reader:block group-data-[compare=on]/reader:border-l-2 group-data-[compare=on]/reader:border-gilt/40 group-data-[compare=on]/reader:pl-3">
+                    <span className="running-head mb-1 block text-gilt/80 group-data-[compare=on]/reader:text-gilt">Geneva 1560 &middot; notes</span>
+                    <ul className="flex flex-col gap-1.5 border-l-2 border-gilt/30 pl-3 text-[0.9em] leading-[1.6] text-foreground/70 group-data-[compare=on]/reader:border-l-0 group-data-[compare=on]/reader:pl-0">
                       {verseNotes.map((n) => (
                         <li key={n.id} className="text-pretty">
                           <span className="mr-1 align-super font-display text-[0.7em] text-rubric">{noteMarker(n.id)}</span>
