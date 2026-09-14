@@ -92,7 +92,7 @@ export function VerseReader({
                 </p>
                 {geneva ? (
                   <p className="hidden text-[0.95em] leading-[1.7] text-foreground/75 text-pretty group-data-[geneva=on]/reader:block">
-                    <span className="running-head mr-2 align-middle text-[0.6em] text-rubric">Geneva</span>
+                    <span className="running-head mr-2 align-middle text-[0.6em] text-rubric">Geneva 1599</span>
                     {g ?? <span className="running-head text-foreground/45">no verse at this number in the Geneva versification</span>}
                   </p>
                 ) : null}

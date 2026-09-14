@@ -131,7 +131,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
             </h1>
             {p.title ? <p className="mt-2 text-base italic leading-relaxed text-foreground/75 text-pretty">{p.title}</p> : null}
             <div className="mt-3 flex flex-wrap items-center gap-3">
-              <OriginalsToggle label="Show Geneva" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
+              <OriginalsToggle label="Show Geneva 1599" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
               {hasOriginals ? <OriginalsToggle label={`Show ${origLabel}`} sourceLabel={origLong} readerId="reader" /> : null}
               <FacsimileViewer
                 bookName={r.book.name}
@@ -150,7 +150,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
               ) : null}
               {genevaText.size !== p.verses.length ? (
                 <p className="running-head text-foreground/50">
-                  Geneva numbers {genevaText.size} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
+                  Geneva 1599 numbers {genevaText.size} verses here, the KJV {p.verses.length} — shown at matching numbers, not remapped
                 </p>
               ) : null}
             </div>

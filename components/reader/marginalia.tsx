@@ -36,7 +36,7 @@ export function Marginalia({
       <section id="geneva-notes" aria-labelledby="geneva-head" className="flex scroll-mt-20 flex-col gap-3">
         <div className="flex items-baseline justify-between gap-3 border-b border-rule pb-2">
           <h2 id="geneva-head" className="running-head">
-            Geneva notes
+            Geneva 1560 notes
           </h2>
           <StatusBadge status={geneva.available ? "live" : "spec"}>
             {geneva.available ? `${geneva.annotations.length} notes` : "Not yet ingested"}
