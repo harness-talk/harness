@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-export type ReaderLayer = "original" | "geneva" | "compare";
+export type ReaderLayer = "original" | "geneva" | "geneva-notes" | "compare";
 
 /**
  * A single switch that reveals an extra line under every verse — the original-language
- * text (`original`) or the Geneva Bible reading (`geneva`). State is a `data-{layer}`
- * attribute on the reader root so the (server-rendered) verse rows can show/hide with
- * CSS — no per-verse client components. Each layer remembers its own setting.
+ * text (`original`), the Geneva Bible reading (`geneva`), or the Geneva 1560 marginal
+ * notes inline (`geneva-notes`). State is a `data-{layer}` attribute on the reader root
+ * so the (server-rendered) verse rows can show/hide with CSS — no per-verse client
+ * components. Each layer remembers its own setting.
  */
 export function OriginalsToggle({
   label,
@@ -30,7 +31,7 @@ export function OriginalsToggle({
 
   useEffect(() => {
     const el = document.getElementById(readerId);
-    if (el) el.dataset[layer] = on ? "on" : "off";
+    if (el) el.setAttribute(`data-${layer}`, on ? "on" : "off");
   }, [on, readerId, layer]);
 
   return (

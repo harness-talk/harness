@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Annotation } from "@/lib/bible/annotations";
 import { GENEVA_NOTES_SOURCE, KJV_SOURCE } from "@/lib/bible/sources";
 import { StatusBadge } from "@/components/site/status-badge";
+import { FacsimileViewer } from "./facsimile-viewer";
 import { CopyLine } from "./copy-line";
 
 /**
@@ -16,6 +17,7 @@ export function Marginalia({
   chapterRef: ref,
   verseCount,
   geneva,
+  facsimile,
 }: {
   bookId: string;
   chapter: number;
@@ -23,12 +25,25 @@ export function Marginalia({
   chapterRef: string;
   verseCount: number;
   geneva: { available: boolean; reason?: string; annotations: Annotation[] };
+  facsimile: {
+    bookName: string;
+    chapter: number;
+    initialLeaf: number;
+    approximate: boolean;
+    unmapped: boolean;
+    iiifBase: string;
+    archiveReader: string;
+    leaves: number;
+  };
 }) {
   const args = geneva.annotations.filter((a) => a.kind === "argument");
   const notes = geneva.annotations
     .filter((a) => a.kind === "note")
     .sort((a, b) => (Number(a.ref.split(".")[2]) || 0) - (Number(b.ref.split(".")[2]) || 0));
   const xrefs = geneva.annotations.filter((a) => a.kind === "crossref");
+  // "Available" is per-book (the source file exists); a chapter can still be awaiting
+  // transcription with zero annotations. Treat that as empty and point to the facsimile.
+  const hasContent = args.length > 0 || notes.length > 0 || xrefs.length > 0;
 
   return (
     <aside aria-label="Marginalia" className="flex flex-col gap-10 lg:sticky lg:top-20 lg:self-start">
@@ -38,11 +53,11 @@ export function Marginalia({
           <h2 id="geneva-head" className="running-head">
             Geneva 1560 notes
           </h2>
-          <StatusBadge status={geneva.available ? "live" : "spec"}>
-            {geneva.available ? `${geneva.annotations.length} notes` : "Not yet ingested"}
+          <StatusBadge status={hasContent ? "live" : "spec"}>
+            {hasContent ? `${geneva.annotations.length} notes` : "Not yet ingested"}
           </StatusBadge>
         </div>
-        {geneva.available ? (
+        {hasContent ? (
           <div className="flex flex-col gap-4 text-[0.95rem] leading-relaxed">
             <p className="text-pretty text-[0.78rem] leading-relaxed text-foreground/60">
               Hand-transcribed from the 1560 first edition in its original spelling. Each note is keyed to the word it
@@ -88,12 +103,21 @@ export function Marginalia({
             ) : null}
           </div>
         ) : (
-          <p className="text-[0.95rem] leading-relaxed text-foreground/70 text-pretty">
-            {geneva.reason} The margin stays empty rather than showing anything unverified. The {GENEVA_NOTES_SOURCE.label}
-            {" (chapter arguments, notes, cross-references) will appear here"} once a checked transcription is loaded. The Geneva
-            verse text itself is already here — use <em>Show Geneva</em> above the chapter.{" "}
-            <Link href="/translations" className="text-rubric underline underline-offset-[3px]">Ingestion status</Link>
-          </p>
+          <div className="flex flex-col gap-4">
+            <p className="text-[0.95rem] leading-relaxed text-foreground/70 text-pretty">
+              {geneva.reason} Rather than show anything unverified here, read this chapter&apos;s notes straight from the
+              1560 first edition — open the facsimile and see the reformers&apos; marginalia in the actual printed margins.
+            </p>
+            <FacsimileViewer {...facsimile} />
+            <p className="text-[0.8rem] leading-relaxed text-foreground/55 text-pretty">
+              The transcribed {GENEVA_NOTES_SOURCE.label} (chapter arguments, notes, cross-references) will appear here
+              once a checked transcription is loaded. The Geneva verse text itself is already here — use{" "}
+              <em>Show Geneva 1599</em> above the chapter.{" "}
+              <Link href="/translations" className="text-rubric underline underline-offset-[3px]">
+                Ingestion status
+              </Link>
+            </p>
+          </div>
         )}
       </section>
 

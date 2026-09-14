@@ -138,6 +138,14 @@ export default async function ChapterPage({ params }: { params: Params }) {
                 layer="compare"
               />
               <OriginalsToggle label="Show Geneva 1599" sourceLabel={GENEVA_SOURCE.label} readerId="reader" layer="geneva" />
+              {geneva.available && geneva.annotations.some((a) => a.kind === "note") ? (
+                <OriginalsToggle
+                  label="Show Geneva 1560 notes"
+                  sourceLabel="The reformers' 1560 marginal notes, shown inline beneath each verse"
+                  readerId="reader"
+                  layer="geneva-notes"
+                />
+              ) : null}
               {hasOriginals ? <OriginalsToggle label={`Show ${origLabel}`} sourceLabel={origLong} readerId="reader" /> : null}
               <FacsimileViewer
                 bookName={r.book.name}
@@ -184,6 +192,16 @@ export default async function ChapterPage({ params }: { params: Params }) {
           chapterRef={p.ref}
           verseCount={p.verses.length}
           geneva={geneva}
+          facsimile={{
+            bookName: r.book.name,
+            chapter: r.chapter,
+            initialLeaf: fax.leaf,
+            approximate: fax.approximate,
+            unmapped: fax.unmapped,
+            iiifBase: faxInfo.iiifBase,
+            archiveReader: faxInfo.archiveReader,
+            leaves: faxInfo.leaves,
+          }}
         />
       </div>
     </main>

@@ -51,7 +51,7 @@ export function VerseReader({
   }
 
   return (
-    <div id={readerId} data-original="off" data-geneva="off" data-compare="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
+    <div id={readerId} data-original="off" data-geneva="off" data-geneva-notes="off" data-compare="off" className="group/reader mt-8 flex flex-col gap-3 text-[1.19rem] leading-[1.62] md:text-[1.25rem]">
       {verses.map((v, i) => {
         const heading = headingBefore.get(v.verse);
         const o = originals?.get(v.verse);
@@ -101,6 +101,20 @@ export function VerseReader({
                     ) : null}
                   </p>
                 </div>
+                {verseNotes.length ? (
+                  <div className="hidden min-w-0 group-data-[geneva-notes=on]/reader:block group-data-[compare=on]/reader:hidden">
+                    <span className="running-head mb-1 block text-gilt/80">Geneva 1560 notes</span>
+                    <ul className="flex flex-col gap-1.5 border-l-2 border-gilt/30 pl-3 text-[0.9em] leading-[1.6] text-foreground/70">
+                      {verseNotes.map((n) => (
+                        <li key={n.id} className="text-pretty">
+                          <span className="mr-1 align-super font-display text-[0.7em] text-rubric">{noteMarker(n.id)}</span>
+                          {n.anchor ? <em className="text-foreground/85">{n.anchor} </em> : null}
+                          {n.text}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
                 {geneva ? (
                   <div className="hidden min-w-0 group-data-[geneva=on]/reader:block group-data-[compare=on]/reader:block group-data-[compare=on]/reader:border-l-2 group-data-[compare=on]/reader:border-rubric/60 group-data-[compare=on]/reader:pl-3">
                     <span className="running-head mb-1 hidden text-rubric group-data-[compare=on]/reader:block">Geneva &middot; 1599</span>
