@@ -85,7 +85,14 @@ export default function FoundationPage() {
             cited and trusted long after this site.
           </p>
           <div className="mt-1 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
-            <Link href="/agents/tools.json" className="text-gilt underline-offset-4 hover:underline">
+            <a
+              href="/api/v1/corpus"
+              download="kjv-1611-corpus.json"
+              className="text-gilt underline-offset-4 hover:underline"
+            >
+              Download the corpus (JSON) &darr;
+            </a>
+            <Link href="/agents/tools.json" className="text-foreground/60 underline-offset-4 hover:text-foreground hover:underline">
               Machine tools &rarr;
             </Link>
             <Link href="/api/v1/verses/gn.1.1" className="text-foreground/60 underline-offset-4 hover:text-foreground hover:underline">
