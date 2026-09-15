@@ -188,6 +188,14 @@ export default function GenevaNotesPage() {
             the facsimile pages are the <strong>1560</strong> first edition. The note <em>text</em> is transcribed by hand
             from those 1560 pages, book by book, in the reformers&apos; own spelling — see below.
           </p>
+          <p>
+            For the books themselves &mdash; the two title pages set side by side, the dedications, and the story of the
+            Bible patent that put a printer&apos;s name on the King James &mdash; see{" "}
+            <Link href="/printers" className="text-rubric underline underline-offset-[3px]">
+              the title pages and the patent
+            </Link>
+            .
+          </p>
         </section>
 
         <section id="see" className="doc-prose">

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/api/respond";
 import { books } from "@/lib/bible/store";
 
-const STATIC = ["", "/foundation", "/architecture", "/api-docs", "/translations", "/geneva-notes", "/storage", "/community", "/search", "/agents", "/agents/needs", "/agents/harness", "/agents/protocol", "/agents/covenant", "/agents/mcp", "/agents/examples"];
+const STATIC = ["", "/foundation", "/architecture", "/api-docs", "/translations", "/geneva-notes", "/printers", "/storage", "/community", "/search", "/agents", "/agents/needs", "/agents/harness", "/agents/protocol", "/agents/covenant", "/agents/mcp", "/agents/examples"];
 
 /** One sitemap: 16 static pages + 66 books + 1,189 chapters = 1,271 URLs (under the 50k limit). */
 export default function sitemap(): MetadataRoute.Sitemap {

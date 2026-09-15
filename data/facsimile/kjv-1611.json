@@ -1,0 +1,10 @@
+{
+  "identifier": "the-holy-bible-1611",
+  "iiifBase": "https://iiif.archive.org/iiif/the-holy-bible-1611",
+  "archiveReader": "https://archive.org/details/the-holy-bible-1611",
+  "manifest": "https://iiif.archive.org/iiif/the-holy-bible-1611/manifest.json",
+  "license": "Public domain in the United States. Digitised by the Internet Archive.",
+  "titleLeaf": 2,
+  "dedicationLeaf": 4,
+  "note": "0-based archive leaf indices for the 1611 King James first edition (Robert Barker, London). Front-matter leaves only, each verified by eye against the scan: n2 is the engraved title page (Cornelis Boel; imprint 'Imprinted at London by Robert Barker... ANNO DOM. 1611'), n4 is the dedication 'TO THE MOST HIGH AND MIGHTIE Prince, IAMES'. No verse text is served from this item; it is used solely for the front-matter plates on /printers."
+}

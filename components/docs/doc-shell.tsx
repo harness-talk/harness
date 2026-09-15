@@ -87,6 +87,7 @@ export const DOCS_CONTENTS = {
     { href: "/architecture", label: "Architecture" },
     { href: "/api-docs", label: "API reference" },
     { href: "/translations", label: "Translations & originals" },
+    { href: "/printers", label: "Printers & the patent" },
     { href: "/storage", label: "Storage & integrity" },
     { href: "/community", label: "Community" },
   ],
