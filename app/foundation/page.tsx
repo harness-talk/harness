@@ -52,6 +52,49 @@ export default function FoundationPage() {
         </div>
       </header>
 
+      <section
+        aria-labelledby="companion-editions"
+        className="mx-auto mt-12 grid w-full max-w-4xl gap-px overflow-hidden rounded-sm border border-rule bg-rule md:grid-cols-2"
+      >
+        <div className="flex flex-col gap-3 bg-background p-6 md:p-7">
+          <h2 id="companion-editions" className="running-head text-gilt">
+            Read alongside the Geneva
+          </h2>
+          <p className="text-[0.98rem] leading-relaxed text-foreground/80 text-pretty">
+            The 1611 is the foundation, but it did not arrive alone. Set it beside the{" "}
+            <span className="text-rubric">Geneva 1560</span> first edition and the{" "}
+            <span className="text-rubric">Geneva 1599</span> — the English exiles&apos; Bible the
+            translators themselves grew up reading — with the reformers&apos; own marginal notes in view.
+          </p>
+          <div className="mt-1 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
+            <Link href="/foundation/gn/1" className="text-gilt underline-offset-4 hover:underline">
+              Open a chapter in parallel &rarr;
+            </Link>
+            <Link href="/printers" className="text-foreground/60 underline-offset-4 hover:text-foreground hover:underline">
+              The covers &amp; the patent &rarr;
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 bg-background p-6 md:p-7">
+          <h2 className="running-head text-gilt">Built to be adopted</h2>
+          <p className="text-[0.98rem] leading-relaxed text-foreground/80 text-pretty">
+            Every verse is one addressable, content-hashed record — plain text with a stable citation and
+            a verifiable checksum. It is meant to be read by <span className="text-rubric">people</span>,
+            fetched by <span className="text-rubric">AI agents</span>, and mirrored by{" "}
+            <span className="text-rubric">anyone</span> who wants to carry it forward, so the text can be
+            cited and trusted long after this site.
+          </p>
+          <div className="mt-1 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
+            <Link href="/agents/tools.json" className="text-gilt underline-offset-4 hover:underline">
+              Machine tools &rarr;
+            </Link>
+            <Link href="/api/v1/verses/gn.1.1" className="text-foreground/60 underline-offset-4 hover:text-foreground hover:underline">
+              A verse as JSON &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <div className="rule-fleuron" aria-hidden="true" />
 
       <Testament title="The Old Testament" list={ot} />
