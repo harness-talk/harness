@@ -16,6 +16,7 @@ const TOC = [
   { id: "discuss", label: "Discussion" },
   { id: "contribute", label: "Contributing" },
   { id: "licence", label: "Licence" },
+  { id: "mirror", label: "Mirror the corpus" },
   { id: "sources", label: "Proposing a source" },
   { id: "versioning", label: "Versioning" },
   { id: "languages", label: "Languages" },
@@ -127,7 +128,8 @@ export default function CommunityPage() {
                 <td>&ldquo;studied by anyone, without non-disclosure agreements or similar restrictions&rdquo;</td>
                 <td>
                   AGPL §1 defines Corresponding Source and §6 requires it to travel with any binary; §13 extends the right to
-                  anyone using a modified copy over a network. The public repository is the source.
+                  anyone using a modified copy over a network. The canonical source is served first-party and
+                  content-addressed (see <em>Mirror the corpus</em> below); any repository is a mirror of it.
                 </td>
               </tr>
               <tr>
@@ -166,6 +168,41 @@ export default function CommunityPage() {
             </a>
             .
           </p>
+        </section>
+
+        <section id="mirror" className="doc-prose">
+          <h2>Mirror the corpus</h2>
+          <p>
+            You do not need an account, a repository, or our permission to keep a full copy. The text is served first-party
+            and content-addressed, so a person or an agent can pull the whole thing and prove it is unaltered against the
+            Merkle root. This is the canonical distribution; a git repository, if any, only mirrors it.
+          </p>
+          <ul>
+            <li>
+              <a href="/api/v1/corpus" download rel="noreferrer">
+                <code>/api/v1/corpus</code>
+              </a>{" "}
+              &mdash; the entire King James corpus as one JSON file (66 books, 31,102 verses), each verse carrying its{" "}
+              <code>sha256</code> and the whole bearing a <code>merkleRoot</code>.
+            </li>
+            <li>
+              <a href="/agents/tools.json" rel="noreferrer">
+                <code>/agents/tools.json</code>
+              </a>{" "}
+              &mdash; the machine manifest describing every endpoint, generated from one source.
+            </li>
+            <li>
+              <a href="/api/v1/verses/gn.1.1" rel="noreferrer">
+                <code>/api/v1/verses/{"{ref}"}</code>
+              </a>{" "}
+              &mdash; any single verse by ref, for spot checks and light clients.
+            </li>
+          </ul>
+          <p>
+            Verify what you pulled: hash each verse and recompute the root; if it matches, the copy is exact, wherever you
+            keep it. That is what makes the corpus impossible to quietly close &mdash; every mirror is self-proving.
+          </p>
+          <StatusBadge status="live" />
         </section>
 
         <section id="sources" className="doc-prose">
