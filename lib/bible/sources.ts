@@ -109,7 +109,7 @@ export const SOURCES: Source[] = [
       "The verse text of the true first edition, hand-transcribed directly from the 1560 page images (Internet Archive IIIF), original spelling preserved exactly as printed — long-s, u/v and i/j as set, the ampersand and the yͤ / yͭ contractions, e.g. Gen 1:1 'In the beginning God created ye heauen and the earth.' Served in the reader as a labelled 'Geneva 1560' column beside the 1611 and the 1599.",
       "Not OCR. The archive item's own machine text of the 1560 roman type is unreliable (long-s ſ read as f, the two columns and side notes fused) and is never served. Every verse in this source was read off the page and is checkable against it; words illegible in the imaging are left out of the chapter, not reconstructed.",
       "Transcription in progress, chapter by chapter. Only the chapters present in data/geneva-1560/ are served; for every other chapter the reader falls back to the 1560 facsimile page image (source geneva-1560), and the column says so plainly rather than substituting the 1599 text in its place.",
-      "The 1560 and 1599 verse text are nearly identical (the 1599 revised the notes, not the text); this column exists so the first edition can be read and compared in its own spelling, not as a substitute witness. Ingested and human-verified so far: Genesis 1-4.",
+      "The 1560 and 1599 verse text are nearly identical (the 1599 revised the notes, not the text); this column exists so the first edition can be read and compared in its own spelling, not as a substitute witness. Ingested and human-verified so far: Genesis 1-5.",
     ],
   },
   {
