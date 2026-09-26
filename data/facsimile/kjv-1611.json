@@ -1,10 +1,10 @@
 {
-  "identifier": "the-holy-bible-1611",
-  "iiifBase": "https://iiif.archive.org/iiif/the-holy-bible-1611",
-  "archiveReader": "https://archive.org/details/the-holy-bible-1611",
-  "manifest": "https://iiif.archive.org/iiif/the-holy-bible-1611/manifest.json",
-  "license": "Public domain in the United States. Digitised by the Internet Archive.",
-  "titleLeaf": 2,
-  "dedicationLeaf": 4,
-  "note": "0-based archive leaf indices for the 1611 King James first edition (Robert Barker, London). Front-matter leaves only, each verified by eye against the scan: n2 is the engraved title page (Cornelis Boel; imprint 'Imprinted at London by Robert Barker... ANNO DOM. 1611'), n4 is the dedication 'TO THE MOST HIGH AND MIGHTIE Prince, IAMES'. No verse text is served from this item; it is used solely for the front-matter plates on /printers."
+  "identifier": "bim_early-english-books-1475-1640_the-holy-bible-conteyni_bible-english_1611_0",
+  "iiifBase": "https://iiif.archive.org/iiif/bim_early-english-books-1475-1640_the-holy-bible-conteyni_bible-english_1611_0",
+  "archiveReader": "https://archive.org/details/bim_early-english-books-1475-1640_the-holy-bible-conteyni_bible-english_1611_0",
+  "manifest": "https://iiif.archive.org/iiif/bim_early-english-books-1475-1640_the-holy-bible-conteyni_bible-english_1611_0/manifest.json",
+  "license": "Public domain in the United States. Early English Books 1475-1640 scan, digitised by the Internet Archive.",
+  "titleLeaf": 0,
+  "dedicationLeaf": 2,
+  "note": "0-based archive leaf indices for a 1611 King James first-edition copy (Robert Barker, London), from the Early English Books 1475-1640 collection. Verified by eye against the scan: n0 is the engraved title page (Cornelis Boel; 'THE HOLY BIBLE, Conteyning the Old Testament, AND THE NEW'), n2 is the dedication 'TO THE MOST HIGH AND MIGHTIE Prince, IAMES'. Replaced the earlier item 'the-holy-bible-1611', which archive.org withdrew from public access (is_dark) in Sep 2026, so its images returned HTTP 500. No verse text is served from this item; it is used solely for the front-matter plates on /printers."
 }
