@@ -94,7 +94,8 @@ export const FRONT_MATTER: FrontMatterEdition[] = [
         alt: "The 1560 Geneva Bible dedication, page 4, closing with an exhortation to Queen Elizabeth, dated from Geneva, 10 April 1560.",
         transcription:
           "\u2026 For considering Gods wonderful mercies toward you at all seasons, who hath pulled you out of the mouthe of the lyons, and how that from your youth you haue bene broght vp in the holy Scriptures, the hope of all men is so increased, that thei can not but looke that God shulde bring to passe some wonderful worke by your grace to the vniuersal comfort of his Church. \u2026 This Lord of lordes & King of kings who hath euer defended his, strengthe, comfort and preserue your maiestie, that you may be able to builde vp the ruines of Gods house to his glorie, the discharge of your conscience, and to the comfort of all them that loue the comming of Christ Iesus our Lord. From Geneua. 10. April. 1560.",
-        image: iiif(geneva.iiifBase, 5),
+        // archive.org's IIIF server hangs on this one leaf; same scan, saved from its page-image route.
+        image: "/facsimile/geneva-1560-leaf-5.jpg",
         archiveUrl: readerLeaf(geneva.archiveReader, 5),
       },
     ],
