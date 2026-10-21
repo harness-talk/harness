@@ -149,7 +149,7 @@ export function ArcChart({ selected }: { selected?: string }) {
         {data && ntStart !== undefined && (
           <div className="pointer-events-none absolute inset-x-0 bottom-1 flex justify-between px-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <span>Genesis</span>
-            <span style={{ position: "absolute", left: `${(ntStart / data.verseCounts.length) * 100}%` }}>Matthew</span>
+            <span className="hidden md:inline" style={{ position: "absolute", left: `${(ntStart / data.verseCounts.length) * 100}%` }}>Matthew</span>
             <span>Revelation</span>
           </div>
         )}
