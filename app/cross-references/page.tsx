@@ -10,14 +10,32 @@ import { SITE_URL } from "@/lib/bible/sources";
 export const metadata: Metadata = {
   title: "Cross references — every thread from Genesis to Revelation",
   description:
-    "An arc chart of 25,739 chapter-to-chapter connections across the King James Bible, a verse explorer with 214,000 ranked references, and study threads of types, prophecies and shadows of things to come.",
+    "An arc chart of 25,739 chapter-to-chapter connections across the King James Bible, a verse explorer with 214,000 ranked references, and threads to follow: echoes, promises kept and patterns.",
   alternates: { canonical: `${SITE_URL}/cross-references` },
 };
 
-const KINDS: { kind: ThreadKind; blurb: string }[] = [
-  { kind: "Typology", blurb: "A person, event or thing that prefigures a later fulfilment." },
-  { kind: "Prophecy", blurb: "A word spoken beforehand, and where the New Testament says it was fulfilled." },
-  { kind: "Shadow", blurb: "The law and the tabernacle as a shadow of good things to come." },
+const KINDS: { kind: ThreadKind; id: string; label: string; term: string; blurb: string }[] = [
+  {
+    kind: "Typology",
+    id: "echoes",
+    label: "Echoes",
+    term: "often called types",
+    blurb: "An early person, event or object that a later passage looks back to.",
+  },
+  {
+    kind: "Prophecy",
+    id: "promises",
+    label: "Promises kept",
+    term: "often called prophecy",
+    blurb: "Words spoken beforehand, and the later passage that says they came to pass.",
+  },
+  {
+    kind: "Shadow",
+    id: "patterns",
+    label: "Patterns",
+    term: "often called shadows",
+    blurb: "Places where the text calls one thing a copy or shadow of another.",
+  },
 ];
 
 function normalize(input?: string) {
@@ -65,20 +83,33 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
       </section>
 
       <section aria-labelledby="threads-h" className="flex flex-col gap-10">
-        <div className="flex max-w-3xl flex-col gap-3">
+        <div className="flex max-w-3xl flex-col gap-4">
           <h2 id="threads-h" className="font-display text-3xl">
-            Types, prophecies and shadows
+            Threads to follow
           </h2>
           <p className="text-pretty leading-relaxed text-muted-foreground">
-            Classic pairings in Christian reading, gathered as starting points. The groupings are ours; where
-            OpenBible&apos;s readers also link the two verses, their vote count is shown.
+            Some of the best-known places where one passage points back to another. Start with any verse, then tap
+            a reference beside it to trace where the thread leads.
           </p>
+          <nav aria-label="Thread groups" className="flex flex-wrap gap-2">
+            {KINDS.map(({ id, label }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="border border-rule px-3 py-1.5 text-sm hover:border-gilt hover:text-gilt"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {KINDS.map(({ kind, blurb }) => (
-          <div key={kind} className="flex flex-col gap-4">
+        {KINDS.map(({ kind, id, label, term, blurb }) => (
+          <div key={kind} id={id} className="flex scroll-mt-8 flex-col gap-4">
             <div className="flex flex-col gap-1 border-b border-rule pb-3">
-              <h3 className="running-head text-gilt">{kind}</h3>
+              <h3 className="running-head text-gilt">
+                {label} <span className="normal-case tracking-normal text-muted-foreground">({term})</span>
+              </h3>
               <p className="text-sm text-muted-foreground">{blurb}</p>
             </div>
             <ul className="grid gap-x-8 gap-y-6 md:grid-cols-2">
@@ -95,6 +126,7 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
                         {from.text}
                       </p>
                     )}
+                    <p className="text-xs text-muted-foreground">Leads to</p>
                     <ul className="flex flex-wrap gap-2">
                       {t.to.map((to) => {
                         const target = verseText(to);
@@ -106,7 +138,12 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
                               className="flex items-baseline gap-2 border border-rule px-2.5 py-1 text-sm hover:border-gilt"
                             >
                               <span>{target?.display ?? to}</span>
-                              {votes !== null && <span className="font-mono text-xs text-muted-foreground">{votes}</span>}
+                              {votes !== null && (
+                                <span className="font-mono text-xs text-muted-foreground">
+                                  {votes}
+                                  <span className="sr-only"> readers linked these verses</span>
+                                </span>
+                              )}
                             </Link>
                           </li>
                         );
@@ -129,6 +166,7 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
           </a>
           . Also available to agents at <code className="font-mono">/api/v1/crossrefs/{"{ref}"}</code>.
         </p>
+        <p>Numbers beside a reference show how many readers marked that link as helpful.</p>
       </footer>
     </main>
   );
