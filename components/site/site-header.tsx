@@ -5,6 +5,7 @@ import { Mark } from "./mark";
 
 export const NAV = [
   { href: "/foundation", label: "Foundation" },
+  { href: "/cross-references", label: "Cross-refs" },
   { href: "/architecture", label: "Architecture" },
   { href: "/agents", label: "Agents" },
   { href: "/api-docs", label: "API" },
