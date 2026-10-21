@@ -8,8 +8,8 @@ export interface StudyThread {
 }
 
 /**
- * Classic pairings in Christian reading. The groupings and titles are ours;
- * whether OpenBible's readers also link each pair is shown beside it.
+ * Well-known passage pairings, shown as "Threads to follow". The groupings and
+ * titles are editorial; OpenBible reader votes are shown when they link the pair.
  */
 export const THREADS: StudyThread[] = [
   { kind: "Typology", title: "The Passover lamb", from: "ex.12.5", to: ["1co.5.7", "jn.1.29", "1pe.1.19"] },
