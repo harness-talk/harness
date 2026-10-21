@@ -1,0 +1,12 @@
+{
+  "source": "openbible-cross-references",
+  "url": "https://a.openbible.info/data/cross-references.zip",
+  "sha256": "5f61f4525156b7c7b8f7ae07e3a4225038cf4b60def39247df8b92916e14c56f",
+  "license": "CC-BY",
+  "attribution": "Cross references from OpenBible.info, CC-BY, seeded from the Treasury of Scripture Knowledge.",
+  "verseMinVotes": 3,
+  "verseMaxRefs": 15,
+  "arcMinVotes": 10,
+  "referencesKept": 214218,
+  "arcs": 25739
+}
