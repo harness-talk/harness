@@ -15,6 +15,7 @@ interface VerseResult {
   kind: "verse";
   ref: string;
   display: string;
+  total: number;
   references: { ref: string; display: string; votes: number; text: string }[];
 }
 type Result = ChapterResult | VerseResult | { detail?: string; kind?: undefined };
@@ -28,7 +29,12 @@ const readerHref = (ref: string) => {
 export function VerseExplorer({ initialRef }: { initialRef: string }) {
   const router = useRouter();
   const [input, setInput] = useState(initialRef);
-  const { data, isLoading } = useSWR<Result>(`/api/v1/crossrefs/${encodeURIComponent(initialRef)}`, fetcher);
+  const [showAll, setShowAll] = useState(false);
+  const { data, isLoading } = useSWR<Result>(
+    `/api/v1/crossrefs/${encodeURIComponent(initialRef)}${showAll ? "?all=1" : ""}`,
+    fetcher,
+    { keepPreviousData: true },
+  );
   const go = (ref: string) => router.push(`/cross-references?ref=${encodeURIComponent(ref)}#explore`, { scroll: false });
 
   return (
@@ -89,6 +95,13 @@ export function VerseExplorer({ initialRef }: { initialRef: string }) {
               Read in context
             </Link>
           </div>
+          {data.total > 0 && (
+            <p className="text-sm text-muted-foreground">
+              {data.references.length < data.total
+                ? `The ${data.references.length} strongest of ${data.total.toLocaleString()} cross references`
+                : `All ${data.total.toLocaleString()} cross references, strongest first`}
+            </p>
+          )}
           {data.references.length === 0 ? (
             <p className="text-sm text-muted-foreground">No references are recorded for this verse.</p>
           ) : (
@@ -105,6 +118,16 @@ export function VerseExplorer({ initialRef }: { initialRef: string }) {
                 </li>
               ))}
             </ol>
+          )}
+          {data.references.length < data.total && (
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              disabled={isLoading}
+              className="self-start border border-gilt px-4 py-2 text-sm text-gilt hover:bg-gilt hover:text-background disabled:opacity-60"
+            >
+              {isLoading ? "Gathering…" : `Show all ${data.total.toLocaleString()}`}
+            </button>
           )}
         </div>
       )}

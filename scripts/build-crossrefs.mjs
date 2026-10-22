@@ -21,8 +21,9 @@ import { tmpdir } from "node:os";
 
 const SOURCE_URL = "https://a.openbible.info/data/cross-references.zip";
 const SOURCE_SHA256 = "5f61f4525156b7c7b8f7ae07e3a4225038cf4b60def39247df8b92916e14c56f";
-const VERSE_MIN_VOTES = 3;
-const VERSE_MAX_REFS = 15;
+// Every reference is kept except ones readers voted net-negative (rejected as unhelpful).
+const VERSE_MIN_VOTES = 0;
+// Arcs are only the drawn layer; chapter counts below use the full set.
 const ARC_MIN_VOTES = 10;
 
 // OSIS book codes in canonical order; index i maps to the book with ordinal i+1.
@@ -84,6 +85,8 @@ function toRef(s) {
 const perBook = new Map(books.map((b) => [b.id, new Map()]));
 const arcWeights = new Map();
 let kept = 0;
+const chapterRefs = new Array(chapterTotal).fill(0);
+const chapterLinks = Array.from({ length: chapterTotal }, () => new Set());
 
 for (const line of text.split("\n").slice(1)) {
   if (!line) continue;
@@ -94,17 +97,20 @@ for (const line of text.split("\n").slice(1)) {
   const target = toRef(toS);
   if (!from || !target) continue;
 
+  const a = chapterStart.get(from.book.id) + from.chapter - 1;
+  const b = chapterStart.get(target.from.book.id) + target.from.chapter - 1;
+
   if (votes >= VERSE_MIN_VOTES) {
     const key = `${from.chapter}:${from.verse}`;
     const map = perBook.get(from.book.id);
     if (!map.has(key)) map.set(key, []);
     map.get(key).push([target.ref, votes]);
     kept++;
+    chapterRefs[a]++;
+    chapterLinks[a].add(b);
   }
 
   if (votes >= ARC_MIN_VOTES) {
-    const a = chapterStart.get(from.book.id) + from.chapter - 1;
-    const b = chapterStart.get(target.from.book.id) + target.from.chapter - 1;
     if (a !== b) {
       const key = a < b ? `${a},${b}` : `${b},${a}`;
       arcWeights.set(key, (arcWeights.get(key) ?? 0) + 1);
@@ -118,7 +124,7 @@ for (const [id, map] of perBook) {
   const verses = {};
   for (const [key, refs] of map) {
     refs.sort((x, y) => y[1] - x[1]);
-    verses[key] = refs.slice(0, VERSE_MAX_REFS);
+    verses[key] = refs;
   }
   writeFileSync(join(outDir, `${id}.json`), JSON.stringify({ book: id, verses }));
 }
@@ -138,6 +144,9 @@ writeFileSync(
     minVotes: ARC_MIN_VOTES,
     books: books.map((b) => [b.id, b.name, b.testament, chapterStart.get(b.id), b.chapters]),
     verseCounts,
+    totalRefs: kept,
+    chapterRefs,
+    chapterLinks: chapterLinks.map((s, i) => s.size - (s.has(i) ? 1 : 0)),
     arcs,
   }),
 );
@@ -151,7 +160,6 @@ writeFileSync(
       license: "CC-BY",
       attribution: "Cross references from OpenBible.info, CC-BY, seeded from the Treasury of Scripture Knowledge.",
       verseMinVotes: VERSE_MIN_VOTES,
-      verseMaxRefs: VERSE_MAX_REFS,
       arcMinVotes: ARC_MIN_VOTES,
       referencesKept: kept,
       arcs: arcs.length / 3,
