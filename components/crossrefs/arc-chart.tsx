@@ -8,6 +8,9 @@ type BookRow = [id: string, name: string, testament: "OT" | "NT", start: number,
 interface ArcData {
   books: BookRow[];
   verseCounts: number[];
+  totalRefs?: number;
+  chapterRefs?: number[];
+  chapterLinks?: number[];
   arcs: number[];
 }
 
@@ -45,7 +48,7 @@ export function ArcChart({ selected }: { selected?: string }) {
       links[a]++;
       links[b]++;
     }
-    return { refs, links };
+    return { refs: data.chapterRefs ?? refs, links: data.chapterLinks ?? links };
   }, [data]);
 
   const chapterBook = useMemo(() => {
@@ -204,7 +207,7 @@ export function ArcChart({ selected }: { selected?: string }) {
           <span>
             {focusLabel
               ? `${focusRefs.toLocaleString()} cross references to ${focusLinks.toLocaleString()} other chapters`
-              : "Slide your finger or mouse along the chart to trace each chapter's threads"}
+              : `${data?.totalRefs ? `${data.totalRefs.toLocaleString()} cross references. ` : ""}Slide your finger or mouse along the chart to trace each chapter's threads`}
           </span>
         </span>
         {openHref && (

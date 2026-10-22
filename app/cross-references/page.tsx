@@ -10,7 +10,7 @@ import { SITE_URL } from "@/lib/bible/sources";
 export const metadata: Metadata = {
   title: "Cross references — every thread from Genesis to Revelation",
   description:
-    "An arc chart of 25,739 chapter-to-chapter connections across the King James Bible, a verse explorer with 214,000 ranked references, and threads to follow: echoes, promises kept and patterns.",
+    "An arc chart of 25,739 chapter-to-chapter connections across the King James Bible, a verse explorer with all 343,571 ranked references, and threads to follow: echoes, promises kept and patterns.",
   alternates: { canonical: `${SITE_URL}/cross-references` },
 };
 
@@ -82,7 +82,11 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
         <VerseExplorer key={current} initialRef={current} />
       </section>
 
-      <section aria-labelledby="threads-h" className="flex flex-col gap-10">
+      <section
+        id="threads"
+        aria-labelledby="threads-h"
+        className="mt-6 flex scroll-mt-24 flex-col gap-10 border-t border-rule pt-14 md:mt-10 md:pt-20"
+      >
         <div className="flex max-w-3xl flex-col gap-4">
           <h2 id="threads-h" className="font-display text-3xl">
             Threads to follow
@@ -105,7 +109,7 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
         </div>
 
         {KINDS.map(({ kind, id, label, term, blurb }) => (
-          <div key={kind} id={id} className="flex scroll-mt-8 flex-col gap-4">
+          <div key={kind} id={id} className="flex scroll-mt-24 flex-col gap-4">
             <div className="flex flex-col gap-1 border-b border-rule pb-3">
               <h3 className="running-head text-gilt">
                 {label} <span className="normal-case tracking-normal text-muted-foreground">({term})</span>

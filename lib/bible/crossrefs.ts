@@ -43,6 +43,11 @@ function preview(target: string): { display: string; text: string } | null {
   }
 }
 
+/** How many references a verse carries in the full set. */
+export function crossRefTotal(r: Ref): number {
+  return r.verse ? (bookRefs(r.book.id)[`${r.chapter}:${r.verse}`]?.length ?? 0) : 0;
+}
+
 /** References for one verse, strongest first, each with its KJV 1611 text. */
 export function crossRefsForVerse(r: Ref, limit = 15): CrossRef[] {
   if (!r.verse) return [];
