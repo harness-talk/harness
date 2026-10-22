@@ -30,6 +30,23 @@ export function ArcChart({ selected }: { selected?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [width, setWidth] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
+  const pointerType = useRef<string>("mouse");
+
+  const stats = useMemo(() => {
+    if (!data) return null;
+    const refs = new Array<number>(data.verseCounts.length).fill(0);
+    const links = new Array<number>(data.verseCounts.length).fill(0);
+    for (let i = 0; i < data.arcs.length; i += 3) {
+      const a = data.arcs[i];
+      const b = data.arcs[i + 1];
+      const w = data.arcs[i + 2];
+      refs[a] += w;
+      refs[b] += w;
+      links[a]++;
+      links[b]++;
+    }
+    return { refs, links };
+  }, [data]);
 
   const chapterBook = useMemo(() => {
     if (!data) return [] as BookRow[];
@@ -124,6 +141,10 @@ export function ArcChart({ selected }: { selected?: string }) {
   };
   const focusLabel = label(focus);
   const ntStart = data?.books.find((b) => b[2] === "NT")?.[3];
+  const focusRefs = focus !== null && stats ? stats.refs[focus] : 0;
+  const focusLinks = focus !== null && stats ? stats.links[focus] : 0;
+  const focusPct = focus !== null && data ? ((focus + 0.5) / data.verseCounts.length) * 100 : 0;
+  const openHref = focusLabel ? `/cross-references?ref=${focusLabel.id}.${focusLabel.chapter}#explore` : null;
 
   return (
     <figure className="flex flex-col gap-3">
@@ -137,15 +158,36 @@ export function ArcChart({ selected }: { selected?: string }) {
           ref={canvasRef}
           role="img"
           aria-label="Arc diagram of cross references between every chapter of the Bible, Genesis on the left to Revelation on the right."
-          className={data ? "block w-full cursor-crosshair touch-none" : "hidden"}
+          className={data ? "block w-full cursor-crosshair touch-pan-y select-none" : "hidden"}
           style={{ height }}
-          onPointerMove={(e) => setHover(indexAt(e.clientX))}
-          onPointerLeave={() => setHover(null)}
+          onPointerDown={(e) => {
+            pointerType.current = e.pointerType;
+            if (e.pointerType !== "mouse") {
+              e.currentTarget.setPointerCapture(e.pointerId);
+              setHover(indexAt(e.clientX));
+            }
+          }}
+          onPointerMove={(e) => {
+            if (e.pointerType === "mouse" || e.buttons > 0 || e.pressure > 0) setHover(indexAt(e.clientX));
+          }}
+          onPointerLeave={(e) => {
+            if (e.pointerType === "mouse") setHover(null);
+          }}
           onClick={(e) => {
+            if (pointerType.current !== "mouse") return;
             const l = label(indexAt(e.clientX));
             if (l) router.push(`/cross-references?ref=${l.id}.${l.chapter}#explore`, { scroll: false });
           }}
         />
+        {data && focusLabel && (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute top-2 -translate-x-1/2 whitespace-nowrap border border-rule bg-background/90 px-2 py-1 font-mono text-[11px] text-foreground"
+            style={{ left: `clamp(4.5rem, ${focusPct}%, calc(100% - 4.5rem))` }}
+          >
+            {focusLabel.name} {focusLabel.chapter} · {focusRefs.toLocaleString()}
+          </div>
+        )}
         {data && ntStart !== undefined && (
           <div className="pointer-events-none absolute inset-x-0 bottom-1 flex justify-between px-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <span>Genesis</span>
@@ -154,11 +196,26 @@ export function ArcChart({ selected }: { selected?: string }) {
           </div>
         )}
       </div>
-      <figcaption className="flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground">
-        <span aria-live="polite" className="font-display text-base text-foreground">
-          {focusLabel ? `${focusLabel.name} ${focusLabel.chapter}` : "Every chapter, Genesis to Revelation"}
+      <figcaption className="flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground">
+        <span aria-live="polite" className="flex flex-col">
+          <span className="font-display text-base text-foreground">
+            {focusLabel ? `${focusLabel.name} ${focusLabel.chapter}` : "Every chapter, Genesis to Revelation"}
+          </span>
+          <span>
+            {focusLabel
+              ? `${focusRefs.toLocaleString()} cross references to ${focusLinks.toLocaleString()} other chapters`
+              : "Slide your finger or mouse along the chart to trace each chapter's threads"}
+          </span>
         </span>
-        <span>{focusLabel ? "Click to open its references" : "Hover or tap a chapter to trace its threads"}</span>
+        {openHref && (
+          <button
+            type="button"
+            onClick={() => router.push(openHref, { scroll: false })}
+            className="border border-rubric px-3 py-2 text-sm text-rubric transition-colors hover:bg-rubric hover:text-background"
+          >
+            Open {focusLabel!.name} {focusLabel!.chapter}
+          </button>
+        )}
       </figcaption>
     </figure>
   );
