@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "ai-openapi": `${SITE_URL}/openapi.json`,
     "ai-address-scheme": "127.{book}.{chapter}.{verse} — 66 books, 31,102 verses, one address each",
     "ai-integrity": "sha256(`${book}.${chapter}.${verse}\\n${text}`) per verse; corpus Merkle root at /api/v1/sources",
-    "ai-mcp": "npx -y harness-talk mcp — stdio MCP server over the same read-only API",
+    "ai-mcp": "npx -y https://harness.talk/downloads/harness-talk.tgz mcp — stdio MCP server over the same read-only API",
   },
 };
 

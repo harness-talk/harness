@@ -23,9 +23,9 @@ const INSTALL = [
   {
     label: "One command",
     lang: "bash",
-    code: `npx harness-talk            # fetch + verify the export, start harnessd on 127.x.x.x:1611
-npx harness-talk mcp        # the same, as a stdio MCP server (what agent hosts spawn)
-npx harness-talk config cursor   # print the MCP config for cursor | claude | claude-code | windsurf | vscode`,
+    code: `npx -y https://harness.talk/downloads/harness-talk.tgz            # fetch + verify the export, start harnessd on 127.x.x.x:1611
+npx -y https://harness.talk/downloads/harness-talk.tgz mcp        # the same, as a stdio MCP server (what agent hosts spawn)
+npx -y https://harness.talk/downloads/harness-talk.tgz config cursor   # print the MCP config for cursor | claude | claude-code | windsurf | vscode`,
   },
   {
     label: "From source",

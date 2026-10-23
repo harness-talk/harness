@@ -102,7 +102,7 @@ const context = grounded.map((v) => \`[\${v.display}] \${v.text}\`).join("\\n");
             {
               label: "bash",
               lang: "bash",
-              code: `npx harness-talk &          # fetches + verifies the export once, then serves it
+              code: `npx -y https://harness.talk/downloads/harness-talk.tgz &          # fetches + verifies the export once, then serves it
 # harnessd: 31,102 verses, root 3f2a…  listening on 127.0.0.0/8:1611
 
 curl 127.43.3.16:1611

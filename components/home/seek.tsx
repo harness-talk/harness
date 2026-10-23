@@ -150,7 +150,7 @@ export function Seek({ origin }: { origin: string }) {
           ) : (
             <div className="flex flex-col">
               <dt className="text-foreground/40">shell</dt>
-              <dd className="text-foreground/75">npx harness-talk</dd>
+              <dd className="break-all text-foreground/75">npx -y https://harness.talk/downloads/harness-talk.tgz</dd>
             </div>
           )}
           {preview?.sha256 ? (
