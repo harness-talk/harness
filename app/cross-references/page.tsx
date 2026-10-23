@@ -63,6 +63,22 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
           one chapter points to another. Short arcs glow gilt; the long ones that reach across the Testaments turn
           red.
         </p>
+        <dl className="grid gap-x-6 gap-y-2 border-l border-rule pl-4 text-sm text-muted-foreground sm:grid-cols-[auto_1fr]">
+          <dt className="running-head text-gilt">Scripture text</dt>
+          <dd className="text-pretty">
+            King James Version, the 1611 first edition in its original spelling, printed in London by Robert Barker.{" "}
+            <Link href="/printers" className="text-rubric hover:underline">
+              See the printed pages
+            </Link>
+          </dd>
+          <dt className="running-head text-gilt">Cross references</dt>
+          <dd className="text-pretty">
+            <a href="https://www.openbible.info/labs/cross-references/" className="text-rubric hover:underline">
+              OpenBible.info
+            </a>
+            , built on the Treasury of Scripture Knowledge and ranked by reader votes.
+          </dd>
+        </dl>
       </header>
 
       <section aria-label="Arc chart of cross references">
@@ -76,7 +92,7 @@ export default async function CrossReferencesPage({ searchParams }: { searchPara
           </h2>
           <p className="text-pretty leading-relaxed text-muted-foreground">
             Type a verse or chapter, or click any chapter in the chart. References are ranked by how many readers
-            found the link helpful, and each shows its KJV 1611 text.
+            found the link helpful, and each is shown in the King James Version of 1611.
           </p>
         </div>
         <VerseExplorer key={current} initialRef={current} />
