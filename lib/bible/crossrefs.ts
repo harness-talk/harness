@@ -1,7 +1,7 @@
 import "server-only";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { parseRef, canonicalRef, displayRef, type Ref } from "./refs";
+import { parseRef, canonicalRef, displayRef, refToQuartet, type Ref } from "./refs";
 import { versesFor } from "./store";
 
 const DIR = join(process.cwd(), "data", "crossrefs");
@@ -27,17 +27,24 @@ function bookRefs(bookId: string): BookRefs {
 
 export interface CrossRef {
   ref: string;
+  address: string;
   display: string;
   votes: number;
   text: string;
+  sha256: string;
 }
 
-function preview(target: string): { display: string; text: string } | null {
+function preview(target: string): { display: string; text: string; address: string; sha256: string } | null {
   try {
     const r = parseRef(target);
     const verses = versesFor(r).slice(0, 3);
     if (!verses.length) return null;
-    return { display: displayRef(r), text: verses.map((v) => v.text).join(" ") };
+    return {
+      display: displayRef(r),
+      text: verses.map((v) => v.text).join(" "),
+      address: refToQuartet(r).address,
+      sha256: verses[0].sha256,
+    };
   } catch {
     return null;
   }
@@ -85,6 +92,6 @@ export function pairingVotes(from: string, to: string): number | null {
   }
 }
 
-export function verseText(ref: string): { display: string; text: string } | null {
+export function verseText(ref: string): { display: string; text: string; address: string; sha256: string } | null {
   return preview(ref);
 }

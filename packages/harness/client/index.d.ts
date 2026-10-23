@@ -26,6 +26,8 @@ export interface HarnessClient {
   getWords(input: { ref: string }): Promise<unknown>;
   /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
   resolveQuartet(input: { quartet: string }): Promise<Verse | Chapter | Record<string, unknown>>;
+  /** Cross references of one verse as fabric addresses, strongest first (OpenBible.info, CC-BY, ranked by reader votes). Each link has the target's 127.b.c.v address and the SHA-256 of its first verse: pass the address to resolveQuartet to walk the thread, and compare hashes to confirm the text. Verse addresses only (last octet above 0). */
+  followLinks(input: { quartet: string; limit?: number }): Promise<unknown>;
   verify: typeof verify;
   exportCorpus(): Promise<Verse[]>;
 }

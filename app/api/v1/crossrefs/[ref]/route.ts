@@ -1,4 +1,4 @@
-import { parseRef, canonicalRef, displayRef } from "@/lib/bible/refs";
+import { parseRef, canonicalRef, displayRef, refToQuartet } from "@/lib/bible/refs";
 import { crossRefsForVerse, crossRefCountsForChapter, crossRefTotal, CROSSREF_ATTRIBUTION } from "@/lib/bible/crossrefs";
 import { ok, problemFrom, SHORT_CACHE } from "@/lib/api/respond";
 
@@ -18,7 +18,7 @@ export async function GET(req: Request, ctx: { params: Promise<{ ref: string }> 
     const all = new URL(req.url).searchParams.get("all") === "1";
     const total = crossRefTotal(r);
     const references = crossRefsForVerse(r, all ? total : 15);
-    return ok({ ...base, kind: "verse", total, count: references.length, references }, { cache: SHORT_CACHE });
+    return ok({ ...base, kind: "verse", address: refToQuartet(r).address, total, count: references.length, references }, { cache: SHORT_CACHE });
   } catch (e) {
     return problemFrom(e);
   }

@@ -96,4 +96,10 @@ class Harness:
                 pass  # no daemon here; fall back to hosted
         return self._get(path, params)
 
+    def followLinks(self, quartet, limit=None):
+        """Cross references of one verse as fabric addresses, strongest first (OpenBible.info, CC-BY, ranked by reader votes). Each link has the target's 127.b.c.v address and the SHA-256 of its first verse: pass the address to resolveQuartet to walk the thread, and compare hashes to confirm the text. Verse addresses only (last octet above 0)."""
+        path = "/api/v1/resolve/{quartet}/links".replace("{quartet}", quote(str(quartet), safe=""))
+        params = {k: v for k, v in {"limit": limit}.items() if v is not None}
+        return self._get(path, params)
+
     verify = staticmethod(verify)

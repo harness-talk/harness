@@ -12,6 +12,7 @@
 //   curl 127.43.3.0:1611                          → John 3 (whole chapter)
 //   curl 127.43.0.0:1611                          → John (book metadata)
 //   curl 127.0.0.1:1611                           → index / health
+//   curl 127.1.3.15:1611/links                    → Genesis 3:15's cross references as addresses, hash-checked locally
 //
 // Zero dependencies. Node 20+.
 
@@ -173,18 +174,58 @@ function resolve(address) {
 // ---------------------------------------------------------------------------
 // HTTP server — dispatch on destination address
 // ---------------------------------------------------------------------------
-const server = http.createServer((req, res) => {
+const byRef = new Map(corpus.verses.map((v) => [v.ref, v]));
+
+// Cross references come from harness.talk (the link table is too large to ship in the
+// package). Every target is then checked against the LOCAL corpus by its SHA-256, so a
+// link is only marked verified when this machine holds the exact same verse text.
+async function links(address, limit) {
+  const m = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(address);
+  if (!m || m[3] === "0") return problem("quartet_invalid", 400, "Links are per verse: 127.{book}.{chapter}.{verse}", { address });
+  let upstream;
+  try {
+    const res = await fetch(`${SITE}/api/v1/resolve/${address}/links?limit=${limit}`, { headers: { accept: "application/json" } });
+    upstream = await res.json();
+    if (!res.ok) return { status: res.status, type: "application/problem+json", body: upstream };
+  } catch (e) {
+    return problem("links_unreachable", 502, `Could not reach ${SITE} for the link table: ${e.message}`, { address });
+  }
+  const self = byRef.get(upstream.ref);
+  const checked = upstream.links.map((l) => {
+    const local = byRef.get(l.ref.split("-")[0]);
+    return { ...l, verified: local ? local.sha256 === l.sha256 : null };
+  });
+  return {
+    status: 200,
+    type: "application/json",
+    body: {
+      ...upstream,
+      verified: self ? self.sha256 === upstream.sha256 : null,
+      links: checked,
+      mismatches: checked.filter((l) => l.verified === false).length,
+      via: SITE,
+    },
+    plain: [
+      `${upstream.display}  ${address}  (${upstream.total} links, showing ${checked.length})`,
+      ...checked.map((l) => `  ${l.verified === false ? "!" : "→"} ${l.address.padEnd(14)} ${l.display.padEnd(22)} ${String(l.votes).padStart(4)} votes`),
+    ].join("\n"),
+  };
+}
+
+const server = http.createServer(async (req, res) => {
   // Destination address the client connected to (the quartet). Behind a proxy, allow ?q= override.
   const url = new URL(req.url, "http://x");
   let dest = url.searchParams.get("q") || req.socket.localAddress || "";
   dest = dest.replace(/^::ffff:/, "");
+  let wantLinks = false;
   if (url.pathname.length > 1) {
-    // Path form: /127.43.3.16 (handy when bound to a single address)
-    const p = url.pathname.slice(1);
-    if (/^127\.\d+\.\d+\.\d+$/.test(p)) dest = p;
+    // Path forms: /127.43.3.16, /links, /127.43.3.16/links
+    const parts = url.pathname.slice(1).split("/").filter(Boolean);
+    if (/^127\.\d+\.\d+\.\d+$/.test(parts[0] ?? "")) dest = parts.shift();
+    wantLinks = parts[0] === "links";
   }
 
-  const r = resolve(dest);
+  const r = wantLinks ? await links(dest, Number(url.searchParams.get("limit")) || 15) : resolve(dest);
   const wantsJson = /application\/(json|\*)/.test(req.headers.accept || "") || r.type === "application/problem+json" || !r.plain;
   const body = wantsJson ? JSON.stringify(r.body, null, 2) + "\n" : r.plain + "\n";
   const etag = `"${r.body.sha256 || sha(body).slice(0, 32)}"`;
