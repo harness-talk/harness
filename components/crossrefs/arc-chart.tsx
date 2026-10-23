@@ -140,7 +140,9 @@ export function ArcChart({ selected }: { selected?: string }) {
   const label = (i: number | null) => {
     if (i === null || !chapterBook[i]) return null;
     const b = chapterBook[i];
-    return { id: b[0], name: b[1], chapter: i - b[3] + 1 };
+    const chapter = i - b[3] + 1;
+    const ordinal = (data?.books.indexOf(b) ?? -1) + 1;
+    return { id: b[0], name: b[1], chapter, address: ordinal ? `127.${ordinal}.${chapter}.0` : null };
   };
   const focusLabel = label(focus);
   const ntStart = data?.books.find((b) => b[2] === "NT")?.[3];
@@ -203,6 +205,9 @@ export function ArcChart({ selected }: { selected?: string }) {
         <span aria-live="polite" className="flex flex-col">
           <span className="font-display text-base text-foreground">
             {focusLabel ? `${focusLabel.name} ${focusLabel.chapter}` : "Every chapter, Genesis to Revelation"}
+            {focusLabel?.address && (
+              <span className="ml-2 font-mono text-xs text-muted-foreground">{focusLabel.address}</span>
+            )}
           </span>
           <span>
             {focusLabel

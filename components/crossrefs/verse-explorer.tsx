@@ -16,7 +16,8 @@ interface VerseResult {
   ref: string;
   display: string;
   total: number;
-  references: { ref: string; display: string; votes: number; text: string }[];
+  address?: string;
+  references: { ref: string; address?: string; display: string; votes: number; text: string }[];
 }
 type Result = ChapterResult | VerseResult | { detail?: string; kind?: undefined };
 
@@ -90,7 +91,18 @@ export function VerseExplorer({ initialRef }: { initialRef: string }) {
       {data?.kind === "verse" && (
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-display text-2xl">{data.display}</h3>
+            <h3 className="flex flex-wrap items-baseline gap-x-3 font-display text-2xl">
+              {data.display}
+              {data.address && (
+                <a
+                  href={`/api/v1/resolve/${data.address}/links`}
+                  className="font-mono text-xs text-muted-foreground hover:text-gilt"
+                  title="This verse's links as addresses (JSON)"
+                >
+                  {data.address}
+                </a>
+              )}
+            </h3>
             <Link href={readerHref(data.ref)} className="text-sm text-rubric hover:underline">
               Read in context
             </Link>
@@ -112,8 +124,12 @@ export function VerseExplorer({ initialRef }: { initialRef: string }) {
                     <button onClick={() => go(x.ref.split("-")[0])} className="font-display text-lg text-gilt hover:underline">
                       {x.display}
                     </button>
-                    <span className="font-mono text-xs text-muted-foreground">{x.votes} votes</span>
+                    <span className="flex shrink-0 items-baseline gap-3 font-mono text-xs text-muted-foreground">
+                      {x.address && <span className="hidden sm:inline">{x.address}</span>}
+                      <span>{x.votes} votes</span>
+                    </span>
                   </div>
+                  {x.address && <span className="font-mono text-xs text-muted-foreground sm:hidden">{x.address}</span>}
                   <p className="text-pretty leading-relaxed text-foreground/90">{x.text}</p>
                 </li>
               ))}

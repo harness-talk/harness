@@ -84,7 +84,7 @@ class Harness:
         return self._get(path, params)
 
     def resolveQuartet(self, quartet):
-        """Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here."""
+        """Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — or a span like 127.43.3.16-21 / 127.43.3.16-4.2 (max 500 verses, one Merkle root over the span). Identical to what harnessd serves on loopback port 1611. Try local first, fall back here."""
         path = "/api/v1/resolve/{quartet}".replace("{quartet}", quote(str(quartet), safe=""))
         params = {k: v for k, v in {}.items() if v is not None}
         if self.prefer_local and re.match(r"^127\.\d+\.\d+\.\d+$", str(quartet)):
@@ -94,6 +94,12 @@ class Harness:
                 raise
             except (OSError, urllib.error.URLError):
                 pass  # no daemon here; fall back to hosted
+        return self._get(path, params)
+
+    def followLinks(self, quartet, limit=None):
+        """Cross references of one verse as fabric addresses, strongest first (OpenBible.info, CC-BY, ranked by reader votes). Each link has the target's 127.b.c.v address and the SHA-256 of its first verse: pass the address to resolveQuartet to walk the thread, and compare hashes to confirm the text. Verse addresses only (last octet above 0)."""
+        path = "/api/v1/resolve/{quartet}/links".replace("{quartet}", quote(str(quartet), safe=""))
+        params = {k: v for k, v in {"limit": limit}.items() if v is not None}
         return self._get(path, params)
 
     verify = staticmethod(verify)

@@ -38,7 +38,7 @@ export default function McpPage() {
   "mcpServers": {
     "harness": {
       "command": "npx",
-      "args": ["-y", "harness-talk", "mcp"],
+      "args": ["-y", "https://harness.talk/downloads/harness-talk.tgz", "mcp"],
       "env": { "HARNESS_BASE_URL": "https://harness.talk" }
     }
   }
@@ -52,7 +52,7 @@ export default function McpPage() {
   "mcpServers": {
     "harness": {
       "command": "npx",
-      "args": ["-y", "harness-talk", "mcp"]
+      "args": ["-y", "https://harness.talk/downloads/harness-talk.tgz", "mcp"]
     }
   }
 }`,
@@ -61,7 +61,7 @@ export default function McpPage() {
               label: "Manual test",
               lang: "bash",
               code: `printf '%s\\n' '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' \\
-  | npx -y harness-talk mcp`,
+  | npx -y https://harness.talk/downloads/harness-talk.tgz mcp`,
             },
           ]}
         />

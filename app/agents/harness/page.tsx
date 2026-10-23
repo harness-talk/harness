@@ -23,9 +23,9 @@ const INSTALL = [
   {
     label: "One command",
     lang: "bash",
-    code: `npx harness-talk            # fetch + verify the export, start harnessd on 127.x.x.x:1611
-npx harness-talk mcp        # the same, as a stdio MCP server (what agent hosts spawn)
-npx harness-talk config cursor   # print the MCP config for cursor | claude | claude-code | windsurf | vscode`,
+    code: `npx -y https://harness.talk/downloads/harness-talk.tgz            # fetch + verify the export, start harnessd on 127.x.x.x:1611
+npx -y https://harness.talk/downloads/harness-talk.tgz mcp        # the same, as a stdio MCP server (what agent hosts spawn)
+npx -y https://harness.talk/downloads/harness-talk.tgz config cursor   # print the MCP config for cursor | claude | claude-code | windsurf | vscode`,
   },
   {
     label: "From source",
@@ -88,7 +88,7 @@ curl 127.0.0.1:1611          # corpus index + merkleRoot
 curl -i 127.70.1.1:1611      # 404 application/problem+json` },
         ]} />
         <p>The daemon loads the signed export (<code>kjv.jsonl.gz</code>) and recomputes the Merkle root on start. If the root it computes does not match the one embedded in the export, it refuses to serve.</p>
-        <p>On Linux the whole block is routable by default. On macOS run <code>sudo ifconfig lo0 alias 127.43.3.16</code> per address you need, or use the hosted <Link href="/api-docs#resolve">resolve</Link> endpoint.</p>
+        <p>On Linux the whole block is routable by default. On macOS run <code>npx harness-talk alias jn 3</code> to switch on a verse, chapter or whole book in one go (<code>unalias</code> undoes it, <code>--print</code> just shows the commands), or use the hosted <Link href="/api-docs#resolve">resolve</Link> endpoint.</p>
       </section>
 
       <section id="mcp" className="doc-prose">

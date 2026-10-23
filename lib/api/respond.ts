@@ -37,6 +37,7 @@ export type ProblemCode =
   | "chapter_out_of_range"
   | "verse_out_of_range"
   | "quartet_invalid"
+  | "range_too_large"
   | "source_not_ingested"
   | "query_empty"
   | "not_found";
@@ -47,6 +48,7 @@ const STATUS: Record<ProblemCode, number> = {
   chapter_out_of_range: 404,
   verse_out_of_range: 404,
   quartet_invalid: 400,
+  range_too_large: 400,
   source_not_ingested: 501,
   query_empty: 400,
   not_found: 404,

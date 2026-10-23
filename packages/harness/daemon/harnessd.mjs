@@ -9,9 +9,12 @@
 //
 //   curl 127.43.3.16:1611                         → John 3:16 (text/plain)
 //   curl -H 'Accept: application/json' 127.19.23.1:1611   → Psalm 23:1 (JSON, same shape as harness.talk /api/v1/resolve)
+//   curl 127.43.3.16:1611/-21                     → John 3:16-21 (span, one Merkle root)
+//   curl 127.0.0.1:1611/127.43.3.16-4.2           → John 3:16-4:2 (span across chapters)
 //   curl 127.43.3.0:1611                          → John 3 (whole chapter)
 //   curl 127.43.0.0:1611                          → John (book metadata)
 //   curl 127.0.0.1:1611                           → index / health
+//   curl 127.1.3.15:1611/links                    → Genesis 3:15's cross references as addresses, hash-checked locally
 //
 // Zero dependencies. Node 20+.
 
@@ -114,7 +117,59 @@ function problem(code, status, detail, extra = {}) {
   return { status, body: { type: `${SITE}/agents/protocol#${code}`, title: code, status, detail, ...extra }, type: "application/problem+json" };
 }
 
+const SPAN_MAX = 500;
+
+// Spans: 127.43.3.16-21 (same chapter) or 127.43.3.16-4.2 (across chapters). One Merkle root
+// over the span's verse hashes, the same root harness.talk returns for the same address.
+function resolveSpan(address) {
+  const m = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})-(?:(\d{1,3})\.)?(\d{1,3})$/.exec(address);
+  const [b, c1, v1] = m.slice(1, 4).map(Number);
+  const c2 = m[4] ? Number(m[4]) : c1;
+  const v2 = Number(m[5]);
+  const book = corpus.books.get(b);
+  if (!book) return problem("book_unknown", 404, `No book at ordinal ${b} (1–66)`, { address });
+  for (const [c, v] of [[c1, v1], [c2, v2]]) {
+    const ch = book.chapters.get(c);
+    if (!ch) return problem("chapter_out_of_range", 404, `${book.name} has ${book.chapters.size} chapters`, { address });
+    if (v < 1 || v > ch.length) return problem("verse_out_of_range", 404, `${book.name} ${c} has ${ch.length} verses`, { address });
+  }
+  if (c2 < c1 || (c2 === c1 && v2 < v1)) return problem("quartet_invalid", 400, "A span must end after it starts", { address });
+
+  const verses = [];
+  for (let c = c1; c <= c2; c++) {
+    for (const x of book.chapters.get(c)) {
+      if ((c === c1 && x.verse < v1) || (c === c2 && x.verse > v2)) continue;
+      verses.push({ ref: x.ref, address: `127.${b}.${c}.${x.verse}`, chapter: c, verse: x.verse, text: x.text, sha256: x.sha256 });
+    }
+  }
+  if (verses.length > SPAN_MAX) {
+    return problem("range_too_large", 400, `Spans are capped at ${SPAN_MAX} verses; this one has ${verses.length}.`, { address, count: verses.length, max: SPAN_MAX });
+  }
+  const canonical = c1 === c2 ? `127.${b}.${c1}.${v1}-${v2}` : `127.${b}.${c1}.${v1}-${c2}.${v2}`;
+  const display = c1 === c2 ? `${book.name} ${c1}:${v1}-${v2}` : `${book.name} ${c1}:${v1}-${c2}:${v2}`;
+  const root = merkle(verses.map((v) => v.sha256));
+  return {
+    status: 200,
+    type: "application/json",
+    body: {
+      address: canonical,
+      scope: "span",
+      display,
+      book: book.id,
+      start: { chapter: c1, verse: v1, address: `127.${b}.${c1}.${v1}` },
+      end: { chapter: c2, verse: v2, address: `127.${b}.${c2}.${v2}` },
+      count: verses.length,
+      merkleRoot: root,
+      sha256: root,
+      source: corpus.source,
+      verses,
+    },
+    plain: [display, ...verses.map((v) => `${c1 === c2 ? v.verse : `${v.chapter}:${v.verse}`} ${v.text}`)].join("\n"),
+  };
+}
+
 function resolve(address) {
+  if (/^127\.\d{1,3}\.\d{1,3}\.\d{1,3}-(\d{1,3}\.)?\d{1,3}$/.test(address)) return resolveSpan(address);
   const m = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(address);
   if (!m) return problem("ref_unparseable", 400, `Not a fabric address: ${address}`);
   const [b, c, v] = m.slice(1).map(Number);
@@ -130,7 +185,7 @@ function resolve(address) {
         books: corpus.books.size,
         verses: corpus.verses.length,
         merkleRoot: corpus.merkleRoot,
-        scheme: "127.{book 1-66}.{chapter}.{verse} · .0 = whole chapter · .0.0 = book",
+        scheme: "127.{book 1-66}.{chapter}.{verse} · .0 = whole chapter · .0.0 = book · -{verse} or -{chapter}.{verse} = span",
         docs: `${SITE}/architecture`,
       },
     };
@@ -173,18 +228,59 @@ function resolve(address) {
 // ---------------------------------------------------------------------------
 // HTTP server — dispatch on destination address
 // ---------------------------------------------------------------------------
-const server = http.createServer((req, res) => {
+const byRef = new Map(corpus.verses.map((v) => [v.ref, v]));
+
+// Cross references come from harness.talk (the link table is too large to ship in the
+// package). Every target is then checked against the LOCAL corpus by its SHA-256, so a
+// link is only marked verified when this machine holds the exact same verse text.
+async function links(address, limit) {
+  const m = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(address);
+  if (!m || m[3] === "0") return problem("quartet_invalid", 400, "Links are per verse: 127.{book}.{chapter}.{verse}", { address });
+  let upstream;
+  try {
+    const res = await fetch(`${SITE}/api/v1/resolve/${address}/links?limit=${limit}`, { headers: { accept: "application/json" } });
+    upstream = await res.json();
+    if (!res.ok) return { status: res.status, type: "application/problem+json", body: upstream };
+  } catch (e) {
+    return problem("links_unreachable", 502, `Could not reach ${SITE} for the link table: ${e.message}`, { address });
+  }
+  const self = byRef.get(upstream.ref);
+  const checked = upstream.links.map((l) => {
+    const local = byRef.get(l.ref.split("-")[0]);
+    return { ...l, verified: local ? local.sha256 === l.sha256 : null };
+  });
+  return {
+    status: 200,
+    type: "application/json",
+    body: {
+      ...upstream,
+      verified: self ? self.sha256 === upstream.sha256 : null,
+      links: checked,
+      mismatches: checked.filter((l) => l.verified === false).length,
+      via: SITE,
+    },
+    plain: [
+      `${upstream.display}  ${address}  (${upstream.total} links, showing ${checked.length})`,
+      ...checked.map((l) => `  ${l.verified === false ? "!" : "→"} ${l.address.padEnd(14)} ${l.display.padEnd(22)} ${String(l.votes).padStart(4)} votes`),
+    ].join("\n"),
+  };
+}
+
+const server = http.createServer(async (req, res) => {
   // Destination address the client connected to (the quartet). Behind a proxy, allow ?q= override.
   const url = new URL(req.url, "http://x");
   let dest = url.searchParams.get("q") || req.socket.localAddress || "";
   dest = dest.replace(/^::ffff:/, "");
+  let wantLinks = false;
   if (url.pathname.length > 1) {
-    // Path form: /127.43.3.16 (handy when bound to a single address)
-    const p = url.pathname.slice(1);
-    if (/^127\.\d+\.\d+\.\d+$/.test(p)) dest = p;
+    // Path forms: /127.43.3.16, /127.43.3.16-21, /-21 (span from the connected address), /links
+    const parts = url.pathname.slice(1).split("/").filter(Boolean);
+    if (/^127\.\d+\.\d+\.\d+(-(\d+\.)?\d+)?$/.test(parts[0] ?? "")) dest = parts.shift();
+    else if (/^-(\d+\.)?\d+$/.test(parts[0] ?? "")) dest += parts.shift();
+    wantLinks = parts[0] === "links";
   }
 
-  const r = resolve(dest);
+  const r = wantLinks ? await links(dest, Number(url.searchParams.get("limit")) || 15) : resolve(dest);
   const wantsJson = /application\/(json|\*)/.test(req.headers.accept || "") || r.type === "application/problem+json" || !r.plain;
   const body = wantsJson ? JSON.stringify(r.body, null, 2) + "\n" : r.plain + "\n";
   const etag = `"${r.body.sha256 || sha(body).slice(0, 32)}"`;
@@ -220,7 +316,7 @@ server.listen(PORT, HOST, () => {
   if (platform === "darwin" || platform.endsWith("bsd")) {
     console.log("");
     console.log(`note      ${platform} only brings up 127.0.0.1 by default. To reach the full fabric, alias the addresses you need:`);
-    console.log(`          sudo ifconfig lo0 alias 127.43.3.16 up      # one verse`);
+    console.log(`          npx harness-talk alias jn 3:16      # one verse  (jn 3 = chapter, jn = book)`);
     console.log(`          or use the path form: curl 127.0.0.1:${PORT}/127.43.3.16`);
   } else if (platform === "win32") {
     console.log("");

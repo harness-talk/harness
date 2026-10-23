@@ -126,17 +126,35 @@ export const TOOLS: ToolDef[] = [
   },
   {
     name: "resolveQuartet",
-    description: "Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here.",
+        description: "Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — or a span like 127.43.3.16-21 / 127.43.3.16-4.2 (max 500 verses, one Merkle root over the span). Identical to what harnessd serves on loopback port 1611. Try local first, fall back here.",
     method: "GET",
     path: "/api/v1/resolve/{quartet}",
     inputSchema: {
       type: "object",
       required: ["quartet"],
-      properties: { quartet: { type: "string", pattern: "^127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$", examples: ["127.43.3.16", "127.19.23.0", "127.1.0.0"] } },
+        properties: { quartet: { type: "string", pattern: "^127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(-(\\d{1,3}\\.)?\\d{1,3})?$", examples: ["127.43.3.16", "127.43.3.16-21", "127.43.3.16-4.2", "127.19.23.0", "127.1.0.0"] } },
       additionalProperties: false,
     },
     returns: "Verse | Chapter | Book object with `scope` and `address`, or problem+json.",
     example: { input: { quartet: "127.43.3.16" }, curl: "curl -s https://harness.talk/api/v1/resolve/127.43.3.16   # or locally: curl -s 127.43.3.16:1611" },
+  },
+  {
+    name: "followLinks",
+    description:
+      "Cross references of one verse as fabric addresses, strongest first (OpenBible.info, CC-BY, ranked by reader votes). Each link has the target's 127.b.c.v address and the SHA-256 of its first verse: pass the address to resolveQuartet to walk the thread, and compare hashes to confirm the text. Verse addresses only (last octet above 0).",
+    method: "GET",
+    path: "/api/v1/resolve/{quartet}/links",
+    inputSchema: {
+      type: "object",
+      required: ["quartet"],
+      properties: {
+        quartet: { type: "string", pattern: "^127\\.\\d{1,3}\\.\\d{1,3}\\.[1-9]\\d{0,2}$", examples: ["127.1.3.15", "127.23.53.5"] },
+        limit: { type: "integer", minimum: 1, maximum: 500, default: 15 },
+      },
+      additionalProperties: false,
+    },
+    returns: "{address, ref, display, sha256, total, count, links: [{address, ref, display, votes, sha256, text}], attribution}",
+    example: { input: { quartet: "127.1.3.15", limit: 5 }, curl: "curl -s 'https://harness.talk/api/v1/resolve/127.1.3.15/links?limit=5'   # or locally: curl -s 127.1.3.15:1611/links" },
   },
 ];
 
@@ -145,7 +163,8 @@ export const ERROR_CODES = [
   { code: "book_unknown", status: 404, meaning: "No book matched the id, name, alias, or ordinal." },
   { code: "chapter_out_of_range", status: 404, meaning: "Chapter exceeds the book's chapter count (given in `max`)." },
   { code: "verse_out_of_range", status: 404, meaning: "Verse exceeds the chapter's verse count (given in `max`)." },
-  { code: "quartet_invalid", status: 400, meaning: "Not a 127.b.c.v address, or an octet > 255." },
+      { code: "quartet_invalid", status: 400, meaning: "Not a 127.b.c.v address, an octet > 255, or a span that ends before it starts." },
+      { code: "range_too_large", status: 400, meaning: "A span covers more than 500 verses; use the chapter address 127.b.c.0 instead." },
   { code: "source_not_ingested", status: 501, meaning: "The source exists in the registry but has no verified data for this request. Nothing is substituted." },
   { code: "query_empty", status: 400, meaning: "Search requires ?q=." },
   { code: "not_found", status: 404, meaning: "Nothing at this address." },

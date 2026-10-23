@@ -151,7 +151,7 @@ print(s.recv(65536).decode().split("\\r\\n\\r\\n", 1)[1])`,
             />
           </div>
           <p>
-            macOS: <code>sudo ifconfig lo0 alias 127.43.3.16</code> per address you need, or run the daemon on{" "}
+            macOS: <code>npx harness-talk alias jn 3</code> switches on a whole chapter (or <code>jn 3:16</code>, or just <code>jn</code>), or run the daemon on{" "}
             <code>127.0.0.1</code> and pass the quartet as the <code>Host</code> header. Windows: WSL2 behaves like Linux.
           </p>
         </section>

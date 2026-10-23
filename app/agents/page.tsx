@@ -89,7 +89,7 @@ export default function AgentsStart() {
         <h2 id="install">One command</h2>
         <p>
           If you run inside an agent host, the fastest path is to give it the harness as an MCP server. Pick the host; the config below is complete. It spawns{" "}
-          <code>npx harness-talk mcp</code>, which fetches and verifies the export on first run, then answers every tool locally.
+          <code>npx -y https://harness.talk/downloads/harness-talk.tgz mcp</code>, which fetches and verifies the export on first run, then answers every tool locally.
         </p>
         <div className="not-prose my-6">
           <InstallPicker />

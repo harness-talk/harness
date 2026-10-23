@@ -7,6 +7,7 @@
 //   npx harness-talk config <host>  print the MCP config for claude-desktop | claude-code | cursor | windsurf
 //   npx harness-talk fetch        download + verify the corpus export without starting anything
 //   npx harness-talk verify       recompute the Merkle root of the cached export
+//   npx harness-talk alias jn 3   macOS/BSD: bring up 127.43.3.* on lo0 (unalias to undo, --print for a dry run)
 //
 // Zero dependencies. Node 20+. Nothing here writes outside the cache directory, and nothing
 // is served whose Merkle root does not match the one published at /.well-known/harness.json.
@@ -144,7 +145,110 @@ function run(script, env = {}) {
   child.on("exit", (code) => process.exit(code ?? 0));
 }
 
+/** Books from the cached export: id → { ordinal, name, chapters: Map<chapter, lastVerse> }. */
+function loadBooks() {
+  const lines = gunzipSync(readFileSync(EXPORT)).toString("utf8").split("\n").filter(Boolean);
+  const books = new Map();
+  for (const line of lines) {
+    const v = JSON.parse(line);
+    if (!v.book) continue;
+    let b = books.get(v.book.id);
+    if (!b) books.set(v.book.id, (b = { id: v.book.id, ordinal: v.book.ordinal, name: v.book.name, chapters: new Map() }));
+    b.chapters.set(v.chapter, Math.max(b.chapters.get(v.chapter) || 0, v.verse));
+  }
+  return books;
+}
+
+function findBook(books, q) {
+  const s = String(q).toLowerCase().replace(/\s+/g, "");
+  for (const b of books.values()) {
+    if (b.id === s || String(b.ordinal) === s || b.name.toLowerCase().replace(/\s+/g, "") === s) return b;
+  }
+  const prefix = [...books.values()].filter((b) => b.name.toLowerCase().replace(/\s+/g, "").startsWith(s));
+  return prefix.length === 1 ? prefix[0] : null;
+}
+
+/** `jn` → whole book, `jn 3` → chapter, `jn 3:16` → one verse. Containers (127.b.0.0, 127.b.c.0) come along. */
+function addressesFor(args) {
+  const positional = args.filter((a) => !a.startsWith("--"));
+  if (!positional.length) return null;
+  const tail = positional[positional.length - 1];
+  const hasPlace = positional.length > 1 && /^\d+(:\d+)?$/.test(tail);
+  const bookQuery = (hasPlace ? positional.slice(0, -1) : positional).join("");
+  const books = loadBooks();
+  const book = findBook(books, bookQuery);
+  if (!book) {
+    log(`harness-talk: no book matches '${bookQuery}'. Use an id (jn), a name (John) or a number (43).`);
+    process.exit(1);
+  }
+  const [ch, vs] = hasPlace ? tail.split(":").map(Number) : [];
+  const b = book.ordinal;
+  const out = [`127.${b}.0.0`];
+  const chapters = ch ? [ch] : [...book.chapters.keys()];
+  for (const c of chapters) {
+    const last = book.chapters.get(c);
+    if (!last) {
+      log(`harness-talk: ${book.name} has no chapter ${c} (it has ${book.chapters.size}).`);
+      process.exit(1);
+    }
+    if (vs && (vs < 1 || vs > last)) {
+      log(`harness-talk: ${book.name} ${c} has ${last} verses.`);
+      process.exit(1);
+    }
+    out.push(`127.${b}.${c}.0`);
+    for (let v = vs || 1; v <= (vs || last); v++) out.push(`127.${b}.${c}.${v}`);
+  }
+  const label = vs ? `${book.name} ${ch}:${vs}` : ch ? `${book.name} ${ch}` : book.name;
+  return { label, addresses: out };
+}
+
+async function aliasCommand(remove) {
+  const verb = remove ? "unalias" : "alias";
+  const printOnly = rest.includes("--print") || rest.includes("--dry-run");
+  const platform = process.platform;
+  const needsAlias = platform === "darwin" || platform.endsWith("bsd");
+  if (!rest.some((a) => !a.startsWith("--"))) {
+    log(`usage: harness-talk ${verb} <book> [chapter[:verse]] [--print]
+  harness-talk ${verb} jn 3:16    one verse
+  harness-talk ${verb} jn 3       a whole chapter
+  harness-talk ${verb} jn         a whole book`);
+    process.exit(1);
+  }
+  if (platform === "win32") {
+    log("harness-talk: Windows already answers on all of 127.0.0.0/8. Run the daemon inside WSL2, or use the path form: curl 127.0.0.1:1611/127.43.3.16");
+    return;
+  }
+  if (!needsAlias && !printOnly) {
+    log(`harness-talk: nothing to do. ${platform} already answers on every 127.x.y.z address.\nUse --print to see the macOS commands anyway.`);
+    return;
+  }
+  await ensureExport({ quiet: true });
+  const { label, addresses } = addressesFor(rest);
+  const lines = addresses.map((a) => (remove ? `ifconfig lo0 -alias ${a}` : `ifconfig lo0 alias ${a} up`));
+  if (printOnly) {
+    console.log(`# ${label}: ${addresses.length} address${addresses.length === 1 ? "" : "es"}. Run as root (sudo).`);
+    console.log(lines.join("\n"));
+    return;
+  }
+  log(`harness-talk: ${remove ? "removing" : "adding"} ${addresses.length} loopback address${addresses.length === 1 ? "" : "es"} for ${label}. sudo will ask for your password once.`);
+  // One sudo call for the whole batch; a missing alias on unalias is not an error.
+  const script = lines.map((l) => (remove ? `${l} 2>/dev/null` : l)).join("\n") + "\ntrue\n";
+  const child = spawn("sudo", ["sh", "-c", script], { stdio: "inherit" });
+  child.on("exit", (code) => {
+    if (code === 0) {
+      const sample = addresses[addresses.length - 1];
+      log(remove ? `harness-talk: done. ${label} is back to 127.0.0.1 only.` : `harness-talk: done. Try: curl ${sample}:1611`);
+    }
+    process.exit(code ?? 0);
+  });
+}
+
 switch (cmd) {
+  case "alias":
+  case "unalias": {
+    await aliasCommand(cmd === "unalias");
+    break;
+  }
   case "daemon":
   case "start": {
     await ensureExport();
@@ -192,6 +296,8 @@ switch (cmd) {
   npx harness-talk config <host> MCP config for claude-desktop | claude-code | cursor | windsurf
   npx harness-talk fetch         download and verify the corpus export
   npx harness-talk verify        recompute the Merkle root of the cached export
+  npx harness-talk alias jn 3    macOS: switch on the 127.* addresses for a verse, chapter or book
+  npx harness-talk unalias jn 3  undo it (add --print to either to only show the commands)
 
   export: ${EXPORT}
   site:   ${SITE}

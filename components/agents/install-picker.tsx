@@ -5,11 +5,11 @@ import { CopyButton } from "@/components/site/copy-button";
 
 /**
  * One step to add harness.talk to any agent host.
- * Every option is a copy of the same underlying command: `npx -y harness-talk mcp`.
+ * Every option is a copy of the same underlying command: `npx -y https://harness.talk/downloads/harness-talk.tgz mcp`.
  * No account, no key, nothing to sign up for — the package pulls the verified corpus on first run.
  */
 
-const MCP = { command: "npx", args: ["-y", "harness-talk", "mcp"] };
+const MCP = { command: "npx", args: ["-y", "https://harness.talk/downloads/harness-talk.tgz", "mcp"] };
 
 const HOSTS = [
   {
@@ -23,7 +23,7 @@ const HOSTS = [
     id: "claude-code",
     label: "Claude Code",
     where: "Run in your terminal",
-    text: "claude mcp add harness-talk -- npx -y harness-talk mcp",
+    text: "claude mcp add harness-talk -- npx -y https://harness.talk/downloads/harness-talk.tgz mcp",
     lang: "sh",
   },
   {
@@ -44,7 +44,7 @@ const HOSTS = [
     id: "shell",
     label: "Shell",
     where: "Starts the loopback daemon on 127.book.chapter.verse:1611",
-    text: "npx harness-talk",
+    text: "npx -y https://harness.talk/downloads/harness-talk.tgz",
     lang: "sh",
   },
 ] as const;

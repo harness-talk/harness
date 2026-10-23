@@ -123,12 +123,22 @@ export function createClient(options = {}) {
     return this._get(path + (qs ? "?" + qs : ""));
   },
 
-  /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
+  /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — or a span like 127.43.3.16-21 / 127.43.3.16-4.2 (max 500 verses, one Merkle root over the span). Identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
   async resolveQuartet(input) {
     if (input?.quartet == null) throw new HarnessError({ title: "ref_unparseable", status: 400, detail: "Missing required 'quartet'" });
     let path = "/api/v1/resolve/{quartet}".replace("{quartet}", encodeURIComponent(String(input.quartet)));
     const q = new URLSearchParams();
     
+    const qs = q.toString();
+    return this._get(path + (qs ? "?" + qs : ""));
+  },
+
+  /** Cross references of one verse as fabric addresses, strongest first (OpenBible.info, CC-BY, ranked by reader votes). Each link has the target's 127.b.c.v address and the SHA-256 of its first verse: pass the address to resolveQuartet to walk the thread, and compare hashes to confirm the text. Verse addresses only (last octet above 0). */
+  async followLinks(input) {
+    if (input?.quartet == null) throw new HarnessError({ title: "ref_unparseable", status: 400, detail: "Missing required 'quartet'" });
+    let path = "/api/v1/resolve/{quartet}/links".replace("{quartet}", encodeURIComponent(String(input.quartet)));
+    const q = new URLSearchParams();
+    if (input?.limit != null) q.set("limit", String(input.limit));
     const qs = q.toString();
     return this._get(path + (qs ? "?" + qs : ""));
   },
