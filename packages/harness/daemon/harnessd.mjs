@@ -9,6 +9,8 @@
 //
 //   curl 127.43.3.16:1611                         → John 3:16 (text/plain)
 //   curl -H 'Accept: application/json' 127.19.23.1:1611   → Psalm 23:1 (JSON, same shape as harness.talk /api/v1/resolve)
+//   curl 127.43.3.16:1611/-21                     → John 3:16-21 (span, one Merkle root)
+//   curl 127.0.0.1:1611/127.43.3.16-4.2           → John 3:16-4:2 (span across chapters)
 //   curl 127.43.3.0:1611                          → John 3 (whole chapter)
 //   curl 127.43.0.0:1611                          → John (book metadata)
 //   curl 127.0.0.1:1611                           → index / health
@@ -115,7 +117,59 @@ function problem(code, status, detail, extra = {}) {
   return { status, body: { type: `${SITE}/agents/protocol#${code}`, title: code, status, detail, ...extra }, type: "application/problem+json" };
 }
 
+const SPAN_MAX = 500;
+
+// Spans: 127.43.3.16-21 (same chapter) or 127.43.3.16-4.2 (across chapters). One Merkle root
+// over the span's verse hashes, the same root harness.talk returns for the same address.
+function resolveSpan(address) {
+  const m = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})-(?:(\d{1,3})\.)?(\d{1,3})$/.exec(address);
+  const [b, c1, v1] = m.slice(1, 4).map(Number);
+  const c2 = m[4] ? Number(m[4]) : c1;
+  const v2 = Number(m[5]);
+  const book = corpus.books.get(b);
+  if (!book) return problem("book_unknown", 404, `No book at ordinal ${b} (1–66)`, { address });
+  for (const [c, v] of [[c1, v1], [c2, v2]]) {
+    const ch = book.chapters.get(c);
+    if (!ch) return problem("chapter_out_of_range", 404, `${book.name} has ${book.chapters.size} chapters`, { address });
+    if (v < 1 || v > ch.length) return problem("verse_out_of_range", 404, `${book.name} ${c} has ${ch.length} verses`, { address });
+  }
+  if (c2 < c1 || (c2 === c1 && v2 < v1)) return problem("quartet_invalid", 400, "A span must end after it starts", { address });
+
+  const verses = [];
+  for (let c = c1; c <= c2; c++) {
+    for (const x of book.chapters.get(c)) {
+      if ((c === c1 && x.verse < v1) || (c === c2 && x.verse > v2)) continue;
+      verses.push({ ref: x.ref, address: `127.${b}.${c}.${x.verse}`, chapter: c, verse: x.verse, text: x.text, sha256: x.sha256 });
+    }
+  }
+  if (verses.length > SPAN_MAX) {
+    return problem("range_too_large", 400, `Spans are capped at ${SPAN_MAX} verses; this one has ${verses.length}.`, { address, count: verses.length, max: SPAN_MAX });
+  }
+  const canonical = c1 === c2 ? `127.${b}.${c1}.${v1}-${v2}` : `127.${b}.${c1}.${v1}-${c2}.${v2}`;
+  const display = c1 === c2 ? `${book.name} ${c1}:${v1}-${v2}` : `${book.name} ${c1}:${v1}-${c2}:${v2}`;
+  const root = merkle(verses.map((v) => v.sha256));
+  return {
+    status: 200,
+    type: "application/json",
+    body: {
+      address: canonical,
+      scope: "span",
+      display,
+      book: book.id,
+      start: { chapter: c1, verse: v1, address: `127.${b}.${c1}.${v1}` },
+      end: { chapter: c2, verse: v2, address: `127.${b}.${c2}.${v2}` },
+      count: verses.length,
+      merkleRoot: root,
+      sha256: root,
+      source: corpus.source,
+      verses,
+    },
+    plain: [display, ...verses.map((v) => `${c1 === c2 ? v.verse : `${v.chapter}:${v.verse}`} ${v.text}`)].join("\n"),
+  };
+}
+
 function resolve(address) {
+  if (/^127\.\d{1,3}\.\d{1,3}\.\d{1,3}-(\d{1,3}\.)?\d{1,3}$/.test(address)) return resolveSpan(address);
   const m = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(address);
   if (!m) return problem("ref_unparseable", 400, `Not a fabric address: ${address}`);
   const [b, c, v] = m.slice(1).map(Number);
@@ -131,7 +185,7 @@ function resolve(address) {
         books: corpus.books.size,
         verses: corpus.verses.length,
         merkleRoot: corpus.merkleRoot,
-        scheme: "127.{book 1-66}.{chapter}.{verse} · .0 = whole chapter · .0.0 = book",
+        scheme: "127.{book 1-66}.{chapter}.{verse} · .0 = whole chapter · .0.0 = book · -{verse} or -{chapter}.{verse} = span",
         docs: `${SITE}/architecture`,
       },
     };
@@ -219,9 +273,10 @@ const server = http.createServer(async (req, res) => {
   dest = dest.replace(/^::ffff:/, "");
   let wantLinks = false;
   if (url.pathname.length > 1) {
-    // Path forms: /127.43.3.16, /links, /127.43.3.16/links
+    // Path forms: /127.43.3.16, /127.43.3.16-21, /-21 (span from the connected address), /links
     const parts = url.pathname.slice(1).split("/").filter(Boolean);
-    if (/^127\.\d+\.\d+\.\d+$/.test(parts[0] ?? "")) dest = parts.shift();
+    if (/^127\.\d+\.\d+\.\d+(-(\d+\.)?\d+)?$/.test(parts[0] ?? "")) dest = parts.shift();
+    else if (/^-(\d+\.)?\d+$/.test(parts[0] ?? "")) dest += parts.shift();
     wantLinks = parts[0] === "links";
   }
 

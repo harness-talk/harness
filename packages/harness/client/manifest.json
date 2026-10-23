@@ -225,7 +225,7 @@
     },
     {
       "name": "resolveQuartet",
-      "description": "Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here.",
+      "description": "Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — or a span like 127.43.3.16-21 / 127.43.3.16-4.2 (max 500 verses, one Merkle root over the span). Identical to what harnessd serves on loopback port 1611. Try local first, fall back here.",
       "method": "GET",
       "path": "/api/v1/resolve/{quartet}",
       "inputSchema": {
@@ -236,9 +236,11 @@
         "properties": {
           "quartet": {
             "type": "string",
-            "pattern": "^127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$",
+            "pattern": "^127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(-(\\d{1,3}\\.)?\\d{1,3})?$",
             "examples": [
               "127.43.3.16",
+              "127.43.3.16-21",
+              "127.43.3.16-4.2",
               "127.19.23.0",
               "127.1.0.0"
             ]
@@ -316,7 +318,12 @@
     {
       "code": "quartet_invalid",
       "status": 400,
-      "meaning": "Not a 127.b.c.v address, or an octet > 255."
+      "meaning": "Not a 127.b.c.v address, an octet > 255, or a span that ends before it starts."
+    },
+    {
+      "code": "range_too_large",
+      "status": 400,
+      "meaning": "A span covers more than 500 verses; use the chapter address 127.b.c.0 instead."
     },
     {
       "code": "source_not_ingested",

@@ -8,6 +8,7 @@ import { CANON, bookByAlias, bookById, bookByOrdinal, type CanonBook } from "./c
  *   chapter  = integer ;
  *   verse    = integer ;
  *   quartet  = "127." , ordinal , "." , chapter , "." , verse ;   (* 0 = whole *)
+ *   span     = quartet , "-" , [ chapter , "." ] , verse ;        (* 127.43.3.16-21, 127.43.3.16-4.2 *)
  *
  * Human forms are also accepted: "John 3:16", "John 3:16-18", "Jn 3.16", "1 John 5:7".
  */
@@ -24,7 +25,8 @@ export type RefErrorCode =
   | "book_unknown"
   | "chapter_out_of_range"
   | "verse_out_of_range"
-  | "quartet_invalid";
+  | "quartet_invalid"
+  | "range_too_large";
 
 export class RefError extends Error {
   code: RefErrorCode;
@@ -65,6 +67,13 @@ export function parseRef(input: string): Ref {
   if (!raw) throw new RefError("ref_unparseable", "Empty reference");
 
   if (/^127\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(raw)) return quartetToRef(raw);
+  if (isQuartetRange(raw)) {
+    const span = parseQuartetRange(raw);
+    if (span.start.chapter !== span.end.chapter) {
+      throw new RefError("quartet_invalid", "Spans across chapters resolve at /api/v1/resolve/{span}", { address: raw });
+    }
+    return { book: bookByOrdinal(span.ordinal)!, chapter: span.start.chapter, verse: span.start.verse, verseEnd: span.end.verse };
+  }
 
   // Normalise: "John 3:16-18" | "jn.3.16-18" | "1 John 5:7" | "Song of Solomon 2.1"
   const m = /^(\d?\s*[A-Za-z][A-Za-z .']*?)\s*[. ]\s*(\d{1,3})(?:\s*[:.]\s*(\d{1,3})(?:\s*[-–]\s*(\d{1,3}))?)?$/.exec(raw);
@@ -156,6 +165,73 @@ export function quartetToRef(addr: string): Ref {
   }
   const book = bookByOrdinal(q.ordinal)!;
   return { book, chapter: q.chapter, ...(q.verse ? { verse: q.verse } : {}) };
+}
+
+/* Spans: 127.43.3.16-21 (same chapter) · 127.43.3.16-4.2 (across chapters, same book) */
+
+export const SPAN_MAX_VERSES = 500;
+
+export interface QuartetSpan {
+  address: string;
+  ordinal: number;
+  start: { chapter: number; verse: number };
+  end: { chapter: number; verse: number };
+  count: number;
+}
+
+const SPAN_RE = /^127\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})-(?:(\d{1,3})\.)?(\d{1,3})$/;
+
+export function isQuartetRange(addr: string): boolean {
+  return SPAN_RE.test(addr.trim());
+}
+
+export function parseQuartetRange(addr: string): QuartetSpan {
+  const raw = addr.trim();
+  const m = SPAN_RE.exec(raw);
+  if (!m) throw new RefError("quartet_invalid", `Not a harness span: '${addr}'`, { address: addr });
+  const ordinal = Number(m[1]);
+  const c1 = Number(m[2]);
+  const v1 = Number(m[3]);
+  const c2 = m[4] ? Number(m[4]) : c1;
+  const v2 = Number(m[5]);
+
+  const book = bookByOrdinal(ordinal);
+  if (!book) throw new RefError("book_unknown", `No book at ordinal ${ordinal} (valid 1-66)`, { ordinal });
+  const check = (chapter: number, verse: number) => {
+    if (chapter < 1 || chapter > book.chapters) {
+      throw new RefError("chapter_out_of_range", `${book.name} has ${book.chapters} chapters`, { book: book.id, chapter, max: book.chapters });
+    }
+    const max = verseCount(book.id, chapter);
+    if (verse < 1 || (max !== undefined && verse > max)) {
+      throw new RefError("verse_out_of_range", `${book.name} ${chapter} has ${max} verses`, { book: book.id, chapter, verse, max });
+    }
+  };
+  check(c1, v1);
+  check(c2, v2);
+  if (c2 < c1 || (c2 === c1 && v2 < v1)) {
+    throw new RefError("quartet_invalid", "A span must end after it starts", { address: raw });
+  }
+
+  let count = 0;
+  for (let c = c1; c <= c2; c++) {
+    const from = c === c1 ? v1 : 1;
+    const to = c === c2 ? v2 : verseCount(book.id, c) ?? 0;
+    count += to - from + 1;
+  }
+  if (count > SPAN_MAX_VERSES) {
+    throw new RefError("range_too_large", `Spans are capped at ${SPAN_MAX_VERSES} verses; this one has ${count}. Use the chapter address 127.${ordinal}.{chapter}.0 instead.`, { address: raw, count, max: SPAN_MAX_VERSES });
+  }
+
+  const address = c1 === c2 ? `127.${ordinal}.${c1}.${v1}-${v2}` : `127.${ordinal}.${c1}.${v1}-${c2}.${v2}`;
+  return { address, ordinal, start: { chapter: c1, verse: v1 }, end: { chapter: c2, verse: v2 }, count };
+}
+
+export function displaySpan(span: QuartetSpan): string {
+  const name = bookByOrdinal(span.ordinal)!.name;
+  const { start, end } = span;
+  return start.chapter === end.chapter
+    ? `${name} ${start.chapter}:${start.verse}-${end.verse}`
+    : `${name} ${start.chapter}:${start.verse}-${end.chapter}:${end.verse}`;
 }
 
 export { CANON };

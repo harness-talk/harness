@@ -123,7 +123,7 @@ export function createClient(options = {}) {
     return this._get(path + (qs ? "?" + qs : ""));
   },
 
-  /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
+  /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — or a span like 127.43.3.16-21 / 127.43.3.16-4.2 (max 500 verses, one Merkle root over the span). Identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
   async resolveQuartet(input) {
     if (input?.quartet == null) throw new HarnessError({ title: "ref_unparseable", status: 400, detail: "Missing required 'quartet'" });
     let path = "/api/v1/resolve/{quartet}".replace("{quartet}", encodeURIComponent(String(input.quartet)));

@@ -24,7 +24,7 @@ export interface HarnessClient {
   getAnnotations(input: { ref: string; source?: string }): Promise<Annotations>;
   /** Original-language text with word-level tagging for a verse, range, or chapter. OT → Hebrew (WLC/OSHB: word, Strong's, morphology; Aramaic verses flagged). NT → Greek (SBLGNT/MorphGNT: word, lemma, morphology, POS). SBLGNT is a critical text, NOT the Textus Receptus behind the KJV; versification follows the original and is never remapped — verses the KJV has but the original lacks are listed in `missing`. */
   getWords(input: { ref: string }): Promise<unknown>;
-  /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
+  /** Resolve a fabric address 127.{book}.{chapter}.{verse} to its verse, chapter, or book — or a span like 127.43.3.16-21 / 127.43.3.16-4.2 (max 500 verses, one Merkle root over the span). Identical to what harnessd serves on loopback port 1611. Try local first, fall back here. */
   resolveQuartet(input: { quartet: string }): Promise<Verse | Chapter | Record<string, unknown>>;
   /** Cross references of one verse as fabric addresses, strongest first (OpenBible.info, CC-BY, ranked by reader votes). Each link has the target's 127.b.c.v address and the SHA-256 of its first verse: pass the address to resolveQuartet to walk the thread, and compare hashes to confirm the text. Verse addresses only (last octet above 0). */
   followLinks(input: { quartet: string; limit?: number }): Promise<unknown>;
