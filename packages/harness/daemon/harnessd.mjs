@@ -261,7 +261,7 @@ server.listen(PORT, HOST, () => {
   if (platform === "darwin" || platform.endsWith("bsd")) {
     console.log("");
     console.log(`note      ${platform} only brings up 127.0.0.1 by default. To reach the full fabric, alias the addresses you need:`);
-    console.log(`          sudo ifconfig lo0 alias 127.43.3.16 up      # one verse`);
+    console.log(`          npx harness-talk alias jn 3:16      # one verse  (jn 3 = chapter, jn = book)`);
     console.log(`          or use the path form: curl 127.0.0.1:${PORT}/127.43.3.16`);
   } else if (platform === "win32") {
     console.log("");
