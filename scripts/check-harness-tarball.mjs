@@ -2,14 +2,21 @@
 // Rebuild with: npm run pack:harness
 import { readFileSync, existsSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
+import { execFileSync } from "node:child_process";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const tgz = path.join(root, "public/downloads/harness-talk.tgz");
 const pkgDir = path.join(root, "packages/harness");
 
+if (!existsSync(tgz)) {
+  console.error("public/downloads/harness-talk.tgz is missing. Run: npm run pack:harness");
+  process.exit(1);
+}
+
 const tar = gunzipSync(readFileSync(tgz));
 const stale = [];
+const packed = new Set();
 let count = 0;
 for (let off = 0; off + 512 <= tar.length; ) {
   const header = tar.subarray(off, off + 512);
@@ -24,6 +31,7 @@ for (let off = 0; off + 512 <= tar.length; ) {
   if (type !== "0" || !full.startsWith("package/")) continue;
   count++;
   const rel = full.slice("package/".length);
+  packed.add(rel);
   const src = path.join(pkgDir, rel);
   // npm pack rewrites package.json formatting; compare it structurally.
   if (rel === "package.json") {
@@ -32,6 +40,12 @@ for (let off = 0; off + 512 <= tar.length; ) {
     stale.push(rel);
   }
 }
+
+// Catch files that belong in the package but were added after the last pack.
+const [{ files }] = JSON.parse(
+  execFileSync("npm", ["pack", "--dry-run", "--json", "--ignore-scripts"], { cwd: pkgDir, encoding: "utf8" }),
+);
+for (const { path: rel } of files) if (!packed.has(rel)) stale.push(`${rel} (not packed)`);
 
 if (stale.length) {
   console.error(`harness-talk.tgz is out of date (${stale.join(", ")}). Run: npm run pack:harness`);

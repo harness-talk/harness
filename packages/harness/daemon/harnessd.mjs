@@ -310,10 +310,15 @@ async function handle(req, res) {
   res.setHeader("ETag", etag);
   res.setHeader("X-Harness-Address", dest);
   res.setHeader("X-Harness-Source", corpus.source || "");
-  // Verse/chapter/book/span text never changes for a given address; links and the index can.
+  // Text is stable per address until the corpus is swapped; the ETag (content hash) makes revalidation cheap.
   const fixedText = !wantLinks && /^127\.[1-9]\d*\./.test(dest);
-  res.setHeader("Cache-Control", r.status !== 200 ? "no-store" : fixedText ? "public, max-age=31536000, immutable" : "public, max-age=300");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Cache-Control", r.status !== 200 ? "no-store" : fixedText ? "public, max-age=3600, must-revalidate" : "public, max-age=300");
+  // Non-browser clients send no Origin and are unaffected; browsers are limited to local pages and harness.talk.
+  const origin = req.headers.origin || "";
+  if (/^https?:\/\/(localhost|127\.\d+\.\d+\.\d+|\[::1\])(:\d+)?$/.test(origin) || /^https:\/\/(www\.)?harness\.talk$/.test(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
   if (req.headers["if-none-match"] === etag) {
     res.writeHead(304);
     return res.end();
