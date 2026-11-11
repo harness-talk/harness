@@ -27,6 +27,10 @@ if (!existsSync(proofPath) || readFileSync(statementPath, "utf8") !== statement)
 try {
   execFileSync(OTS, ["upgrade", proofPath], { stdio: "inherit" });
   console.log("Proof upgraded: it now points at a Bitcoin block. Commit the updated .ots file.");
-} catch {
+} catch (err) {
+  if (err.code === "ENOENT") {
+    console.error(`Could not run "${OTS}". Install it (pip install opentimestamps-client) or set OTS=/path/to/ots.`);
+    process.exit(1);
+  }
   console.log("Still pending: no Bitcoin block has confirmed it yet. Try again in a few hours.");
 }
