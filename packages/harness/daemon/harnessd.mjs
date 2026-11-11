@@ -313,12 +313,8 @@ async function handle(req, res) {
   // Text is stable per address until the corpus is swapped; the ETag (content hash) makes revalidation cheap.
   const fixedText = !wantLinks && /^127\.[1-9]\d*\./.test(dest);
   res.setHeader("Cache-Control", r.status !== 200 ? "no-store" : fixedText ? "public, max-age=3600, must-revalidate" : "public, max-age=300");
-  // Non-browser clients send no Origin and are unaffected; browsers are limited to local pages and harness.talk.
-  const origin = req.headers.origin || "";
-  if (/^https?:\/\/(localhost|127\.\d+\.\d+\.\d+|\[::1\])(:\d+)?$/.test(origin) || /^https:\/\/(www\.)?harness\.talk$/.test(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    res.setHeader("Vary", "Origin");
-  }
+  // Scripture is public and read-only: any page or app may read it. The loopback-only socket check above still keeps other devices out.
+  res.setHeader("Access-Control-Allow-Origin", "*");
   if (req.headers["if-none-match"] === etag) {
     res.writeHead(304);
     return res.end();
