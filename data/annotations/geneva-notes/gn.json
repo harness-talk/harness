@@ -4,9 +4,32 @@
   "_provenance": {
     "edition": "Geneva Bible, 1560 first edition",
     "facsimile": "archive.org/details/1560-the-geneva-bible",
-    "leaves": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+    "leaves": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
     "method": "Hand-transcribed and human-verified against the 1560 facsimile page images (IIIF). Original spelling and abbreviations preserved (long-s normalized to s, the tironian y-with-superscript rendered as 'ye'/'yt'). Verse-locator numbers in the chapter arguments are transcribed as printed, including the 1560's own quirks. The 1560 skips the note letter 'j' (a/b/c...h/i/k), which is preserved. Notes that were clipped or illegible in the source imaging are omitted rather than reconstructed (e.g. Genesis 3 note 'd' at v4); the facsimile shows every note in place.",
-    "coverage": "Book argument and Genesis 1-22 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. Genesis 19 (argument and notes b-t) is from leaves 21-22. Genesis 20 (argument and notes a-p) is from leaves 22-23. Genesis 21 (argument and notes a-n) is from leaves 23-24. Genesis 22 (argument and notes a-i) is from leaf 24. Genesis 23 (argument and notes a-f) is from leaves 24-25. Genesis 24 (argument and notes a-z, including the wrapped second letter run and the standalone scripture citations) is from leaves 25-27. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14-24 and are carried as notes beginning with those words, exactly as printed. Notes omitted rather than reconstructed where the source imaging was faint or clipped: one gloss at Genesis 14:10, Genesis 19 note 'a' at v1 (bottom edge of leaf 21), the Beer-shéba 'Or,' gloss at Genesis 21:31 (heavily abbreviated), and at Genesis 24 the side reference at v54 and the 'ten dayes' gloss at v55 (both illegible on leaf 27). Chapters 25 onward are in progress."
+    "coverage": "Book argument and Genesis 1-25 complete (chapter arguments and verified marginal notes). Genesis 14 notes a-d are from leaf 17 and notes e-k (verses 10-24, including the Melchizedek apparatus) from leaf 18 (archive.org IIIF). Genesis 15 (argument and notes a-e) is from leaves 18-19. Genesis 16 (argument and notes a-g) is from leaf 19. Genesis 17 (argument and notes a-h) is from leaves 19-20. Genesis 18 (argument and notes a-n) is from leaves 19-20. Genesis 19 (argument and notes b-t) is from leaves 21-22. Genesis 20 (argument and notes a-p) is from leaves 22-23. Genesis 21 (argument and notes a-n) is from leaves 23-24. Genesis 22 (argument and notes a-i) is from leaf 24. Genesis 23 (argument and notes a-f) is from leaves 24-25. Genesis 24 (argument and notes a-z, including the wrapped second letter run and the standalone scripture citations) is from leaves 25-27. The Geneva alternate-reading glosses (printed as 'Or,' and Hebrew 'Ebr.' side notes) have also been transcribed for Genesis 14-24 and are carried as notes beginning with those words, exactly as printed. Notes omitted rather than reconstructed where the source imaging was faint or clipped: one gloss at Genesis 14:10, Genesis 19 note 'a' at v1 (bottom edge of leaf 21), the Beer-shéba 'Or,' gloss at Genesis 21:31 (heavily abbreviated), and at Genesis 24 the side reference at v54 and the 'ten dayes' gloss at v55 (both illegible on leaf 27). Genesis 25 (argument and notes a-l) is from leaves 26-27; one variant-reading note at verse 22 ('stroue together') is omitted because the small type is not clearly legible in the imaging. Chapters 26 onward are in progress."
   },
   "annotations": [
     {
@@ -1913,9 +1936,9 @@
       "source": "geneva-notes"
     },
     {
-      "id": "geneva-notes:gn.17.arg",
+      "id": "geneva-notes:gn.17:arg",
       "kind": "argument",
-      "ref": "gn.17.1",
+      "ref": "gn.17",
       "anchor": "THE ARGVMENT",
       "text": "Abrams name is changed to confirme him in the promes. 8 The land of Canáan is the fift time promised. 12 Circumcision is instituted. 15 Saráí is named Saráh. 18 Abrahám prayeth for Ishmaél. 19 Izhák is promised.",
       "source": "geneva-notes"
@@ -2009,7 +2032,7 @@
       "source": "geneva-notes"
     },
     {
-      "id": "geneva-notes:gn.18.argument",
+      "id": "geneva-notes:gn.18:arg",
       "kind": "argument",
       "ref": "gn.18",
       "anchor": null,
@@ -3200,6 +3223,165 @@
       "ref": "gn.24.67",
       "anchor": "coforted after his mothers death",
       "text": "Or, had left mourning for his mother.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25:arg",
+      "kind": "argument",
+      "ref": "gn.25",
+      "text": "1 Abrahám taketh Keturáh to wife, and getteth many children. 6 Abrahám giueth all his goods to Izhák. 12 The genealogie of Ishmaél 25 The birth of Iaakób and Esau. 30 Esau selleth his birth right for a messe of potage.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.1:a",
+      "kind": "note",
+      "ref": "gn.25.1",
+      "anchor": "taken him another wife",
+      "text": "Whiles Saráh was yet aliue.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.5:or",
+      "kind": "note",
+      "ref": "gn.25.5",
+      "anchor": "all his goods",
+      "text": "Ebr. all that he had.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.6:b",
+      "kind": "note",
+      "ref": "gn.25.6",
+      "anchor": "sonnes",
+      "text": "For by the vertue of Gods worde he had not onely Izhák, but begate many mo",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.6:c",
+      "kind": "note",
+      "ref": "gn.25.6",
+      "anchor": "concubines",
+      "text": "Reade, chap. 22,24",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.6:d",
+      "kind": "note",
+      "ref": "gn.25.6",
+      "anchor": "gaue giftes",
+      "text": "To auoyde the dissension that els might haue come because of the heritage.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.8:e",
+      "kind": "note",
+      "ref": "gn.25.8",
+      "anchor": "gathered to his people",
+      "text": "Hereby the Anciens signified that man by death perished not wholy: but as the soules of the godlie liued after in perpetual ioye, so the soules of the wicked in perpetual peine",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.13:or",
+      "kind": "note",
+      "ref": "gn.25.13",
+      "anchor": "eldest",
+      "text": "Ebr. first borne.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.17:f",
+      "kind": "note",
+      "ref": "gn.25.17",
+      "anchor": "his people",
+      "text": "Which dwelt among the Arabians, and were separat from the blessed sede",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.18:or",
+      "kind": "note",
+      "ref": "gn.25.18",
+      "anchor": "dwelt",
+      "text": "Or, his lot fel.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.18:g",
+      "kind": "note",
+      "ref": "gn.25.18",
+      "anchor": "in the presence of all his brethren",
+      "text": "He meaneth that his lot fel to dwel among his brethren, as the Angel promised chap 16, 12",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.20:or",
+      "kind": "note",
+      "ref": "gn.25.20",
+      "anchor": "Aramite",
+      "text": "Or, Syrian of Mesopotamia.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.22:h",
+      "kind": "note",
+      "ref": "gn.25.22",
+      "anchor": "why am I thus",
+      "text": "That is, ŵ childe, seing one shal destroye another.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.22:i",
+      "kind": "note",
+      "ref": "gn.25.22",
+      "anchor": "to aske ý Lord",
+      "text": "For that is the onely refuge in all our miseries",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.27:or1",
+      "kind": "note",
+      "ref": "gn.25.27",
+      "anchor": "liued in ý fields",
+      "text": "Ebr. a man of the field",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.27:or2",
+      "kind": "note",
+      "ref": "gn.25.27",
+      "anchor": "plaine man",
+      "text": "Or, simple and innocent",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.28:or",
+      "kind": "note",
+      "ref": "gn.25.28",
+      "anchor": "venison",
+      "text": "Ebr. venison in his mouthe.",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.30:or",
+      "kind": "note",
+      "ref": "gn.25.30",
+      "anchor": "Let me eat",
+      "text": "Or, fede me quickely",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.32:k",
+      "kind": "note",
+      "ref": "gn.25.32",
+      "anchor": "birthright",
+      "text": "The reprobat esteme not Gods benefits except they fele them presently, & therfore they preferre present pleasures",
+      "source": "geneva-notes"
+    },
+    {
+      "id": "geneva-notes:gn.25.33:l",
+      "kind": "note",
+      "ref": "gn.25.33",
+      "anchor": "solde his birthright",
+      "text": "Thus ý wicked preferre their worldelie comodities to Gods spiritual graces: but ý childre of God do the contrary.",
       "source": "geneva-notes"
     }
   ]

@@ -34,6 +34,13 @@ Fabric: every verse has a loopback address 127.{book 1-66}.{chapter}.{verse} ser
 - [Architecture](${SITE_URL}/architecture): the 127 fabric — kernel loopback → harnessd → agents
 - [Sources](${SITE_URL}/api/v1/sources): ${SOURCES.map((s) => `${s.id} (${s.status})`).join(", ")}
 
+## Geneva 1560 marginal notes (hand-transcribed)
+The first English study Bible's notes and chapter arguments, transcribed by hand from the 1560 first-edition facsimile (archive.org/details/1560-the-geneva-bible, CC0) in original spelling. No OCR, nothing reconstructed: clipped or illegible notes are left out and said to be. Coverage grows chapter by chapter; anything not yet transcribed is reported as missing, never filled.
+- [History of the notes](${SITE_URL}/geneva-notes): who wrote them, why they mattered, the real pages
+- Notes for a chapter: GET ${SITE_URL}/api/v1/annotations/{book}.{chapter}?source=geneva-notes (e.g. gn.1, jnh.1)
+- Reader with notes in the margin: ${SITE_URL}/foundation/{book}/{chapter}
+- Cite as: Geneva Bible (Geneva: Rowland Hall, 1560), marginal note, with the annotation id
+
 ## Take it with you
 - [Full corpus JSONL (gzip)](${SITE_URL}/exports/${c.source}.jsonl.gz)
 - [Full corpus TSV](${SITE_URL}/exports/${c.source}.txt)
