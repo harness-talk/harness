@@ -244,6 +244,9 @@ async function links(address, limit) {
   } catch (e) {
     return problem("links_unreachable", 502, `Could not reach ${SITE} for the link table: ${e.message}`, { address });
   }
+  if (!upstream || !Array.isArray(upstream.links) || upstream.links.some((l) => typeof l?.ref !== "string")) {
+    return problem("links_malformed", 502, `${SITE} returned a link table this daemon could not read.`, { address });
+  }
   const self = byRef.get(upstream.ref);
   const checked = upstream.links.map((l) => {
     const local = byRef.get(l.ref.split("-")[0]);
@@ -266,7 +269,25 @@ async function links(address, limit) {
   };
 }
 
+// Bound to 0.0.0.0 so every 127.x.y.z lands here on Linux, but only loopback traffic is
+// answered: a connection from or to a LAN address is refused before anything runs.
+const isLoopback = (a = "") => /^(::ffff:)?127\./.test(a) || a === "::1";
+
 const server = http.createServer(async (req, res) => {
+  if (!isLoopback(req.socket.remoteAddress) || !isLoopback(req.socket.localAddress)) {
+    res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
+    return res.end("harnessd answers loopback (127.*) connections only.\n");
+  }
+  try {
+    await handle(req, res);
+  } catch (e) {
+    console.error("harnessd:", e);
+    if (!res.headersSent) res.writeHead(500, { "Content-Type": "application/problem+json; charset=utf-8" });
+    res.end(JSON.stringify({ type: "about:blank", title: "internal_error", status: 500 }) + "\n");
+  }
+});
+
+async function handle(req, res) {
   // Destination address the client connected to (the quartet). Behind a proxy, allow ?q= override.
   const url = new URL(req.url, "http://x");
   let dest = url.searchParams.get("q") || req.socket.localAddress || "";
@@ -289,7 +310,9 @@ const server = http.createServer(async (req, res) => {
   res.setHeader("ETag", etag);
   res.setHeader("X-Harness-Address", dest);
   res.setHeader("X-Harness-Source", corpus.source || "");
-  res.setHeader("Cache-Control", r.status === 200 ? "public, max-age=31536000, immutable" : "no-store");
+  // Verse/chapter/book/span text never changes for a given address; links and the index can.
+  const fixedText = !wantLinks && /^127\.[1-9]\d*\./.test(dest);
+  res.setHeader("Cache-Control", r.status !== 200 ? "no-store" : fixedText ? "public, max-age=31536000, immutable" : "public, max-age=300");
   res.setHeader("Access-Control-Allow-Origin", "*");
   if (req.headers["if-none-match"] === etag) {
     res.writeHead(304);
@@ -298,7 +321,7 @@ const server = http.createServer(async (req, res) => {
   res.writeHead(r.status);
   if (req.method === "HEAD") return res.end();
   res.end(body);
-});
+}
 
 server.on("error", (e) => {
   if (e.code === "EADDRINUSE") console.error(`harnessd: port ${PORT} in use. Set HARNESS_PORT to change it.`);
