@@ -16,6 +16,7 @@ export function rootLlmsTxt(): string {
 
 Corpus: ${c.verses.toLocaleString()} verses · ${c.chapters.toLocaleString()} chapters · ${c.books} books · source ${c.source}
 Merkle root (sha256 leaves = sha256(ref + "\\n" + text)): ${c.merkleRoot}
+Bitcoin timestamp (OpenTimestamps) of the root: ${SITE_URL}/anchors/kjv-1611.root.txt + ${SITE_URL}/anchors/kjv-1611.root.txt.ots — verify with \`ots verify kjv-1611.root.txt.ots\`
 Fabric: every verse has a loopback address 127.{book 1-66}.{chapter}.{verse} served on port 1611 by harnessd; hosted twin at ${SITE_URL}/api/v1/resolve/{quartet}.
 
 ## Start here (agents)

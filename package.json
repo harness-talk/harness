@@ -5,7 +5,9 @@
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-harness-tarball.mjs",
     "build": "next build",
+    "pack:harness": "cd packages/harness && npm pack --silent --pack-destination ../../public/downloads && mv ../../public/downloads/harness-talk-*.tgz ../../public/downloads/harness-talk.tgz && cd ../.. && node scripts/check-harness-tarball.mjs",
     "start": "next start"
   },
   "dependencies": {
