@@ -21,7 +21,7 @@
     "release:minor": "npm run check && npm version minor && npm publish --access public"
   },
   "publishConfig": { "access": "public" },
-  "engines": { "node": ">=20" },
+  "engines": { "node": ">=22" },
   "keywords": ["bible", "kjv", "mcp", "agents", "loopback", "harness.talk", "model-context-protocol"],
   "homepage": "https://harness.talk/agents",
   "bugs": "https://github.com/harness-talk/harness/issues",
