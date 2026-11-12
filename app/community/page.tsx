@@ -22,7 +22,7 @@ const TOC = [
   { id: "languages", label: "Languages" },
 ];
 
-const REPO = "https://github.com/THookz/Immutable";
+const REPO = "https://github.com/harness-talk/harness";
 
 export default function CommunityPage() {
   return (

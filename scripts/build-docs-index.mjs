@@ -14,7 +14,7 @@ import { join, relative } from "node:path";
 import { TOOLS, ERROR_CODES } from "../lib/agents/tools.ts";
 
 const ROOT = process.cwd();
-const REPO = "https://github.com/THookz/Immutable";
+const REPO = "https://github.com/harness-talk/harness";
 
 /* ---------- JSX source → plain text ---------- */
 
