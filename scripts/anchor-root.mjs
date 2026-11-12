@@ -1,36 +1,72 @@
 #!/usr/bin/env node
-// Bitcoin timestamp for the corpus Merkle root, via OpenTimestamps.
-//   node scripts/anchor-root.mjs           -> check the statement matches data/corpus.json, then upgrade the proof
-//   node scripts/anchor-root.mjs --stamp   -> write a fresh statement + proof (only when the root changes)
+// Bitcoin timestamps for the corpus, via OpenTimestamps. Two statements are anchored:
+//   kjv-1611.root.txt     the Merkle root of the finished text
+//   kjv-1611.sources.txt  the same root plus every upstream source URL and SHA-256 it was built from
+//   node scripts/anchor-root.mjs           -> check both statements match data/corpus.json, then upgrade the proofs
+//   node scripts/anchor-root.mjs --stamp   -> write fresh statements + proofs (only when the root or sources change)
 // Requires the `ots` CLI (pip install opentimestamps-client); set OTS=/path/to/ots to override.
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, renameSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
 const OTS = process.env.OTS || "ots";
-const statementPath = "public/anchors/kjv-1611.root.txt";
-const proofPath = `${statementPath}.ots`;
-const { merkleRoot } = JSON.parse(readFileSync("data/corpus.json", "utf8"));
-const statement = `harness.talk kjv-1611 merkle-root ${merkleRoot}\n`;
+const corpus = JSON.parse(readFileSync("data/corpus.json", "utf8"));
+const { merkleRoot } = corpus;
+
+function collectSources(node, out = new Map()) {
+  if (Array.isArray(node)) node.forEach((n) => collectSources(n, out));
+  else if (node && typeof node === "object") {
+    if (typeof node.url === "string" && typeof node.sha256 === "string") out.set(node.url, node.sha256);
+    Object.values(node).forEach((v) => collectSources(v, out));
+  }
+  return out;
+}
+
+const sources = [...collectSources(corpus)].sort(([a], [b]) => a.localeCompare(b));
+const statements = [
+  { path: "public/anchors/kjv-1611.root.txt", text: `harness.talk kjv-1611 merkle-root ${merkleRoot}\n` },
+  {
+    path: "public/anchors/kjv-1611.sources.txt",
+    text:
+      `harness.talk kjv-1611 merkle-root ${merkleRoot}\n` +
+      `built from these sources (sha256 url):\n` +
+      sources.map(([url, sha]) => `${sha} ${url}\n`).join(""),
+  },
+];
+
+function run(args) {
+  try {
+    execFileSync(OTS, args, { stdio: "inherit" });
+    return true;
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      console.error(`Could not run "${OTS}". Install it (pip install opentimestamps-client) or set OTS=/path/to/ots.`);
+      process.exit(1);
+    }
+    return false;
+  }
+}
+
+const current = ({ path, text }) => existsSync(`${path}.ots`) && existsSync(path) && readFileSync(path, "utf8") === text;
 
 if (process.argv.includes("--stamp")) {
-  writeFileSync(statementPath, statement);
-  execFileSync(OTS, ["stamp", statementPath], { stdio: "inherit" });
-  console.log(`Stamped ${merkleRoot}. Proof is pending until a Bitcoin block confirms it; rerun without --stamp later.`);
+  // Never restamp a statement whose proof already matches: that would throw away a Bitcoin-confirmed proof.
+  const todo = statements.filter((s) => !current(s));
+  for (const { path, text } of todo) {
+    writeFileSync(path, text);
+    if (existsSync(`${path}.ots`)) renameSync(`${path}.ots`, `${path}.ots.old`);
+    run(["stamp", path]);
+  }
+  console.log(todo.length ? `Stamped ${todo.map((s) => s.path).join(", ")}. Pending until a Bitcoin block confirms; rerun without --stamp later.` : "Every statement already has a matching proof; nothing to stamp.");
   process.exit(0);
 }
 
-if (!existsSync(proofPath) || readFileSync(statementPath, "utf8") !== statement) {
-  console.error(`The anchored statement does not match the current root ${merkleRoot}. Run with --stamp.`);
-  process.exit(1);
-}
-
-try {
-  execFileSync(OTS, ["upgrade", proofPath], { stdio: "inherit" });
-  console.log("Proof upgraded: it now points at a Bitcoin block. Commit the updated .ots file.");
-} catch (err) {
-  if (err.code === "ENOENT") {
-    console.error(`Could not run "${OTS}". Install it (pip install opentimestamps-client) or set OTS=/path/to/ots.`);
-    process.exit(1);
+let stale = false;
+for (const { path, text } of statements) {
+  if (!current({ path, text })) {
+    console.error(`${path} does not match data/corpus.json (or has no proof). Run with --stamp.`);
+    stale = true;
+    continue;
   }
-  console.log("Still pending: no Bitcoin block has confirmed it yet. Try again in a few hours.");
+  console.log(run(["upgrade", `${path}.ots`]) ? `${path}: proof points at a Bitcoin block.` : `${path}: still pending, try again in a few hours.`);
 }
+if (stale) process.exit(1);

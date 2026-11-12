@@ -24,6 +24,6 @@
   "engines": { "node": ">=20" },
   "keywords": ["bible", "kjv", "mcp", "agents", "loopback", "harness.talk", "model-context-protocol"],
   "homepage": "https://harness.talk/agents",
-  "bugs": "https://github.com/THookz/Immutable/issues",
-  "repository": { "type": "git", "url": "https://github.com/THookz/Immutable", "directory": "packages/harness" }
+  "bugs": "https://github.com/harness-talk/harness/issues",
+  "repository": { "type": "git", "url": "https://github.com/harness-talk/harness", "directory": "packages/harness" }
 }
