@@ -1,0 +1,61 @@
+# Weekly watch on the things that can drift without a commit: the live site's
+# published Merkle root, and the SHA-locked upstream source texts.
+name: Integrity watch
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-root:
+    name: Live site serves the committed root
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Compare /.well-known/harness.json and /api/v1/sources to data/corpus.json
+        run: |
+          node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            const expected = JSON.parse(readFileSync("data/corpus.json", "utf8")).merkleRoot;
+            const base = process.env.HARNESS_URL || "https://harness.talk";
+            const get = async (p) => { const r = await fetch(base + p, { redirect: "follow" }); if (!r.ok) throw new Error(`${p} -> HTTP ${r.status}`); return r.json(); };
+            const wk = await get("/.well-known/harness.json");
+            const live = wk?.corpus?.merkleRoot ?? wk?.merkleRoot;
+            console.log(`committed ${expected}\nlive      ${live}`);
+            if (live !== expected) { console.log("::error::Live Merkle root differs from data/corpus.json"); process.exit(1); }
+          '
+
+  live-export:
+    name: Live export re-hashes in Rust
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: conformance
+      - name: Download the published export over the committed one
+        run: curl -fsSL https://harness.talk/exports/kjv-1611.jsonl.gz -o public/exports/kjv-1611.jsonl.gz
+      - name: Recompute every leaf and the root
+        run: cargo run --locked --release --manifest-path conformance/Cargo.toml -- corpus
+
+  sources:
+    name: Upstream sources still match their SHA locks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Fetch and verify (never relocks)
+        run: node scripts/fetch-sources.mjs

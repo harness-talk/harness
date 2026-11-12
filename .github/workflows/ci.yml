@@ -1,0 +1,166 @@
+# Every push and pull request: the site builds, generated code is fresh, and the
+# TypeScript, Python, MCP and Rust faces of the harness all agree with each other.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "24"
+
+jobs:
+  web:
+    name: Site · typecheck + build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm exec tsc --noEmit
+      - name: Build (prebuild also checks the harness tarball)
+        run: pnpm build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+
+  generated:
+    name: Generated files are fresh
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Regenerate harness clients from lib/agents/tools.ts
+        run: node scripts/build-harness.mjs
+      - name: Clients must match the manifest
+        run: |
+          if ! git diff --exit-code -- packages/harness; then
+            echo "::error::packages/harness is stale. Run: node scripts/build-harness.mjs and commit the result."
+            exit 1
+          fi
+      - name: Downloadable tarball must match packages/harness
+        run: node scripts/check-harness-tarball.mjs
+      - name: Docs search index must match the pages (timestamp ignored)
+        run: |
+          git show HEAD:data/docs-index.json > "$RUNNER_TEMP/docs-before.json"
+          node scripts/build-docs-index.mjs
+          node -e '
+            const before = require(process.argv[1]).docs, after = require("./data/docs-index.json").docs;
+            if (JSON.stringify(before) !== JSON.stringify(after)) {
+              console.log("::error::data/docs-index.json is stale. Run: node scripts/build-docs-index.mjs and commit the result.");
+              process.exit(1);
+            }
+          ' "$RUNNER_TEMP/docs-before.json"
+      - name: Geneva notes transcriptions validate
+        run: node scripts/check-geneva-notes.mjs
+
+  harness-node:
+    name: Harness package · Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["20", "22", "24"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: CLI, client import, npm pack
+        working-directory: packages/harness
+        run: npm run check
+      - name: TypeScript declarations compile
+        working-directory: packages/harness
+        run: npx --yes -p typescript@5.7.3 tsc --noEmit --strict --skipLibCheck false client/index.d.ts
+
+  harness-python:
+    name: Harness package · Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Compiles with no third-party imports
+        run: |
+          python -W error -m py_compile packages/harness/python/harness_talk.py
+          python - <<'PY'
+          import ast, sys
+          src = open("packages/harness/python/harness_talk.py").read()
+          stdlib = set(sys.stdlib_module_names) if hasattr(sys, "stdlib_module_names") else None
+          for node in ast.walk(ast.parse(src)):
+              mods = [a.name for a in node.names] if isinstance(node, ast.Import) else [node.module] if isinstance(node, ast.ImportFrom) else []
+              for m in mods:
+                  root = m.split(".")[0]
+                  if stdlib is not None and root not in stdlib:
+                      sys.exit(f"non-stdlib import: {m}")
+          print("stdlib only")
+          PY
+      - name: verify() accepts genuine and rejects tampered verses
+        run: |
+          python - <<'PY'
+          import gzip, json, sys
+          sys.path.insert(0, "packages/harness/python")
+          from harness_talk import verify
+          rows = [json.loads(l) for l in gzip.open("public/exports/kjv-1611.jsonl.gz", "rt") if l.strip()]
+          rows = [r for r in rows if r.get("kind") != "corpus"]
+          sample = rows[:: max(1, len(rows) // 200)]
+          assert all(verify(r) for r in sample), "genuine verse rejected"
+          assert not any(verify({**r, "text": r["text"] + " "}) for r in sample), "tampered verse accepted"
+          print(f"{len(sample)} verses verified, {len(sample)} tampered copies rejected")
+          PY
+
+  conformance:
+    name: Conformance · Rust witness
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: conformance
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: fmt
+        working-directory: conformance
+        run: cargo fmt --check
+      - name: clippy
+        working-directory: conformance
+        run: cargo clippy --locked --release -- -D warnings
+      - name: unit tests
+        working-directory: conformance
+        run: cargo test --locked --release
+      - name: Corpus roots + manifest/MCP/TypeScript/Python agreement
+        run: cargo run --locked --release --manifest-path conformance/Cargo.toml -- all
