@@ -59,6 +59,10 @@ const SOURCES = {
     kind: "zip",
     url: "https://ebible.org/Scriptures/enggnv_usfm.zip",
     into: "geneva-1599",
+    // eBible republishes this zip with new copyright/CSS/signature boilerplate
+    // (it did on 2026-10-30) while the scripture stays byte-identical. Lock the
+    // text, not the packaging, so a cosmetic repack is not reported as drift.
+    include: /\.usfm$/,
     note: "Geneva Bible, 1599 edition, original spelling, USFM straight from eBible.org (public domain). Verse text only; the marginal notes are not in this source. (The GitHub mirror of this text has a corrupted Genesis 38 — do not substitute it.) eBible.org is slow; allow several minutes.",
   },
   "geneva-1560-meta": {
@@ -91,12 +95,13 @@ async function download(url, dest) {
 }
 
 /** Hash a directory deterministically: sorted relative paths + file hashes. */
-function dirHash(dir) {
+function dirHash(dir, include) {
   const files = [];
   const walk = (d, rel = "") => {
     for (const f of readdirSync(d, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
       const p = join(d, f.name), r = rel ? `${rel}/${f.name}` : f.name;
-      if (f.isDirectory()) walk(p, r); else files.push(`${r}\n${sha(p)}`);
+      if (f.isDirectory()) walk(p, r);
+      else if (!include || include.test(r)) files.push(`${r}\n${sha(p)}`);
     }
   };
   walk(dir);
@@ -129,7 +134,7 @@ for (const [id, s] of Object.entries(SOURCES)) {
       rmSync(zip);
     }
   }
-  const h = s.kind === "file" ? sha(dest) : dirHash(dest);
+  const h = s.kind === "file" ? sha(dest) : dirHash(dest, s.include);
   const prev = lock[id]?.sha256;
   if (prev && prev !== h && !relock) {
     console.error(`LOCK MISMATCH ${id}: locked ${prev.slice(0, 16)}… got ${h.slice(0, 16)}…\nThe upstream content changed. Inspect it, then run with --relock to accept.`);

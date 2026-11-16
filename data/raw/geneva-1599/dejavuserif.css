@@ -171,3 +171,98 @@ ul.vnav	{list-style-type:none;padding:5px;margin-left:0;text-align:center;float:
 .vnav a:hover	{background-color:#0520ff !important;color:#ffffff}
 
 div.bookList	{float:left;margin:0px;padding:3px;width:13rem;background:rgb(223,255,255)}
+/* Include padding and borders when calculating element widths. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: auto;
+    min-height 100%;
+    font-size: 100%;
+    background-color: #204030;
+}
+
+body {
+    height: auto;
+
+    /* About 20px with the usual browser default. */
+    font-size: 1.25rem;
+    line-height: 1.5;
+
+    /* Center the whole page and limit reading line length. */
+    max-width: 72ch;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #e0ffe0;
+
+    /* Comfortable edges, including on narrow phones. */
+    padding: 0.75rem 1rem 2rem;
+
+    /* Allow unusually long words or URLs to wrap if necessary. */
+    overflow-wrap: anywhere;
+}
+
+/* Replace the existing full-height / negative-margin layout. */
+.main {
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Let illustrations fit the reading column. */
+img,
+svg,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Give navigation buttons room to wrap and easy touch targets. */
+ul.tnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0;
+}
+
+.tnav a {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.35rem 0.65rem;
+}
+
+/* Existing footnote margins consume too much width on phones. */
+.f,
+.x {
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+/* All wrapped poetry lines start 4em from the column edge. */
+html .main .q,
+html .main .q1,
+html .main .q2 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 4em;
+}
+
+/* First-level poetry starts at the column edge. */
+html .main .q,
+html .main .q1 {
+    text-indent: -4em;
+}
+
+/* Second-level poetry starts 2em from the column edge. */
+html .main .q2 {
+    text-indent: -2em;
+}
+/* Third-level poetry starts 3em from the column edge. */
+html .main .q3 {
+    text-indent: -1em;
+}
