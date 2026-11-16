@@ -23,9 +23,9 @@
   "geneva-1599": {
     "url": "https://ebible.org/Scriptures/enggnv_usfm.zip",
     "into": "geneva-1599",
-    "sha256": "7f727b2adcd3e46b84ec6b881787e76ae5bc5a01ba354e636f9acc8aa264d0af",
+    "sha256": "a1c2f9449b59e29f4b615f731cf0de34782d05b1fce722dbb7560574f3a04f95",
     "note": "Geneva Bible, 1599 edition, original spelling, USFM straight from eBible.org (public domain). Verse text only; the marginal notes are not in this source. (The GitHub mirror of this text has a corrupted Genesis 38 — do not substitute it.) eBible.org is slow; allow several minutes.",
-    "fetchedAt": "2026-09-06T09:45:50.395Z"
+    "fetchedAt": "2026-11-16T19:00:58.411Z"
   },
   "kjv-gutenberg": {
     "url": "https://www.gutenberg.org/cache/epub/10/pg10.txt",

@@ -1,0 +1,6 @@
+# SHA-locked upstream sources must be stored byte-for-byte. The CrossWire SWORD
+# module files are compressed binaries; a text re-encode once corrupted them.
+*.bzs binary
+*.bzv binary
+*.bzz binary
+*.zip binary
