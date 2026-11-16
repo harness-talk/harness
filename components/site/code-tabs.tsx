@@ -24,7 +24,18 @@ export function CodeTabs({ tabs, className }: { tabs: CodeTab[]; className?: str
   }
 
   return (
-    <div className={cn("border border-rule bg-surface-raised", className)}>
+    <div className={cn("border border-rule bg-surface-raised print:break-inside-avoid", className)}>
+      <div className="hidden print:block">
+        {tabs.map((t) => (
+          <div key={t.label} className="border-b border-rule last:border-b-0">
+            <p className="px-4 pt-3 font-mono text-xs uppercase tracking-wide">{t.label}</p>
+            <pre className="whitespace-pre-wrap break-words p-4 pt-2 text-[0.8rem] leading-relaxed">
+              <code>{t.code}</code>
+            </pre>
+          </div>
+        ))}
+      </div>
+      <div className="print:hidden">
       <div className="flex items-center justify-between border-b border-rule px-3">
         <div role="tablist" aria-label="Code samples" className="flex gap-4">
           {tabs.map((t, k) => (
@@ -53,6 +64,7 @@ export function CodeTabs({ tabs, className }: { tabs: CodeTab[]; className?: str
       <pre id={`${id}-panel-${i}`} role="tabpanel" aria-labelledby={`${id}-tab-${i}`} className="overflow-x-auto p-4 text-[0.82rem] leading-relaxed">
         <code>{active.code}</code>
       </pre>
+      </div>
     </div>
   );
 }

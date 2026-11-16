@@ -268,3 +268,55 @@
     @apply my-6 border-l-2 border-gilt pl-5 italic text-foreground/80;
   }
 }
+
+/* Printing: always light, paper-friendly, no chrome. Applies whatever theme is on screen. */
+@media print {
+  html,
+  html.dark,
+  html.light,
+  html[data-theme] {
+    --ink: #1a1713;
+    --vellum: #1a1713;
+    --rubric: #8f2a14;
+    --gilt: #8a6a38;
+    --surface: #ffffff;
+    --surface-raised: #f6f2e8;
+    --rule: #cfc4ac;
+    --background: #ffffff;
+    --foreground: #1a1713;
+    --muted: #efe8d8;
+    --muted-foreground: #4a443a;
+    color-scheme: light;
+  }
+  @page {
+    margin: 18mm 16mm;
+  }
+  body {
+    font-size: 11pt;
+  }
+  .doc-prose h2,
+  .doc-prose h3 {
+    break-after: avoid;
+  }
+  .doc-prose pre,
+  .doc-prose table,
+  .doc-prose blockquote {
+    break-inside: avoid;
+  }
+  .doc-prose pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .doc-prose a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: var(--muted-foreground);
+    word-break: break-all;
+  }
+  .handbook-chapter {
+    break-before: page;
+  }
+  .handbook-chapter:first-of-type {
+    break-before: auto;
+  }
+}
