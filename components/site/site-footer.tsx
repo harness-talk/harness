@@ -42,7 +42,7 @@ const COLS = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-rule">
+    <footer className="mt-24 border-t border-rule print:hidden">
       <div className="mx-auto max-w-6xl px-5 py-12 md:px-8">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
           {COLS.map((c) => (

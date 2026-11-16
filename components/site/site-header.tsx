@@ -16,7 +16,7 @@ export const NAV = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-rule">
+    <header className="border-b border-rule print:hidden">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-5 py-4 md:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="harness.talk home">
           <Mark className="h-6 w-6 text-gilt" />
