@@ -1,0 +1,3 @@
+harness.talk geneva-1599 merkle-root 1921aaa156c91a15cd60ca71fc0ad63921b8bb8555bbfce09ddad5b56bc3047f
+built from these sources (sha256 url):
+7f727b2adcd3e46b84ec6b881787e76ae5bc5a01ba354e636f9acc8aa264d0af https://ebible.org/Scriptures/enggnv_usfm.zip
