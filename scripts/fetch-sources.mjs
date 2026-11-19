@@ -83,6 +83,18 @@ const SOURCES = {
     into: "geneva-1560-djvu.txt",
     note: "ABBYY/Tesseract OCR of the 1560 blackletter facsimile. UNRELIABLE (long-s ſ→f, fused columns and margins) — NEVER served as scripture. Locked only as the raw, tamper-evident INPUT to the experimental notes-reconstruction pipeline (scripts/build-geneva-notes.mjs), which labels every output 'reconstructed / unverified'.",
   },
+  "geneva-1560-pageindex": {
+    kind: "file",
+    url: "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_hocr_pageindex.json.gz",
+    into: "geneva-1560-hocr_pageindex.json.gz",
+    note: "Per-leaf character offsets into the OCR search text. With geneva-1560-searchtext, lets scripts/map_geneva_1560_pages.py split the OCR by page and find each 'CHAP.' heading. Contributes leaf numbers only, never served text.",
+  },
+  "geneva-1560-searchtext": {
+    kind: "file",
+    url: "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_hocr_searchtext.txt.gz",
+    into: "geneva-1560-hocr_searchtext.txt.gz",
+    note: "Page-ordered OCR search text for the 1560 facsimile. Same caveats as geneva-1560-ocr: UNRELIABLE, NEVER served as scripture. Read only for chapter headings to build the chapter→page map.",
+  },
 };
 
 const sha = (p) => createHash("sha256").update(readFileSync(p)).digest("hex");

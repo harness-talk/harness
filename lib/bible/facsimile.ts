@@ -1,5 +1,6 @@
 import "server-only";
 import fac from "@/data/facsimile/geneva-1560.json";
+import chapterMap from "@/data/facsimile/geneva-1560-chapters.json";
 import { GENEVA_1560_SOURCE_ID } from "./sources";
 
 /**
@@ -24,6 +25,9 @@ const LEAVES: number = fac.leaves;
 const FRONT_MATTER: number = fac.frontMatterLeaves;
 const SAMPLES: Sample[] = fac.samples as Sample[];
 const BOOK_OPENINGS: Record<string, number> = fac.bookOpenings as Record<string, number>;
+/** Built by scripts/map_geneva_1560_pages.py from the archive's per-page OCR headings. */
+const CHAPTER_LEAVES: Record<string, number[]> = chapterMap.chapters as Record<string, number[]>;
+const CHAPTER_FLAGS: Record<string, string> = chapterMap.flags as Record<string, string>;
 
 export const FACSIMILE_SOURCE_ID = GENEVA_1560_SOURCE_ID;
 
@@ -34,6 +38,8 @@ export interface FacsimileLeaf {
   approximate: boolean;
   /** True when this book has no hand-calibrated samples and we fall back to the title page. */
   unmapped: boolean;
+  /** True when the chapter heading was read off this leaf (or hand-checked), false when estimated. */
+  detected: boolean;
   /** IIIF image URL at the requested width. */
   image: string;
   /** Deep link to the same leaf in the archive.org reader. */
@@ -61,6 +67,20 @@ export function archiveLeafUrl(leaf: number): string {
  * return the title page (leaf 0) flagged `unmapped` so the UI says "browse from here".
  */
 export function leafForChapter(bookId: string, chapter: number, width = 800): FacsimileLeaf {
+  const hand = SAMPLES.find((s) => s.book === bookId && s.chapter === chapter);
+  const mappedLeaf = CHAPTER_LEAVES[bookId]?.[chapter - 1];
+  if (hand || mappedLeaf !== undefined) {
+    const leaf = clampLeaf(hand ? hand.leaf : mappedLeaf!);
+    return {
+      leaf,
+      approximate: true,
+      unmapped: false,
+      detected: Boolean(hand) || CHAPTER_FLAGS[bookId]?.[chapter - 1] === "d",
+      image: iiifImage(leaf, width),
+      archiveUrl: archiveLeafUrl(leaf),
+    };
+  }
+
   const mine = SAMPLES.filter((s) => s.book === bookId).sort((a, b) => a.chapter - b.chapter);
 
   if (mine.length === 0) {
@@ -70,6 +90,7 @@ export function leafForChapter(bookId: string, chapter: number, width = 800): Fa
       leaf,
       approximate: true,
       unmapped: opening === undefined,
+      detected: false,
       image: iiifImage(leaf, width),
       archiveUrl: archiveLeafUrl(leaf),
     };
@@ -108,6 +129,7 @@ export function leafForChapter(bookId: string, chapter: number, width = 800): Fa
     leaf: clamped,
     approximate: true,
     unmapped: false,
+    detected: false,
     image: iiifImage(clamped, width),
     archiveUrl: archiveLeafUrl(clamped),
   };

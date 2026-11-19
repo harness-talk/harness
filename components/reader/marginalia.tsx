@@ -31,6 +31,7 @@ export function Marginalia({
     initialLeaf: number;
     approximate: boolean;
     unmapped: boolean;
+    detected?: boolean;
     iiifBase: string;
     archiveReader: string;
     leaves: number;
