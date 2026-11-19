@@ -161,6 +161,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
                   initialLeaf={fax.leaf}
                   approximate={fax.approximate}
                   unmapped={fax.unmapped}
+                  detected={fax.detected}
                   iiifBase={faxInfo.iiifBase}
                   archiveReader={faxInfo.archiveReader}
                   leaves={faxInfo.leaves}
@@ -217,6 +218,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
             initialLeaf: fax.leaf,
             approximate: fax.approximate,
             unmapped: fax.unmapped,
+            detected: fax.detected,
             iiifBase: faxInfo.iiifBase,
             archiveReader: faxInfo.archiveReader,
             leaves: faxInfo.leaves,

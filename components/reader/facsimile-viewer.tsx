@@ -14,6 +14,7 @@ export function FacsimileViewer({
   initialLeaf,
   approximate,
   unmapped,
+  detected = false,
   iiifBase,
   archiveReader,
   leaves,
@@ -23,6 +24,8 @@ export function FacsimileViewer({
   initialLeaf: number;
   approximate: boolean;
   unmapped: boolean;
+  /** Heading read off this leaf (vs. estimated between neighbours). */
+  detected?: boolean;
   iiifBase: string;
   archiveReader: string;
   leaves: number;
@@ -62,7 +65,7 @@ export function FacsimileViewer({
         className="inline-flex min-h-11 items-center gap-2 rounded-sm border border-rule px-3 py-1.5 font-display text-[0.66rem] uppercase tracking-[0.16em] text-gilt transition-colors hover:border-rubric hover:text-rubric"
       >
         <FrameIcon />
-        Compare the 1560 page
+        {unmapped ? "Compare the 1560 page" : `1560 page ${initialLeaf + 1}`}
       </button>
 
       {open ? (
@@ -94,7 +97,9 @@ export function FacsimileViewer({
           <p className="border-b border-rule/60 bg-foreground/[0.03] px-4 py-2 text-[0.72rem] leading-relaxed text-foreground/60">
             {unmapped
               ? `This book isn't finely mapped yet, so we open at the title page — browse forward to ${bookName} ${chapter}.`
-              : `Approximate opening for ${bookName} ${chapter} — the mapping is leaf-level, not verse-level. Browse a leaf or two either way.`}
+              : detected
+                ? `${bookName} ${chapter} begins on page ${initialLeaf + 1} of the scan — its chapter heading was read off this page. Verses may run onto the next page.`
+                : `${bookName} ${chapter} should begin on or near page ${initialLeaf + 1} of the scan (estimated from the chapters around it). Browse a page either way.`}
           </p>
 
           {/* Image */}

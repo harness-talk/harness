@@ -61,5 +61,19 @@
     "note": "Unreliable blackletter OCR of the 1560 facsimile. NEVER served as scripture; locked only as tamper-evident INPUT to the experimental notes-reconstruction pipeline.",
     "sha256": "52bca831234725b063bd72ac9ba8e32142c9a314e53fbb838b29961b304fe73d",
     "fetchedAt": "2026-09-13T08:00:13.013Z"
+  },
+  "geneva-1560-pageindex": {
+    "url": "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_hocr_pageindex.json.gz",
+    "into": "geneva-1560-hocr_pageindex.json.gz",
+    "note": "Per-leaf character offsets into the OCR search text. Leaf numbers only, never served text.",
+    "sha256": "b13182159e971ba9508adf76917f863487349965cf210b957d9900f85650ed4a",
+    "fetchedAt": "2026-11-18T00:00:00.000Z"
+  },
+  "geneva-1560-searchtext": {
+    "url": "https://archive.org/download/1560-the-geneva-bible/1560%20The%20Geneva%20Bible_hocr_searchtext.txt.gz",
+    "into": "geneva-1560-hocr_searchtext.txt.gz",
+    "note": "Page-ordered OCR search text for the 1560 facsimile. UNRELIABLE, NEVER served as scripture; read only for chapter headings.",
+    "sha256": "774f71b4a602a568c067be296cf4e403ade79c897ff4c2ca05140b9d97796fbf",
+    "fetchedAt": "2026-11-18T00:00:00.000Z"
   }
 }
